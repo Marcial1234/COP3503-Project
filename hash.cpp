@@ -1,0 +1,116 @@
+#include <string>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+Hash() {
+	//Hash always defaults to standard hash function
+	hashFunction = "standard";
+}
+int getHash(int value) {
+	int num = checkFunction(1);
+	if (num == 0) {
+		return 1;
+	}
+	//Standard hash function
+	if (num == 1) {
+		
+	}
+	//Advanced hash function
+	if (num == 2) {
+		
+	}
+	//Simple hash function
+	if (num == 3) {
+		
+	}
+	return hash;
+}
+int getHash(string value) {
+	int num = checkFunction(2);
+	if (num == 0) {
+		cout << "ERROR: incorrect hash function, please change" << endl;
+		return 1;
+	}
+	//Standard hash function
+	if (num == 1) {
+
+	}
+	//Advanced hash funciton
+	if (num == 2) {
+
+	}
+	//Simple hash function
+	if (num == 3) {
+
+	}
+}
+bool checkHash(int checkVal) {
+	if(checkVal == hash) {
+		return true;
+	} else {
+		return false;
+	}
+}
+int checkFunction(int check) {
+	//if input will be an integer
+	if(check == 1) {
+		//confirms standard hash function
+		if (strcmp(hashFunction,"Standard") == 0) {
+			return 1;
+		}
+		if (strcmp(hashFunction,"Advanced") == 0) {
+			return 2;
+		}
+		if (strcmp(hashFunction,"Simple") == 0) {
+			return 3;
+		}
+	}
+	//if input will be a string
+	if(check == 2) {
+		//confirms standard hash function
+		if (strcmp(hashFunction,"Standard") == 0) {
+			return 1;
+		}
+		if (strcmp(hashFunction,"Advanced") == 0) {
+			return 2;
+		}
+		if (strcmp(hashFunction,"Simple") == 0) {
+			return 3;
+		}
+	}
+	cout << "Error: No valid hash function detected" << endl;
+	cout << "Would you like to default to the standard hash function? (Y/N)" << endl;
+	char input;
+	cin >> input;
+	if(input == 'Y' || input == 'y') {
+		return 1;
+	} else {
+		cout << "Warning: Hash value not calculated" << endl;
+	}
+	return 0;
+}
+void changeFunction() {
+	cout << "Your hash function options are: " << endl;
+	cout << "\t" << "1. Standard (standard hash function, moderate speed)" << endl;
+	cout << "\t" << "2. Advanced (more sophisticated hash function, slower)" << endl;
+	cout << "\t" << "3. Simple (less sophisticed but faster hash function)" <<endl;
+	int choice;
+	cin >> choice;
+	if(choice == 1) {
+		hashFunction = "Standard";
+		return;
+	}
+	if(choice == 2) {
+		hashFunction = "Advanced";
+		return;
+	}
+	if(choice == 3) {
+		hashFunction = "Simple"
+		return;
+	}
+	//expand more options later
+	cout << "Error: Please choose one of the listed options" << endl;
+	changeFunction();
+}
