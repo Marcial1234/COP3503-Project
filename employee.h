@@ -1,7 +1,6 @@
 /*
 	File: Employee.h
 	Authors: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
-
 	Submitted: December 5, 2014
 */
 
@@ -13,40 +12,44 @@
 #include <string>
 
 class Employee{
+
 private:
-	//employee name
+	// Employee name.
 	string name;
-	//employee age
+	// Employee age.
 	double age;
-	//employee salary
+	// Employee salary.
 	double salary;
-	//true if employee is due for raise, false if not
+	// True if employee is due for raise. False if not.
 	bool raise = false;
-	//amount employee's raise wil lbe
+	// The amount the employee's raise will be.
 	double raiseValue;
-	//hoursWorked this week
+	// The number of hours the employee has worked this week.
 	double hoursWorkedWeek;
-	//hoursWorked this month
+	// The number of hours the employee has worked this month.
 	double hoursWorkedMonth;
-	//months employed
+	// The number of months the employee has been employed.
 	double timeEmployed;
-	//true if employee qualifies for company insurance
+	// Is true if the employee qualifies for insurance.
 	bool insurance;
-	//name of employee's company insurance plan
+	// The name of a specific employee's insurance plan.
 	string insurancePlan;
-	//number of recorded performance reports
+	// The number of recorded performance reports for a specific employee.
 	int performanceReport;
-	//comment recorded on employee record
+	// The comment recorded on a specific employee report.
 	string comment;
-	//employee SSN in secure hash form
+	// The hashed SSN of a specific employee.
 	double hashSSN;
-	//brief description of employee's role in company
+	// A brief description of an employee's role in a company. 
 	string occupation;
+
 public:
 	Employee();
-	//infoCheck ensures valid information is entered
-	int infoCheck(string type,string value);
-	//all 'setter' functions
+
+	// infoCheck() ensures valid information is entered.
+	int infoCheck(string type, string value);
+
+	// All 'setter' functions.
 	void setName();
 	void setAge();
 	void setSalary();
@@ -61,7 +64,8 @@ public:
 	void setComment();
 	void setHashSSN();
 	void setOccupation();
-	//all 'getter' functions
+
+	// All 'getter' functions.
 	string getName();
 	double getAge();
 	double getSalary();
@@ -76,7 +80,8 @@ public:
 	string getComment();
 	double getHashSSN();
 	string getOccupation();
-	//all 'print' functions
+
+	// All 'print' functions.
 	void printName();
 	void printAge();
 	void printSalary();
@@ -91,9 +96,9 @@ public:
 	void printComment();
 	void printHashSSN();
 	void printOccuption();
-	//other variable management functions
-	void payEmployee();
 
+	// Other variable management functions.
+	void payEmployee();
 };
 
 #endif

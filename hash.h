@@ -10,7 +10,7 @@
 #ifndef Hash_h
 #define Hash_h
 
-class hash{
+class hash {
 private:
 	int hash;
 	string hashFunction;
@@ -25,4 +25,3 @@ public:
 };
 
 #endif
-

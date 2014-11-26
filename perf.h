@@ -12,8 +12,7 @@
 #include <string>
 #include <stdlib.h>
 
-class perf{
-
+class perf {
 public:
 	EmployeeReport();
 	int check_user_authorization();

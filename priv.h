@@ -1,7 +1,6 @@
 /*
 	File: Priv.h
 	Authors: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
-
 	Submitted: December 5, 2014
 */
 
@@ -10,8 +9,6 @@
 
 #ifndef Priv_h
 #define Priv_h
-
-
 
 class priv {
 private:
@@ -23,7 +20,6 @@ private:
 	//some information will only be accessible at level 3, the admin level
 	int auth;
 
-
 public:
 	void login();
 	void setAdmin();
@@ -31,7 +27,6 @@ public:
 	void setUserName();
 	void setPassword();
 	void setAccess();
-
 };
 
 #endif

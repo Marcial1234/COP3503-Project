@@ -7,9 +7,9 @@ using namespace std;
 
 int main() {
 
-	multimap<string,string,int> users;
+	multimap<string, string, int> users;
 
-	users.insert(pair<string,string,int>("Dax","password",3));
+	users.insert(pair<string, string, int>("Dax", "password" ,3));
 
 
 

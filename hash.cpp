@@ -5,9 +5,11 @@
 using namespace std;
 
 Hash() {
-	//Hash always defaults to standard hash function
-	hashFunction = "standard";
+	//Hash always defaults to standard hash function. 
+	// Ernie: I corrected "standard" to "Standard", as it is referenced in CheckFunction().
+	hashFunction = "Standard";
 }
+
 int getHash(int value) {
 	int num = checkFunction(1);
 	if (num == 0) {
@@ -27,10 +29,11 @@ int getHash(int value) {
 	}
 	return hash;
 }
+
 int getHash(string value) {
 	int num = checkFunction(2);
 	if (num == 0) {
-		cout << "ERROR: incorrect hash function, please change" << endl;
+		cout << "Error: Invalid hash function, please change." << endl;
 		return 1;
 	}
 	//Standard hash function
@@ -46,6 +49,7 @@ int getHash(string value) {
 
 	}
 }
+
 bool checkHash(int checkVal) {
 	if(checkVal == hash) {
 		return true;
@@ -53,10 +57,11 @@ bool checkHash(int checkVal) {
 		return false;
 	}
 }
+
 int checkFunction(int check) {
-	//if input will be an integer
+	// If the input is a integer.
 	if(check == 1) {
-		//confirms standard hash function
+		// Confirms a standard hash function.
 		if (strcmp(hashFunction,"Standard") == 0) {
 			return 1;
 		}
@@ -67,9 +72,9 @@ int checkFunction(int check) {
 			return 3;
 		}
 	}
-	//if input will be a string
+	// If the input is a string.
 	if(check == 2) {
-		//confirms standard hash function
+		// Confirms a standard hash function.
 		if (strcmp(hashFunction,"Standard") == 0) {
 			return 1;
 		}
@@ -80,22 +85,25 @@ int checkFunction(int check) {
 			return 3;
 		}
 	}
-	cout << "Error: No valid hash function detected" << endl;
-	cout << "Would you like to default to the standard hash function? (Y/N)" << endl;
+	cout << "Error: No valid hash function detected." << endl;
+	cout << "Would you like to default to the standard hash function? (Y/N): " << endl;
 	char input;
 	cin >> input;
+	// Ernie: A minor comment - I'm pretty sure there's an ignore case method for <string> somewhere.
 	if(input == 'Y' || input == 'y') {
 		return 1;
-	} else {
-		cout << "Warning: Hash value not calculated" << endl;
+	} 
+	else {
+		cout << "Warning: Hash value not calculated." << endl;
 	}
 	return 0;
 }
+
 void changeFunction() {
 	cout << "Your hash function options are: " << endl;
 	cout << "\t" << "1. Standard (standard hash function, moderate speed)" << endl;
 	cout << "\t" << "2. Advanced (more sophisticated hash function, slower)" << endl;
-	cout << "\t" << "3. Simple (less sophisticed but faster hash function)" <<endl;
+	cout << "\t" << "3. Simple (least sophisticed, fastest speed)" << endl;
 	int choice;
 	cin >> choice;
 	if(choice == 1) {
@@ -107,10 +115,11 @@ void changeFunction() {
 		return;
 	}
 	if(choice == 3) {
-		hashFunction = "Simple"
+		// Ernie: Added missing semicolon to line 120.
+		hashFunction = "Simple";
 		return;
 	}
-	//expand more options later
-	cout << "Error: Please choose one of the listed options" << endl;
+	// Expand more options later.
+	cout << "Error: Please choose one of the listed options:" << endl;
 	changeFunction();
 }

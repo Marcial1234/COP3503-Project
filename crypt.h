@@ -4,7 +4,7 @@
 #ifndef CRYPT_H
 #define CRYPT_H
 
-class crypt{
+class crypt {
 private:
 	string key;
 	string cipher;
