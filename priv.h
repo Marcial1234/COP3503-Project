@@ -6,12 +6,16 @@
 
 #include <string>
 #include <map>
+#include <ifstream>
 
 #ifndef Priv_h
 #define Priv_h
 
 class priv {
 private:
+	std::ifstream fileUsers("userRecordsUsers.txt");
+	std::ifstream filePasswords("userRecordsPasswords.txt");
+	std::ifstream filePrivs("userRecords3Privs.text");
 	std::map<string,string> users;
 	std::map<string,int> privileges;
 	string user;
@@ -21,6 +25,8 @@ private:
 	int auth;
 
 public:
+	void pullUserRecords();
+	//void pushUserRecords();
 	void login();
 	void setAdmin();
 	void setNewUser();

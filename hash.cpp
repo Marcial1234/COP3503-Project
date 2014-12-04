@@ -12,41 +12,73 @@ Hash() {
 
 int getHash(int value) {
 	int num = checkFunction(1);
+	int temphash = 0;
 	if (num == 0) {
 		return 1;
 	}
 	//Standard hash function
 	if (num == 1) {
-		
+		for (int i = 0; i < value.length(); i++) {
+			temphash = (temphash << 4) + value.charAt(i);
+		}
 	}
 	//Advanced hash function
 	if (num == 2) {
-		
+		for (int i = 0; i < value.length(); i++) {
+			temphash = (temphash << 4) + value.charAt(i);
+		}
 	}
 	//Simple hash function
 	if (num == 3) {
-		
+		for (int i = 0; i < value.length(); i++) {
+			temphash = temphash + value.charAt(i);
+		}
 	}
-	return hash;
+	return temphash;
 }
 
 int getHash(string value) {
 	int num = checkFunction(2);
+	int temphash = 0;
 	if (num == 0) {
 		cout << "Error: Invalid hash function, please change." << endl;
 		return 1;
 	}
 	//Standard hash function
 	if (num == 1) {
-
+		for(int i = 0; i < value.length(); i++) {
+			temphash = (temphash << 4) + value.charAt(i);
+			int bits = temphash & OxF0000000;
+			if(bits != 0) {
+				temphash ^= bits >> 24;
+			}
+		temphash &= ~bits;
+		}
+		return temphash;
 	}
 	//Advanced hash funciton
 	if (num == 2) {
-
+		for(int i = 0; i < value.length(); i++) {
+			temphash = (temphash << 4) + value.charAt(i);
+			int bits = temphash & OxF0000000;
+			if(bits != 0) {
+				temphash ^= bits >> 24;
+			}
+		temphash &= ~bits;
+		}
+		return temphash;
 	}
 	//Simple hash function
 	if (num == 3) {
-
+		for(int i = 0; i < value.length(); i++) {
+			temphash = (temphash << 4) + value.charAt(i);
+			int bits = temphash & OxF0000000;
+			if(bits != 0) {
+				temphash ^= bits >> 24;
+			}
+		temphash &= ~bits;
+		}
+		return temphash;
 	}
 }
 

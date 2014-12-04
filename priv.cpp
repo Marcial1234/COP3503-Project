@@ -1,12 +1,30 @@
 #include <string>
 #include <map>
 #include <iostream>
+#include <fstream>
 
 #include "Priv_h"
 
 using namespace std;
 
+void pullUserRecords() {
+	string tempstring;
+	string tempstring2;
+	int tempvalue;
+	int counter = 0;
+	while(!fileUsers.eof()) {
+		fileUsers >> tempstring;
+		filePasswords >> tempstring2;
+		filePrivs >> tempvalue;
+		cout << "PARSED: " << tempstring << " " << tempstring2 << " " << tempvalue << "\n";
+		users.insert(make_pair(tempstring,tempstring2));
+		privileges.insert(make_pair(tempstring,tempvalue));
+		counter++;
+	}
+}
+
 void login() {
+	pullUserRecords();
 	if(users.Empty() == true) {
 	    // Question: Are we assuming the first user to setup the system will be an admin?
         setAdmin();
@@ -34,6 +52,7 @@ void setAdmin() {
 	setUserName();
 	users[user] = password;
 	privileges[user] = 3;
+	filePrivs << 3;
 }
 
 void setNewUser() {
@@ -55,6 +74,7 @@ void setUserName() {
 	if(strcmp (tempUsername, tempUsername2) == 0) {
 		cout << "User name set." << endl;
 		user = tempUsername;
+		fileUsers << tempUsername;
 		setPassword();
 	} 
 	else {
@@ -74,6 +94,7 @@ void setPassword() {
 	if (strcmp(tempPassword, tempPassword2) == 0) {
 		cout << "Password set!" << endl;
 		password = tempPassword;
+		filePasswords << tempPassword;
 	} 
 	else {
 		cout << "Error: Passwords do not match. Please retry." << endl;
@@ -91,14 +112,17 @@ void setAccess() {
 	cin >> privlevel;
 	if (privlevel == 1) {
 		auth = 1;
+		filePrivs << 1;
 		return;
 	}
 	if (privlevel == 2) {
 		auth = 2;
+		filePrivs << 2;
 		return;
 	}
 	if (privlevel == 3) {
 		auth = 3;
+		filePrivs << 3;
 		return;
 	}
 	cout << "Error: Invalid input. Please re-enter information." << endl;

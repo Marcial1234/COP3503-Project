@@ -1,5 +1,11 @@
-#ifndef DATABASE_H
-#define DATABASE_H
+/*
+    File: Database.h
+    Authors: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
+    Submitted: December 8, 2014
+*/
+
+#ifndef Database_H
+#define Database_H
 #include <vector>
 #include <cstdio>
 #include <string>
@@ -7,62 +13,17 @@
 using namespace std;
 
 class Database {
-    public:
-
-    bool load_employee(string filename) {
-        if(ifstream(filename))
-        {
-            add_employee(new Employee(filename));
-            return true;
-        }
-        return false;
-    }
-
-    void add_employee(Employee worker) {
-        records.push_back(worker);
-    }
-
-    bool delete_employee(Employee worker) {
-        if(ifstream(worker.file))
-        {
-            return ((bool)remove(worker.file) + 1);
-        }
-        return false;
-    }
-
-    void print_record(Employee worker) {
-        cout << worker << endl;
-    }
-
-    bool new_file(string filename) {
-        if(ifstream(filename))
-        {
-            cout << "File already exists." << endl;
-            return false;
-        }
-        ofstream file(filename);
-        if (!file)
-        {
-            cout << "File could not be created" << endl;
-            return false;
-        }
-        return true;
-
-    }
-
-    void check_Auth();
-
-    vector<Employee> get_records()
-    {
-        return this->records;
-    }
-
-    private:
+private:
 
     vector<Employee> records;
 
-    protected:
-
+public:
+    bool loadEmployee(string filename);
+    void addEmployee(Employee worker);
+    bool deleteEmployee(Employee worker);
+    void printRecord(Employee worker);
+    bool newFile(string filename);
+    void checkAuth();
 
 };
 #endif // DATABASE_H
