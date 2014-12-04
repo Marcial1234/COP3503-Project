@@ -1,3 +1,4 @@
+
 /*
     File: perf.cpp
     Author: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
@@ -54,11 +55,4 @@ EmployeeReport() {
 	cout  << "SSN: ";
     cin >> social_security;
     cout << endl;
-}
-
-// Some testing.
-int main() {
-	EmployeeReport();
-	cout << "Preliminary test was a success!" << endl;
-	return 0;
 }

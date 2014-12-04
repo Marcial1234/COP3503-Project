@@ -4,8 +4,8 @@
 	Submitted: December 5, 2014
 */
 
-#ifndef HRSys_h
-#define HRSys_h
+#ifndef main_h
+#define main_h
 
 #include <iostream>
 #include <cstring>

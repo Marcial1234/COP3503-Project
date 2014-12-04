@@ -26,13 +26,14 @@ private:
 
 public:
 	void pullUserRecords();
-	//void pushUserRecords();
+	void pushUserRecords();
 	void login();
 	void setAdmin();
 	void setNewUser();
 	void setUserName();
 	void setPassword();
 	void setAccess();
+	int getAuth();
 };
 
 #endif

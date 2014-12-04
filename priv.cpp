@@ -23,6 +23,11 @@ void pullUserRecords() {
 	}
 }
 
+void pushUserRecords() {
+
+
+}
+
 void login() {
 	pullUserRecords();
 	if(users.Empty() == true) {
@@ -127,4 +132,8 @@ void setAccess() {
 	}
 	cout << "Error: Invalid input. Please re-enter information." << endl;
 	setAccess();
+}
+
+int getAuth() {
+	return auth;
 }

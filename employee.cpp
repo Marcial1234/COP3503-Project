@@ -282,7 +282,9 @@ void printInsurancePlan() {
 	cout << insurancePlan << endl;
 }
 void printPerformanceReport() {
-	cout << performanceReport << endl;
+	for(int i = 0; i < performanceReport;i++) {
+		
+	}
 }
 void printComment() {
 	cout << comment << endl;
