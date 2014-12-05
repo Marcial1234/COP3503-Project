@@ -8,8 +8,8 @@
 #include <map>
 #include <ifstream>
 
-#ifndef Priv_h
-#define Priv_h
+#ifndef priv_h
+#define priv_h
 
 class priv {
 private:
