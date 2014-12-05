@@ -19,7 +19,7 @@ Employee() {
 	cout << "Is the employee new? (Y/N)" << endl;
 	string input
 	cin >> input;
-	if(strcmp(input,"N") == 0 || strcmp(input,"n") == 0) {
+	if(input == "N" || input == "n") {
 		setHoursWorkedWeek();
 		setHoursWorkedMonth();
 		setRaise();
@@ -35,14 +35,14 @@ Employee() {
 	cout << "Note: Make sure to update employee information regularly" << endl;
 }
 int infoCheck(type,value) {
-	if(strcmp(type,"string") == 0) {
+	if(type == "string") {
 		for(int i = 0;i < value.length();i++) {
 			if(isdigit(value.at(i)) != 0) {
 				return 1;
 			}
 		}
 	}
-	if(strcmp(type,"double") == 0) {
+	if(type == "double") {
 		for(int i = 0;i < value.length();i++) {
 			if(isalpha(value.at(i)) != 0) {
 				return 1;
@@ -92,7 +92,7 @@ void setRaise() {
 		cout << "Please enter a valid response (no numbers or special characters)" << endl;
 		setRaise();
 	}
-	if(strcmp(input,"Y") == 0 || strcmp(input,"y") == 0) {
+	if(input == "Y" || input == "y") {
 		raise = true;
 		setRaiseValue();
 	} else {
@@ -152,7 +152,7 @@ void setInsurance() {
 		cout << "Please enter a valid response (no numbers or special characters)" << endl;
 		setInsurance();
 	}
-	if(strcmp(input,"Y") == 0 || strcmp(input,"y")==0) {
+	if(input == "Y" || input == "y" {
 		insurance = true;
 		setInsurancePlan();
 	} else {
@@ -211,76 +211,100 @@ void setOccupation() {
 string getName() {
 	return name;
 }
+
 double getAge() {
 	return age;
 }
+
 double getSalary() {
 	return salary;
 }
+
 bool getRaise() {
 	return raise;
 }
+
 double getRaiseValue() {
 	return raiseVaule;
 }
+
 double getHoursWorkedWeek() {
 	return hoursWorkedWeek;
 }
+
 double getHoursWorkedMonth() {
 	return hoursWorkedMonth;
 }
+
 double getTimeEmployed() {
 	return timeEmployed;
 }
+
 bool getInsurance() {
 	return insurance;
 }
+
 string getInsurancePlan() {
 	return insurancePlan;
 }
+
 double getPerformanceReport() {
 	return performanceReport;
 }
+
 string getComment() {
 	return comment;
 }
+
 double getHashSSN() {
 	return hashSSN;
 }
+
 string getOccupation() {
 	return occupation;
 }
+
 //all 'print' functions
 void printName() {
 	cout << name << endl;
 }
+
 void printAge() {
 	cout << age << endl;
 }
+
 void printSalary() {
 	cout << salary << endl;
 }
+
 void printRaise() {
 	cout << raise << endl;
 }
+
 void printRaiseValue() {
 	cout << raiseValue << endl;
 }
+
 void printHoursWorkedWeek() {
 	cout << hoursWorkedWeek << endl;
 }
+
 void printHoursWorkedMonth() {
 	cout << hoursWorkedMonth << endl;
 }
+
 void printTimeEmployed() {
 	cout << timeEmployed << endl;
 }
+
 void printInsurance() {
 	cout << insurance << endl;
 }
+
 void printInsurancePlan() {
 	cout << insurancePlan << endl;
 }
+
 void printPerformanceReport() {
 	for(int i = 0; i < performanceReport;i++) {
 		
@@ -289,11 +313,14 @@ void printPerformanceReport() {
 void printComment() {
 	cout << comment << endl;
 }
+
 void printHashSSN() {
 	cout << hashSSN << endl;
 }
+
 void printOccuption() {
 	cout << occuapation << endl;
 }
+
 //other variable management functions
 void payEmployee();

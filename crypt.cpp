@@ -10,11 +10,11 @@ crypt() {
 }
 
 string encrypt() {
-	if(strcmp(cipher,"Caesar") == 0) {
+	if(cipher == "Caesar") {
 
 		return;
 	}
-	if(strcmp(cipher,"Vigenere") == 0) {
+	if(cipher == "Vigenere") {
 
 		return;
 	}
@@ -22,11 +22,11 @@ string encrypt() {
 }
 
 string decrypt() {
-	if(strcmp(cipher,"Caesar") == 0) {
+	if(cipher == "Caesar") {
 
 		return;
 	}
-	if(strcmp(cipher,"Vigenere") == 0) {
+	if(cipher == "Vigenere") {
 
 		return;
 	}
@@ -69,14 +69,14 @@ void setCipher() {
 		int input;
 		cin >> input;
 		if(input == 1) {
-			if(strcmp(cipher,"Caesar") == 0) {
+			if(cipher == "Caesar") {
 				cout << "Caesar Cipher already selected." << endl;
 			} else {
 				cipher = "Caesar";
 				cout << "Cipher was successfully changed." << endl;
 			}
 		} else if(input == 2) {
-			if(strcmp(cipher,"Vigenere") == 0) {
+			if(cipher == "Vigenere") {
 				cout << "Vigenere Cipher already selected." << endl;
 			} else {
 				cipher = "Vigenere";
