@@ -4,8 +4,8 @@
 	Submitted: December 5, 2014
 */
 
-#ifndef Employee_h
-#define Employee_h
+#ifndef employee_h
+#define employee_h
 
 #include <iostream>
 #include <cstring>
