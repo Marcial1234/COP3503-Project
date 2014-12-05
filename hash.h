@@ -7,8 +7,8 @@
 
 #include <string>
 
-#ifndef Hash_h
-#define Hash_h
+#ifndef hash_h
+#define hash_h
 
 class hash {
 private:
