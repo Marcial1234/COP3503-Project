@@ -4,8 +4,8 @@
     Submitted: December 8, 2014
 */
 
-#ifndef Database_h
-#define Database_h
+#ifndef database_h
+#define database_h
 #include <vector>
 #include <cstdio>
 #include <string>
