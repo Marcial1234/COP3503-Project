@@ -3,6 +3,7 @@
 #include <string>
 
 #include "database.h"
+#include "employee.h"
 
 using namespace std;
 
