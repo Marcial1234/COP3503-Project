@@ -1,8 +1,8 @@
 #include <string>
 #include <iostream>
 
-#ifndef CRYPT_H
-#define CRYPT_H
+#ifndef crypt_h
+#define crypt_h
 
 class crypt {
 private:
