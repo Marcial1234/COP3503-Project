@@ -7,8 +7,8 @@
   Submitted: December 8, 2014
 */
 
-#ifndef Validation_H
-#define Validation_H
+#ifndef validation_h
+#define validation_h
 
 
 
