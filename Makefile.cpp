@@ -9,7 +9,7 @@ default: HRSys
 #state object files to build executable
 
 HRSys: main.cpp database.o priv.o crypt.o employee.o hash.o perf.o validation.o
-$(CC) $(CFLAGS) –o main.cpp database.o priv.o crypt.o employee.o hash.o perf.o validation.o
+	$(CC) $(CFLAGS) –o main.cpp database.o priv.o crypt.o employee.o hash.o perf.o validation.o
 
 #source files for validation.o
 
