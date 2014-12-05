@@ -1,6 +1,8 @@
 #include <string>
 #include <iostream>
 
+#include "crypt.h"
+
 using namespace std;
 
 crypt() {

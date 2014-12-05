@@ -4,8 +4,8 @@
     Submitted: December 8, 2014
 */
 
-#ifndef Database_H
-#define Database_H
+#ifndef database_h
+#define database_h
 #include <vector>
 #include <cstdio>
 #include <string>
@@ -26,4 +26,4 @@ public:
     void checkAuth();
 
 };
-#endif // DATABASE_H
+#endif // Database_h

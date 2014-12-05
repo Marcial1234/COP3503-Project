@@ -2,7 +2,8 @@
 #include <cstdio>
 #include <string>
 
-#include "Database_H"
+#include "database.h"
+#include "employee.h"
 
 using namespace std;
 
