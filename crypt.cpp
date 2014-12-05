@@ -1,7 +1,7 @@
 #include <string>
 #include <iostream>
 
-#include "crypt_h"
+#include "crypt.h"
 
 using namespace std;
 
