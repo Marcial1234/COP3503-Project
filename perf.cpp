@@ -15,6 +15,8 @@
 #include <string>
 #include <stdlib.h>
 
+#include "perf.h"
+
 using namespace std;
 
 EmployeeReport() {
