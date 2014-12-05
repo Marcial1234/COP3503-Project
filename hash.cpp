@@ -2,6 +2,8 @@
 #include <cstring>
 #include <iostream>
 
+#include "hash_h"
+
 using namespace std;
 
 Hash() {
