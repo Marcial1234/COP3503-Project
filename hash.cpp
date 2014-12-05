@@ -2,7 +2,7 @@
 #include <cstring>
 #include <iostream>
 
-#include "hash_h"
+#include "hash.h"
 
 using namespace std;
 
