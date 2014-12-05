@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+#include "employee_h"
+
 using namespace std;
 
 Employee() {
