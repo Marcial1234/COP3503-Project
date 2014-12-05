@@ -2,7 +2,13 @@
 #include <cstring>
 #include <string>
 
-#include "HRSys_h"
+#include "database_h"
+#include "validation_h"
+#include "employee_h"
+#include "hash_h"
+#include "perf_h"
+#include "priv_h"
+#include "crypt_h"
 
 using namespace std;
 
