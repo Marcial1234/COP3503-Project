@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 
-#include "Priv_h"
+#include "priv.h"
 
 using namespace std;
 
