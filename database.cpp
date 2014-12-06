@@ -2,6 +2,8 @@
 #include "employee.h"
 #include "priv.h"
 
+using namespace std;
+
 // No idea of what 'add_employee' is. File manipulation is odd later on and should be done, rather
 // All the mods should be done on the local maps
 
