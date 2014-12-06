@@ -7,7 +7,7 @@
 #ifndef DATABASE_H
 #define DATABASE_H
 
-#include "generic dependencies.h"
+#include "gendepend.h"
 
 class Database {
 private:
