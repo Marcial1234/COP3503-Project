@@ -8,7 +8,7 @@
 #ifndef PERF_H
 #define PERF_H
 
-#include "generic dependencies.h"
+#include "gendepend.h"
 
 class EmployeeReport {
 public:
