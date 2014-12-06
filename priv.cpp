@@ -1,10 +1,5 @@
-#include <string>
-#include <map>
-#include <iostream>
-#include <fstream>
-#include <map>
-
-using namespace std;
+#include "generic dependencies.h"
+#include "priv.h"
 
 class priv {
 private:
@@ -16,6 +11,10 @@ private:
 	// sample output stream
 	ostream usersWritter;
 
+
+	ifstream fileReader;
+	ostream fileWriter;
+
 	map<string, string> users;
 	map<string, int> privileges;
 	string user;
@@ -25,35 +24,35 @@ private:
 	int auth;
 
 public:
-	void pullUserRecords();
-	void pushUserRecords();
+	int getAuth();
 	void login();
 	void setAdmin();
-	void setNewUser();
-	void setUserName();
-	void setPassword();
 	void setAccess();
-	int getAuth();
+	void setNewUser();
+	void setPassword();
+	void setUserName();
+	void pullUserRecords();
+	void pushUserRecords();
 };
 
 void priv::pullUserRecords() {
-	string tempstring;
-	string tempstring2;
-	int tempvalue;
-	int counter = 0;
+	string username;
+	string password;
+	int authorization;
+	
 	while(!fileUsers.eof()) {
-		fileUsers >> tempstring;
-		filePasswords >> tempstring2;
-		filePrivs >> tempvalue;
-		cout << "PARSED: " << tempstring << " " << tempstring2 << " " << tempvalue << "\n";
-		users.insert(make_pair(tempstring,tempstring2));
-		privileges.insert(make_pair(tempstring,tempvalue));
-		counter++;
+		// Reading order: [username] [password] [authorization]
+		fileUsers >> username;
+		filePasswords >> password;
+		filePrivs >> authorization;
+		cout << "PARSED: " << username << " " << password << " " << authorization << "\n";
+		users[username] = password;
+		privileges[username] = authorization;
 	}
 }
 
 void priv::pushUserRecords() {
-
+	//Iterate over maps, and output them to the file
 
 }
 
@@ -82,6 +81,8 @@ void priv::login() {
 
 	cout << "Incorrect username/password combination. Please enter correct information." << endl;
 	cout << "Note: If you do not have a username and password, please contact your administrator for this system." << endl;
+	
+	// Infinate loop/recusion
 	login();
 }
 
@@ -102,6 +103,8 @@ void priv::setNewUser() {
 	users[user] = password;
 	privileges[user] = auth;
 }
+
+// Function for username/password validation
 
 void priv::setUserName() {
 	cout << "Please enter you username: " << endl;
@@ -149,6 +152,8 @@ void priv::setAccess() {
 	cout << "\t" << "3. Full/Administrative Access" << endl;
 	int privlevel;
 	cin >> privlevel;
+
+	// Validation
 	if (privlevel == 1) {
 		auth = 1;
 		// filePrivs << 1;

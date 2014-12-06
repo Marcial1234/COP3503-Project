@@ -1,17 +1,13 @@
-#include <string>
-#include <iostream>
-
+#include "generic dependencies.h"
 #include "crypt.h"
 
-using namespace std;
-
-crypt() {
+Crypt::Crypt() {
 	cipher = "Caesar";
 	cout << "Please enter key: " << endl;
 	cin >> key;
 }
 
-string encrypt() {
+string Crypt::encrypt() {
 	if(cipher == "Caesar") {
 
 		return;
@@ -23,7 +19,7 @@ string encrypt() {
 	cout << "No cipher set, please rectify." << endl;
 }
 
-string decrypt() {
+string Crypt::decrypt() {
 	if(cipher == "Caesar") {
 
 		return;
@@ -35,41 +31,43 @@ string decrypt() {
 	cout << "No cipher set, please rectify." << endl;
 }
 
-string getKey() {
+string Crypt::getKey() {
 	return key;
 }
 
-string getCipher() {
+string Crypt::getCipher() {
 	return cipher;
 }
 
-void setKey() {
+void Crypt::setKey() {
 	cout << "Do you want to change the key? (Y/N)" << endl;
 	char response;
 	cin >> response;
-	if(response == "Y" || response == "y") {
+	if(tolower(response) == 'y') {
 		cout << "Enter new key: " << endl;
 		cin >> key;
 		cout << "Key was successfully changed." << endl;
-	} else if (response == "N" || response == "n") {
+	} else if (tolower(response) == 'n') {
 		return;
 	} else {
 		cout << "Error: Invalid input." << endl;
 	}
 }
 
-void setCipher() {
+void Crypt::setCipher() {
 	cout << "Do you want to change the cipher? (Y/N)" << endl;
 	cout << "(Warning: Changing the cipher might affect the success of encrypting and decrypting text." << endl;
 	char response;
 	cin >> response;
-	if(response == "Y" || response == "y") {
+	if(tolower(response) == 'y') {
 		cout << "Cipher Options:" << endl;
 		cout << "\t" << "1. Caesar Cipher" << endl;
 		cout << "\t" << "2. Vigener Cipher" << endl;
 		cout << "\t" << "3. More options coming soon" << endl;
 		int input;
 		cin >> input;
+
+		// TBM
 		if(input == 1) {
 			if(cipher == "Caesar") {
 				cout << "Caesar Cipher already selected." << endl;

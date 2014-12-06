@@ -1,11 +1,7 @@
-#include <vector>
-#include <cstdio>
-#include <string>
+#include "generic dependencies.h"
 
 #include "database.h"
 #include "employee.h"
-
-using namespace std;
 
 bool loadEmployee(string filename) {
     if(ifstream(filename)) {

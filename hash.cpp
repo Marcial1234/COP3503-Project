@@ -1,18 +1,19 @@
-#include <string>
-#include <cstring>
-#include <iostream>
+#include "generic dependencies.h"
 
 #include "hash.h"
 
-using namespace std;
 
-Hash() {
+
+Hash::Hash() {
 	//Hash always defaults to standard hash function. 
 	// Ernie: I corrected "standard" to "Standard", as it is referenced in CheckFunction().
 	hashFunction = "Standard";
 }
 
-int getHash(int value) {
+
+// No clue but what is meant by "value.length", sure it should be an int or a string?
+
+int Hash::getHash(int value) {
 	int num = checkFunction(1);
 	int temphash = 0;
 	if (num == 0) {
@@ -39,7 +40,7 @@ int getHash(int value) {
 	return temphash;
 }
 
-int getHash(string value) {
+int Hash::getHash(string value) {
 	int num = checkFunction(2);
 	int temphash = 0;
 	if (num == 0) {
@@ -84,7 +85,7 @@ int getHash(string value) {
 	}
 }
 
-bool checkHash(int checkVal) {
+bool Hash::checkHash(int checkVal) {
 	if(checkVal == hash) {
 		return true;
 	} else {
@@ -92,7 +93,7 @@ bool checkHash(int checkVal) {
 	}
 }
 
-int checkFunction(int check) {
+int Hash::checkFunction(int check) {
 	// If the input is a integer.
 	if(check == 1) {
 		// Confirms a standard hash function.
@@ -124,7 +125,7 @@ int checkFunction(int check) {
 	char input;
 	cin >> input;
 	// Ernie: A minor comment - I'm pretty sure there's an ignore case method for <string> somewhere.
-	if(input == 'Y' || input == 'y') {
+	if(tolower(input) == 'y') {
 		return 1;
 	} 
 	else {
@@ -133,7 +134,7 @@ int checkFunction(int check) {
 	return 0;
 }
 
-void changeFunction() {
+void Hash::changeFunction() {
 	cout << "Your hash function options are: " << endl;
 	cout << "\t" << "1. Standard (standard hash function, moderate speed)" << endl;
 	cout << "\t" << "2. Advanced (more sophisticated hash function, slower)" << endl;

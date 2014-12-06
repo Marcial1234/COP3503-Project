@@ -7,41 +7,29 @@
 #ifndef employee_h
 #define employee_h
 
-#include <iostream>
-#include <cstring>
-#include <string>
-
 class Employee{
 
 private:
-	// Employee name.
 	string name;
-	// Employee age.
 	double age;
-	// Employee salary.
 	double salary;
+	double hashSSN;
+	double timeEmployed;
+	double hoursWorkedWeek;
+	double hoursWorkedMonth;
+	bool insurance;
+	string insurancePlan;
+
+	// A brief description of an employee's role in a company. 
+	string occupation;
 	// True if employee is due for raise. False if not.
 	bool raise = false;
 	// The amount the employee's raise will be.
 	double raiseValue;
-	// The number of hours the employee has worked this week.
-	double hoursWorkedWeek;
-	// The number of hours the employee has worked this month.
-	double hoursWorkedMonth;
-	// The number of months the employee has been employed.
-	double timeEmployed;
-	// Is true if the employee qualifies for insurance.
-	bool insurance;
-	// The name of a specific employee's insurance plan.
-	string insurancePlan;
-	// The number of recorded performance reports for a specific employee.
-	int performanceReport;
 	// The comment recorded on a specific employee report.
 	string comment;
-	// The hashed SSN of a specific employee.
-	double hashSSN;
-	// A brief description of an employee's role in a company. 
-	string occupation;
+	// The number of recorded performance reports for a specific employee.
+	int performanceReport;
 
 public:
 	Employee();
@@ -50,52 +38,52 @@ public:
 	int infoCheck(string type, string value);
 
 	// All 'setter' functions.
-	void setName();
 	void setAge();
-	void setSalary();
+	void setName();
 	void setRaise();
-	void setRaiseValue();
-	void setHoursWorkedWeek();
-	void setHoursWorkedMonth();
-	void setTimeEmployed();
-	void setInsurance();
-	void setInsurancePlan();
-	void setPerformanceReport();
+	void setSalary();
 	void setComment();
 	void setHashSSN();
+	void setInsurance();
 	void setOccupation();
+	void setRaiseValue();
+	void setTimeEmployed();
+	void setInsurancePlan();
+	void setHoursWorkedWeek();
+	void setHoursWorkedMonth();
+	void setPerformanceReport();
 
 	// All 'getter' functions.
+	bool getRaise();
+	bool getInsurance();
 	string getName();
+	string getComment();
+	string getOccupation();
+	string getInsurancePlan();
 	double getAge();
 	double getSalary();
-	bool getRaise();
+	double getHashSSN();
 	double getRaiseValue();
+	double getTimeEmployed();
 	double getHoursWorkedWeek();
 	double getHoursWorkedMonth();
-	double getTimeEmployed();
-	bool getInsurance();
-	string getInsurancePlan();
 	double getPerformanceReport();
-	string getComment();
-	double getHashSSN();
-	string getOccupation();
 
 	// All 'print' functions.
-	void printName();
 	void printAge();
-	void printSalary();
+	void printName();
 	void printRaise();
-	void printRaiseValue();
-	void printHoursWorkedWeek();
-	void printHoursWorkedMonth();
-	void printTimeEmployed();
-	void printInsurance();
-	void printInsurancePlan();
-	void printPerformanceReport();
+	void printSalary();
 	void printComment();
 	void printHashSSN();
 	void printOccuption();
+	void printInsurance();
+	void printRaiseValue();
+	void printTimeEmployed();
+	void printInsurancePlan();
+	void printHoursWorkedWeek();
+	void printHoursWorkedMonth();
+	void printPerformanceReport();
 
 	// Other variable management functions.
 	void payEmployee();

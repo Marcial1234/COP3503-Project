@@ -1,7 +1,4 @@
-#include <iostream>
-#include <cstring>
-#include <string>
-
+#include "generic dependencies.h"
 #include "database.h"
 #include "validation.h"
 #include "employee.h"
@@ -10,7 +7,7 @@
 #include "priv.h"
 #include "crypt.h"
 
-using namespace std;
+
 
 int main() {
 	Database database = new Database();

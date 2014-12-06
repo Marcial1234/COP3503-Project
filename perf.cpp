@@ -1,4 +1,3 @@
-
 /*
     File: perf.cpp
     Author: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
@@ -9,17 +8,10 @@
 // Todo: Implement functions in "employee.cpp" to interface with "perf.cpp".
 // Todo: Implement comment system and viewing system. This probably depends on ability to save data to .txt files.
 // Todo: Unforseen bug-fixes. Work on other areas of the project which need assistance.
-
-#include <iostream>
-#include <cstring>
-#include <string>
-#include <stdlib.h>
-
+#include "generic dependencies.h"
 #include "perf.h"
 
-using namespace std;
-
-EmployeeReport() {
+EmployeeReport::EmployeeReport() {
 	cout << "Welcome to the HRSys Employee Report and Acquisition Module (HRSyS ERAM)." << endl;
 	cout << "Information can be requested on any active employee." << endl;
 	cout << endl;

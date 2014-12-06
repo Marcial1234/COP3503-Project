@@ -10,7 +10,7 @@
 #ifndef hash_h
 #define hash_h
 
-class hash {
+class Hash {
 private:
 	int hash;
 	string hashFunction;
@@ -19,8 +19,8 @@ public:
 	Hash();
 	int getHash(int value);
 	int getHash(string value);
-	bool checkHash();
-	void checkFunction();
+	int checkFunction(int);
+	bool checkHash(int);
 	void changeFunction();
 };
 

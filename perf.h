@@ -7,12 +7,7 @@
 #ifndef perf_h
 #define perf_h
 
-#include <iostream>
-#include <cstring>
-#include <string>
-#include <stdlib.h>
-
-class perf {
+class EmployeeReport {
 public:
 	EmployeeReport();
 	int check_user_authorization();

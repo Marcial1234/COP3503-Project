@@ -1,16 +1,10 @@
-#include <iostream>
-#include <cstring>
-#include <string>
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
+#include "generic dependencies.h"
 
 #include "employee.h"
+#include "hash.h"
 
-using namespace std;
-
-Employee() {
-	Hash newHash = new Hash();
+Employee::Employee() {
+	Hash newHash();
 	cout << "Please fill out employee information" << endl;
 	cout << "Information can be changed at any time if necessary" << endl;
 	setName();
@@ -19,9 +13,9 @@ Employee() {
 	setOccupation();
 	setHashSSN();
 	cout << "Is the employee new? (Y/N)" << endl;
-	string input
+	string input;
 	cin >> input;
-	if(input == "N" || input == "n") {
+	if(tolower(input) == 'n') {
 		setHoursWorkedWeek();
 		setHoursWorkedMonth();
 		setRaise();
@@ -36,7 +30,9 @@ Employee() {
 	}
 	cout << "Note: Make sure to update employee information regularly" << endl;
 }
-int infoCheck(type,value) {
+
+// Again the issue of 'value.length', defaulted to string in this case since no prior type was present
+int Employee::infoCheck(string type, string value) {
 	if(type == "string") {
 		for(int i = 0;i < value.length();i++) {
 			if(isdigit(value.at(i)) != 0) {
@@ -53,32 +49,33 @@ int infoCheck(type,value) {
 	}
 	return 0;
 }
+
 //all 'setter' functions
-void setName() {
+void Employee::setName() {
 	cout << "\n" << "Please enter the employee's name (Last, First)" << endl;
 	string input;
-	cin.getline(input,25);
+	getline(cin,input);
 	if(infoCheck("string",input) == 1) {
 		cout << "Please enter a valid name (no numbers or special characters)" << endl;
 		setName();
 	}
 	name = input;
 }
-void setAge() {
+void Employee::setAge() {
 	cout << "\n" << "Please enter the employee's age" << endl;
 	string input;
-	cin.getline(input,25);
+	getline(cin,input);
 	if(infoCheck("double",input) == 1 || strtod(input,NULL) <= 0) {
 		cout << "Please enter a valid age (no letters or other characters)" << endl;
 		setAge();
 	}
-	input = strtod(input,NULL);
+	input = strtod(input);
 	age = input;
 }
-void setSalary() {
+void Employee::setSalary() {
 	cout << "\n" << "Please enter the employee's salary" << endl;
 	string input;
-	cin.getline(input,25);
+	getline(cin,input);
 	if(infoCheck("double",input) == 1 || strtod(input,NULL) <= 0) {
 		cout << "Please enter a valid salary (no letters or other characters)" << endl;
 		setSalary();
@@ -86,10 +83,10 @@ void setSalary() {
 	input = strtod(input,NULL);
 	salary = input;
 }
-void setRaise() {
+void Employee::setRaise() {
 	cout << "\n" << "If your employee is marked down for a raise enter (Y) otherwise enter (N)" << endl;
 	string input;
-	cin.getline(input,25);
+	getline(cin,input);
 	if(infoCheck("string",input) == 1) {
 		cout << "Please enter a valid response (no numbers or special characters)" << endl;
 		setRaise();
@@ -101,11 +98,11 @@ void setRaise() {
 		raise = false;
 	}
 }
-void setRaiseValue() {
+void Employee::setRaiseValue() {
 	cout << "\n" << "Please enter the raise amount" << endl;
 	cout << "\t" << "Note: Raise can be negative in the event of a reduction in salary" << endl;
 	string input;
-	cin.getline(input,25);
+	getline(cin,input);
 	if(infoCheck("double",input) == 1 ) {
 		cout << "Please enter a valid number (no letters or other characters)" << endl;
 		setRaiseValue();
@@ -113,10 +110,10 @@ void setRaiseValue() {
 	input = strtod(input,NULL);
 	raiseValue = input;
 }
-void setHoursWorkedWeek() {
+void Employee::setHoursWorkedWeek() {
 	cout << "\n" << "Please enter the number of hours the employee worked this week" << endl;
 	string input;
-	cin.getline(input,25);
+	getline(cin,input);
 	if(infoCheck("double",input) == 1 || strtod(input,NULL) <= 0) {
 		cout << "Please enter a valid number (no letters or other characters)" << endl;
 		setHoursWorkedWeek();
@@ -124,10 +121,10 @@ void setHoursWorkedWeek() {
 	input = strtod(input,NULL);
 	hoursWorkedWeek = input;
 }
-void setHoursWorkedMonth() {
+void Employee::setHoursWorkedMonth() {
 	cout << "\n" << "Please enter the number of hours the employee worked this month" << endl;
 	string input;
-	cin.getline(input,25);
+	getline(cin,input);
 	if(infoCheck("double",input) == 1 || strtod(input,NULL) <= 0) {
 		cout << "Please enter a valid number (no letters or other characters)" << endl;
 		setHoursWorkedMonth();
@@ -135,10 +132,10 @@ void setHoursWorkedMonth() {
 	input = strtod(input,NULL);
 	hoursWorkedMonth = input;
 }
-void setTimeEmployed() {
+void Employee::setTimeEmployed() {
 	cout << "\n" << "Please enter the time employed (months)" << endl;
 	string input;
-	cin.getline(input,25);
+	getline(cin,input);
 	if(infoCheck("double",input) == 1 || strtod(input,NULL) <= 0) {
 		cout << "Please enter a valid number (no letters or other characters)" << endl;
 		setTimeEmployed();
@@ -146,52 +143,55 @@ void setTimeEmployed() {
 	input = strtod(input,NULL);
 	timeEmployed = input;
 }
-void setInsurance() {
+void Employee::setInsurance() {
 	cout << "\n" << "If your employee qualifies for company insurance enter (Y)" << endl;
 	string input;
-	cin.getline(input,25);
+	getline(cin,input);
 	if(infoCheck("string",input) == 1) {
 		cout << "Please enter a valid response (no numbers or special characters)" << endl;
 		setInsurance();
 	}
-	if(input == "Y" || input == "y" {
+	if(tolower(input) == 'y') {
 		insurance = true;
 		setInsurancePlan();
 	} else {
 		insurance = false;
 	}
 }
-void setInsurancePlan() {
+
+void Employee::setInsurancePlan() {
 	cout << "\n" << "Please enter the name of you employee's insurance plan" << endl;
 	string input;
-	cin.getline(input,25);
+	getline(cin,input);
 	if(infoCheck("string",input) == 1) {
 		cout << "Please enter a valid response (no numbers or special characters)" << endl;
 		setInsurancePlan();
 	}
 	insurancePlan = input;
 }
+
 //setPerformanceReport will be handled by the performance report class (perf.cpp)
 /*
 void setPerformanceReport() {
 	performanceReport = value;
 }
 */
-void setComment() {
+
+void Employee::setComment() {
 	cout << "\n" << "If you have any comment's to add to the employee's record add them here" << endl;
 	string input;
-	cin.getline(input,25);
+	getline(cin,input);
 	if(infoCheck("string",input) == 1) {
 		cout << "Please enter a comment" << endl;
 		setComment();
 	}
 	comment = input;
 }
-void setHashSSN() {
+void Employee::setHashSSN() {
 	cout << "\n" << "Please enter the name of you employee's SSN (Social Security Number)" << endl;
 	cout << "\t" << "Note: The SSN itself will not be stored, rather a hash result will be stored for later validation purposes" << endl;
 	string input;
-	cin.getline(input,25);
+	getline(cin,input);
 	if(infoCheck("double",input) == 1 || input.length() != 9) {
 		cout << "Please enter a valid number" << endl;
 		setHashSSN();
@@ -199,10 +199,10 @@ void setHashSSN() {
 	input = strtod(input,NULL);
 	hashSSN = newHash.getHash(input);
 }
-void setOccupation() {
+void Employee::setOccupation() {
 	cout << "\n" << "Please enter the name of you employee's role in your company" << endl;
 	string input;
-	cin.getline(input,25);
+	getline(cin,input);
 	if(infoCheck("string",input) == 1) {
 		cout << "Please enter a valid response" << endl;
 		setOccupation();
@@ -210,118 +210,118 @@ void setOccupation() {
 	occupation = input;
 }
 //all 'getter' functions
-string getName() {
+string Employee::getName() {
 	return name;
 }
 
-double getAge() {
+double Employee::getAge() {
 	return age;
 }
 
-double getSalary() {
+double Employee::getSalary() {
 	return salary;
 }
 
-bool getRaise() {
+bool Employee::getRaise() {
 	return raise;
 }
 
-double getRaiseValue() {
-	return raiseVaule;
+double Employee::getRaiseValue() {
+	return raiseValue;
 }
 
-double getHoursWorkedWeek() {
+double Employee::getHoursWorkedWeek() {
 	return hoursWorkedWeek;
 }
 
-double getHoursWorkedMonth() {
+double Employee::getHoursWorkedMonth() {
 	return hoursWorkedMonth;
 }
 
-double getTimeEmployed() {
+double Employee::getTimeEmployed() {
 	return timeEmployed;
 }
 
-bool getInsurance() {
+bool Employee::getInsurance() {
 	return insurance;
 }
 
-string getInsurancePlan() {
+string Employee::getInsurancePlan() {
 	return insurancePlan;
 }
 
-double getPerformanceReport() {
+double Employee::getPerformanceReport() {
 	return performanceReport;
 }
 
-string getComment() {
+string Employee::getComment() {
 	return comment;
 }
 
-double getHashSSN() {
+double Employee::getHashSSN() {
 	return hashSSN;
 }
 
-string getOccupation() {
+string Employee::getOccupation() {
 	return occupation;
 }
 
 //all 'print' functions
-void printName() {
+void Employee::printName() {
 	cout << name << endl;
 }
 
-void printAge() {
+void Employee::printAge() {
 	cout << age << endl;
 }
 
-void printSalary() {
+void Employee::printSalary() {
 	cout << salary << endl;
 }
 
-void printRaise() {
+void Employee::printRaise() {
 	cout << raise << endl;
 }
 
-void printRaiseValue() {
+void Employee::printRaiseValue() {
 	cout << raiseValue << endl;
 }
 
-void printHoursWorkedWeek() {
+void Employee::printHoursWorkedWeek() {
 	cout << hoursWorkedWeek << endl;
 }
 
-void printHoursWorkedMonth() {
+void Employee::printHoursWorkedMonth() {
 	cout << hoursWorkedMonth << endl;
 }
 
-void printTimeEmployed() {
+void Employee::printTimeEmployed() {
 	cout << timeEmployed << endl;
 }
 
-void printInsurance() {
+void Employee::printInsurance() {
 	cout << insurance << endl;
 }
 
-void printInsurancePlan() {
+void Employee::printInsurancePlan() {
 	cout << insurancePlan << endl;
 }
 
-void printPerformanceReport() {
+void Employee::printPerformanceReport() {
 	for(int i = 0; i < performanceReport;i++) {
 		
 	}
 }
-void printComment() {
+void Employee::printComment() {
 	cout << comment << endl;
 }
 
-void printHashSSN() {
+void Employee::printHashSSN() {
 	cout << hashSSN << endl;
 }
 
-void printOccuption() {
-	cout << occuapation << endl;
+void Employee::printOccuption() {
+	cout << occupation << endl;
 }
 
 //other variable management functions

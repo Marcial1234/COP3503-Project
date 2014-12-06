@@ -1,4 +1,4 @@
-/* Headers and includes go somewhere in here */
+#include "generic dependencies.h"
 
 // Possible list of enums to link back and forth to functions
 // But most likely will be replaced by function pointers
