@@ -10,6 +10,8 @@
 // Todo: Unforseen bug-fixes. Work on other areas of the project which need assistance.
 #include "perf.h"
 
+using namespace std;
+
 EmployeeReport::EmployeeReport() {
 
     string name;
