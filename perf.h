@@ -4,8 +4,11 @@
     Submitted: December 5, 2014
 */
 
+
 #ifndef perf_h
 #define perf_h
+
+#include "generic dependencies.h"
 
 class EmployeeReport {
 public:
