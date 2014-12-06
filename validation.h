@@ -16,6 +16,6 @@
 #include "hash.h"
 #include "crypt.h"
 #include "perf.h"
-#include "generic dependencies.h"
+#include "gendepend.h"
 
 #endif
