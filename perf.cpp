@@ -8,7 +8,6 @@
 // Todo: Implement functions in "employee.cpp" to interface with "perf.cpp".
 // Todo: Implement comment system and viewing system. This probably depends on ability to save data to .txt files.
 // Todo: Unforseen bug-fixes. Work on other areas of the project which need assistance.
-#include "generic dependencies.h"
 #include "perf.h"
 
 EmployeeReport::EmployeeReport() {
