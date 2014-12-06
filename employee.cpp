@@ -1,10 +1,9 @@
-#include "generic dependencies.h"
 #include "employee.h"
-#include "hash.h"
+
+using namespace std;
 
 Employee::Employee() {
 
-	Hash newHash();
 	cout << "Please fill out employee information" << endl;
 	cout << "Information can be changed at any time if necessary" << endl;
 
@@ -78,13 +77,14 @@ void Employee::setAge() {
 	cout << "\n" << "Please enter the employee's age." << endl;
 	string input;
 	getline(cin,input);
-
-	if(infoCheck("double",input) == 1 || strtod(input,NULL) <= 0) {
+	
+	double tempCheck = atof(input);
+	if(infoCheck("double",input) == 1 || tempCheck <= 0) {
 		cout << "Please enter a valid age (no letters or other characters)" << endl;
 		setAge();
 	}
 
-	input = strtod(input);
+	input = atof(input);
 	age = input;
 }
 
@@ -94,12 +94,12 @@ void Employee::setSalary() {
 	string input;
 	getline(cin,input);
 
-	if(infoCheck("double",input) == 1 || strtod(input,NULL) <= 0) {
+	if(infoCheck("double",input) == 1 || atof(input) <= 0) {
 		cout << "Please enter a valid salary (no letters or other characters)" << endl;
 		setSalary();
 	}
 
-	input = strtod(input,NULL);
+	input = atof(input);
 	salary = input;
 }
 
@@ -133,40 +133,40 @@ void Employee::setRaiseValue() {
 		cout << "Please enter a valid number (no letters or other characters)" << endl;
 		setRaiseValue();
 	}
-	input = strtod(input,NULL);
+	input = atof(input,NULL);
 	raiseValue = input;
 }
 void Employee::setHoursWorkedWeek() {
 	cout << "\n" << "Please enter the number of hours the employee worked this week" << endl;
 	string input;
 	getline(cin,input);
-	if(infoCheck("double",input) == 1 || strtod(input,NULL) <= 0) {
+	if(infoCheck("double",input) == 1 || atof(input) <= 0) {
 		cout << "Please enter a valid number (no letters or other characters)" << endl;
 		setHoursWorkedWeek();
 	}
-	input = strtod(input,NULL);
+	input = atof(input);
 	hoursWorkedWeek = input;
 }
 void Employee::setHoursWorkedMonth() {
 	cout << "\n" << "Please enter the number of hours the employee worked this month" << endl;
 	string input;
 	getline(cin,input);
-	if(infoCheck("double",input) == 1 || strtod(input,NULL) <= 0) {
+	if(infoCheck("double",input) == 1 || atof(input) <= 0) {
 		cout << "Please enter a valid number (no letters or other characters)" << endl;
 		setHoursWorkedMonth();
 	}
-	input = strtod(input,NULL);
+	input = atof(input,NULL);
 	hoursWorkedMonth = input;
 }
 void Employee::setTimeEmployed() {
 	cout << "\n" << "Please enter the time employed (months)" << endl;
 	string input;
 	getline(cin,input);
-	if(infoCheck("double",input) == 1 || strtod(input,NULL) <= 0) {
+	if(infoCheck("double",input) == 1 || atof(input) <= 0) {
 		cout << "Please enter a valid number (no letters or other characters)" << endl;
 		setTimeEmployed();
 	}
-	input = strtod(input,NULL);
+	input = atof(input);
 	timeEmployed = input;
 }
 void Employee::setInsurance() {
@@ -222,10 +222,10 @@ void Employee::setHashSSN() {
 		cout << "Please enter a valid number" << endl;
 		setHashSSN();
 	}
-	input = strtod(input,NULL);
+	input = atof(input);
 
 	// What is this?
-	hashSSN = newHash.getHash(input);
+	hashSSN = hash->getHash(input);
 }
 void Employee::setOccupation() {
 	cout << "\n" << "Please enter the name of you employee's role in your company" << endl;
@@ -355,3 +355,11 @@ void Employee::printOccuption() {
 
 //other variable management functions
 void payEmployee();
+
+
+int main() {
+
+	cout << "mission successful" << endl;
+
+	return 0;
+}

@@ -4,13 +4,16 @@
 	Submitted: December 5, 2014
 */
 
-#ifndef employee_h
-#define employee_h
+#ifndef EMPLOYEE_H
+#define EMPLOYEE_H
+
+#include "gendepend.h"
+#include "hash.h"
 
 class Employee{
 
 private:
-	string name;
+	std::string name;
 	double age;
 	double salary;
 	double hashSSN;
@@ -18,16 +21,17 @@ private:
 	double hoursWorkedWeek;
 	double hoursWorkedMonth;
 	bool insurance;
-	string insurancePlan;
+	std::string insurancePlan;
+	Hash * hash;
 
 	// A brief description of an employee's role in a company. 
-	string occupation;
+	std::string occupation;
 	// True if employee is due for raise. False if not.
-	bool raise = false;
+	bool raise;
 	// The amount the employee's raise will be.
 	double raiseValue;
 	// The comment recorded on a specific employee report.
-	string comment;
+	std::string comment;
 	// The number of recorded performance reports for a specific employee.
 	int performanceReport;
 
@@ -35,7 +39,7 @@ public:
 	Employee();
 
 	// infoCheck() ensures valid information is entered.
-	int infoCheck(string type, string value);
+	int infoCheck(std::string type, std::string value);
 
 	// All 'setter' functions.
 	void setAge();
@@ -56,10 +60,10 @@ public:
 	// All 'getter' functions.
 	bool getRaise();
 	bool getInsurance();
-	string getName();
-	string getComment();
-	string getOccupation();
-	string getInsurancePlan();
+	std::string getName();
+	std::string getComment();
+	std::string getOccupation();
+	std::string getInsurancePlan();
 	double getAge();
 	double getSalary();
 	double getHashSSN();

@@ -1,4 +1,3 @@
-#include "generic dependencies.h"
 #include "hash.h"
 
 Hash::Hash() {
@@ -40,7 +39,7 @@ int Hash::getHash(int value) {
 	return temphash;
 }
 
-int Hash::getHash(string value) {
+string Hash::getHash(string value) {
 
 	int num = checkFunction(2);
 	int temphash = 0;

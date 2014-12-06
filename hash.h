@@ -4,20 +4,20 @@
 	Submitted: December 5, 2014
 */
 
-#include <string>
+#ifndef HASH_H
+#define HASH_H
 
-#ifndef hash_h
-#define hash_h
+#include "gendepend.h"
 
 class Hash {
 private:
 	int hash;
-	string hashFunction;
+	std::string hashFunction;
 
 public:
 	Hash();
 	int getHash(int value);
-	int getHash(string value);
+	std::string getHash(std::string value);
 	int checkFunction(int);
 	bool checkHash(int);
 	void changeFunction();
