@@ -12,20 +12,20 @@ class Priv {
 private:
 	// these are ONLY input streams (they only read).
 	// Need output streams, and the file they're looking at needs to be declared later on 
-	ifstream fileUsers;
-	ifstream filePasswords;
-	ifstream filePrivs;
+	std::ifstream fileUsers;
+	std::ifstream filePasswords;
+	std::ifstream filePrivs;
 	// sample output stream
-	ostream usersWritter;
+	std::ostream usersWritter;
 
 
-	ifstream fileReader;
-	ostream fileWriter;
+	std::ifstream fileReader;
+	std::ostream fileWriter;
 
-	map<std::string, string> users;
-	map<std::string, int> privileges;
+	std::map<std::string, std::string> users;
+	std::map<std::string, int> privileges;
 	std::string user;
-	string password;
+	std::string password;
 	//auth levels are 1) read 2) read and write 3) read, write, and execute
 	//some information will only be accessible at level 3, the admin level
 	int auth;
@@ -41,21 +41,5 @@ public:
 	void pullUserRecords();
 	void pushUserRecords();
 };
-
-void priv::pullUserRecords() {
-	string username;
-	string password;
-	int authorization;
-	
-	while(!fileUsers.eof()) {
-		// Reading order: [username] [password] [authorization]
-		fileUsers >> username;
-		filePasswords >> password;
-		filePrivs >> authorization;
-		cout << "PARSED: " << username << " " << password << " " << authorization << "\n";
-		users[username] = password;
-		privileges[username] = authorization;
-	}
-}
 
 #endif
