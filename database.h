@@ -4,8 +4,10 @@
     Submitted: December 8, 2014
 */
 
-#ifndef database_h
-#define database_h
+#ifndef DATABASE_H
+#define DATABASE_H
+
+#include "generic dependencies.h"
 
 class Database {
 private:
