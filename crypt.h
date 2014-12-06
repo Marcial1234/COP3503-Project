@@ -1,3 +1,9 @@
+/*
+    File: crypt.h
+    Authors: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
+    Submitted: December 8, 2014
+*/
+
 #ifndef crypt_h
 #define crypt_h
 

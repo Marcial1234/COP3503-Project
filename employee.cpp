@@ -1,17 +1,19 @@
 #include "generic dependencies.h"
-
 #include "employee.h"
 #include "hash.h"
 
 Employee::Employee() {
+
 	Hash newHash();
 	cout << "Please fill out employee information" << endl;
 	cout << "Information can be changed at any time if necessary" << endl;
+
 	setName();
 	setAge();
 	setSalary();
 	setOccupation();
 	setHashSSN();
+
 	cout << "Is the employee new? (Y/N)" << endl;
 	char input;
 	cin >> input;
@@ -20,27 +22,30 @@ Employee::Employee() {
 		setHoursWorkedWeek();
 		setHoursWorkedMonth();
 		setRaise();
-		//if setRaise() is true, setRaiseValue will be called
-		//setRaiseValue();
+		// if setRaise() is true, setRaiseValue will be called
+		// setRaiseValue();
 		setInsurance();
-		//if Insurance is true, setInsurance() calls setInsurancePlan()
-		//setInsurancePlan();
-		//setPerformanceReport() is handled by the performance report class (perf.cpp)
-		//setPerformanceReport();
+		// if Insurance is true, setInsurance() calls setInsurancePlan()
+		// setInsurancePlan();
+		// setPerformanceReport() is handled by the performance report class (perf.cpp)
+		// setPerformanceReport();
 		setComment();
 	}
-	cout << "Note: Make sure to update employee information regularly" << endl;
+
+	cout << "Note: Make sure to update employee information on a regular basis." << endl;
 }
 
-// Again the issue of 'value.length', defaulted to string in this case since no prior type was present
+// Again the issue of 'value.length', defaulted to string in this case since no prior type was present.
 int Employee::infoCheck(string type, string value) {
+
 	if(type == "string") {
-		for(int i = 0;i < value.length();i++) {
+		for(int i = 0; i < value.length(); i++) {
 			if(isdigit(value.at(i)) != 0) {
 				return 1;
 			}
 		}
 	}
+
 	if(type == "double") {
 		for(int i = 0;i < value.length();i++) {
 			if(isalpha(value.at(i)) != 0) {
@@ -48,59 +53,76 @@ int Employee::infoCheck(string type, string value) {
 			}
 		}
 	}
+
 	return 0;
 }
 
-// All 'setter' functions
+// All 'setter' functions.
 void Employee::setName() {
-	cout << "\n" << "Please enter the employee's name (Last, First)" << endl;
+
+	cout << "\n" << "Please enter the employee's name (Last, First)." << endl;
 	string input;
 	getline(cin,input);
+
 	if(infoCheck("string",input) == 1) {
-		cout << "Please enter a valid name (no numbers or special characters)" << endl;
+		cout << "One or more invalid characters was detected. Please try again." << endl;
 		setName();
 	}
+
 	name = input;
 }
 
 // Problem with all the string to doubles. I will have to deal with validation on all of them later.
-
 void Employee::setAge() {
-	cout << "\n" << "Please enter the employee's age" << endl;
+
+	cout << "\n" << "Please enter the employee's age." << endl;
 	string input;
 	getline(cin,input);
+
 	if(infoCheck("double",input) == 1 || strtod(input,NULL) <= 0) {
 		cout << "Please enter a valid age (no letters or other characters)" << endl;
 		setAge();
 	}
+
 	input = strtod(input);
 	age = input;
 }
+
 void Employee::setSalary() {
-	cout << "\n" << "Please enter the employee's salary" << endl;
+
+	cout << "\n" << "Please enter the employee's salary." << endl;
 	string input;
 	getline(cin,input);
+
 	if(infoCheck("double",input) == 1 || strtod(input,NULL) <= 0) {
 		cout << "Please enter a valid salary (no letters or other characters)" << endl;
 		setSalary();
 	}
+
 	input = strtod(input,NULL);
 	salary = input;
 }
+
 void Employee::setRaise() {
+
 	cout << "\n" << "If your employee is marked down for a raise enter (Y) otherwise enter (N)" << endl;
 	string input;
 	getline(cin,input);
+
 	if(infoCheck("string",input) == 1) {
 		cout << "Please enter a valid response (no numbers or special characters)" << endl;
 		setRaise();
 	}
+
 	if(input == "Y" || input == "y") {
 		raise = true;
 		setRaiseValue();
-	} else {
+	} 
+
+	else {
 		raise = false;
 	}
+	
 }
 void Employee::setRaiseValue() {
 	cout << "\n" << "Please enter the raise amount" << endl;

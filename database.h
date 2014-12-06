@@ -1,5 +1,5 @@
 /*
-    File: Database.h
+    File: database.h
     Authors: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
     Submitted: December 8, 2014
 */

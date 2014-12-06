@@ -3,31 +3,37 @@
 
 Crypt::Crypt() {
 	cipher = "Caesar";
-	cout << "Please enter key: " << endl;
+	cout << "Please enter a key: " << endl;
 	cin >> key;
 }
 
 string Crypt::encrypt() {
+
 	if(cipher == "Caesar") {
-
+        // Code goes here.
 		return;
 	}
+
 	if(cipher == "Vigenere") {
-
+        // Code goes here.
 		return;
 	}
+
 	cout << "No cipher set, please rectify." << endl;
 }
 
 string Crypt::decrypt() {
+
 	if(cipher == "Caesar") {
-
+        // Code goes here.
 		return;
 	}
+
 	if(cipher == "Vigenere") {
-
+        // Code goes here.
 		return;
 	}
+
 	cout << "No cipher set, please rectify." << endl;
 }
 
@@ -40,25 +46,31 @@ string Crypt::getCipher() {
 }
 
 void Crypt::setKey() {
-	cout << "Do you want to change the key? (Y/N)" << endl;
+
+	cout << "Do you want to change the key? (Y/N): " << endl;
 	char response;
 	cin >> response;
-	if(tolower(response) == 'y') {
-		cout << "Enter new key: " << endl;
+
+	if (tolower(response) == 'y') {
+		cout << "Enter the new key: " << endl;
 		cin >> key;
-		cout << "Key was successfully changed." << endl;
-	} else if (tolower(response) == 'n') {
+		cout << "The key was successfully changed." << endl;
+	} 
+
+	else if (tolower(response) == 'n') 
 		return;
-	} else {
+
+	else 
 		cout << "Error: Invalid input." << endl;
-	}
 }
 
 void Crypt::setCipher() {
+
 	cout << "Do you want to change the cipher? (Y/N)" << endl;
 	cout << "(Warning: Changing the cipher might affect the success of encrypting and decrypting text." << endl;
 	char response;
 	cin >> response;
+
 	if(tolower(response) == 'y') {
 		cout << "Cipher Options:" << endl;
 		cout << "\t" << "1. Caesar Cipher" << endl;
@@ -67,23 +79,27 @@ void Crypt::setCipher() {
 		int input;
 		cin >> input;
 
-		// TBM
+		// To be modified.
 		if(input == 1) {
-			if(cipher == "Caesar") {
-				cout << "Caesar Cipher already selected." << endl;
+			if (cipher == "Caesar") {
+				cout << "The Caesar Cipher is already selected." << endl;
 			} else {
 				cipher = "Caesar";
-				cout << "Cipher was successfully changed." << endl;
+				cout << " The cipher was successfully changed." << endl;
 			}
-		} else if(input == 2) {
+		}
+
+		else if(input == 2) {
 			if(cipher == "Vigenere") {
 				cout << "Vigenere Cipher already selected." << endl;
-			} else {
+			}
+			else {
 				cipher = "Vigenere";
 				cout << "Cipher successfully changed." << endl;
 			}
-		} else {
-			cout << "Error: Invalid input." << endl;
 		}
+
+		else 
+			cout << "Error: Invalid input." << endl;
 	}
 }

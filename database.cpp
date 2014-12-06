@@ -1,5 +1,4 @@
 #include "generic dependencies.h"
-
 #include "database.h"
 #include "employee.h"
 
