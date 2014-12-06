@@ -5,8 +5,8 @@
 */
 
 
-#ifndef perf_h
-#define perf_h
+#ifndef PERF_H
+#define PERF_H
 
 #include "generic dependencies.h"
 
