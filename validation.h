@@ -10,4 +10,12 @@
 #ifndef validation_h
 #define validation_h
 
+#include "database.h"
+#include "employee.h"
+#include "priv.h"
+#include "hash.h"
+#include "crypt.h"
+#include "perf.h"
+#include "generic dependencies.h"
+
 #endif
