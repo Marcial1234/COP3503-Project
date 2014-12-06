@@ -16,21 +16,22 @@ int main() {
 	priv.login();
 	int tempauth = priv.getAuth();
 
-	while(bool stop == false) {
+	bool stop = false;
+	while(stop == false) {
 
 		if(tempauth >= 3) {
-			menu.getMenuOptions(3);
+			//menu.getMenuOptions(3);
 		}
 
 		if(tempauth >= 2) {
-			menu.getMenuOptions(2);
+			//menu.getMenuOptions(2);
 		}
 
 		if(tempauth >= 1) {
-			menu.getMenuOptions(1);
+			//menu.getMenuOptions(1);
 		}
 	}	
 
-	newdatabase.pushFiles();
+	database.pushFiles();
 	return 0;
 }

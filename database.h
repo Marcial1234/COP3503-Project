@@ -8,6 +8,7 @@
 #define DATABASE_H
 
 #include "gendepend.h"
+#include "employee.h"
 
 class Database {
 private:
@@ -15,8 +16,11 @@ private:
     vector<Employee> records;
 
 public:
-    bool newFile(string filename);
-    bool loadEmployee(string filename);
+//I'm assuming these are currently being built or will be built in the near future
+void pushFiles();
+void pullFiles();
+    bool newFile(std::string filename);
+    bool loadEmployee(std::string filename);
     bool deleteEmployee(Employee worker);
     void checkAuth();
     void addEmployee(Employee worker);

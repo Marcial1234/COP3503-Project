@@ -22,9 +22,9 @@ private:
 	ifstream fileReader;
 	ostream fileWriter;
 
-	map<string, string> users;
-	map<string, int> privileges;
-	string user;
+	map<std::string, string> users;
+	map<std::string, int> privileges;
+	std::string user;
 	string password;
 	//auth levels are 1) read 2) read and write 3) read, write, and execute
 	//some information will only be accessible at level 3, the admin level

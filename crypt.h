@@ -11,17 +11,17 @@
 
 class Crypt {
 private:
-	string key;
-	string cipher;
+	std::string key;
+	std::string cipher;
 
 public:
 	Crypt();
 	void setKey();
 	void setCipher();
-	string getKey();
-	string encrypt();
-	string decrypt();
-	string getCipher();
+	std::string getKey();
+	std::string encrypt();
+	std::string decrypt();
+	std::string getCipher();
 };
 
 #endif
