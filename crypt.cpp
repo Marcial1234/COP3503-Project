@@ -1,5 +1,7 @@
 #include "crypt.h"
 
+using namespace std;
+
 Crypt::Crypt() {
 	// Ernie: I added a string variable called key. It seemed to be used later on (line 42) but was never declared.
 	string cipher = "Caesar";
