@@ -1,5 +1,7 @@
 #include "validation.h"
 
+using namespace std;
+
 // Possible list of enums to link back and forth to functions
 // But most likely will be replaced by function pointers
 // Array of max values of submenus somewhere
