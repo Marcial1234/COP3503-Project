@@ -12,41 +12,84 @@
 #include "perf.h"
 
 EmployeeReport::EmployeeReport() {
+
+    string name;
+    string birthdate;
+    string social_security_number;
+    string attendance;
+    string leadership_ability;
+    string quality_of_work;
+    string communication_skill;
+    string organizational_skill;
+    string responsibility;
+    string time_management;
+    string team_player;
+    string additional_comments;
+
 	cout << "Welcome to the HRSys Employee Report and Acquisition Module (HRSyS ERAM)." << endl;
 	cout << "Information can be requested on any active employee." << endl;
 	cout << endl;
-	cout << "Please enter the employee's name, birthdate, and SSN below." << endl;
-	cout << "Users with administrator privilages only need one piece of information." << endl;
-	cout << endl;
 
-	cout << "Name can be entered in one of the following two formats:" << endl;
-	cout << "(1). Last, First" << endl;
-	cout << "(2). First Last" << endl;
-	cout << endl;
+	cout << "Welcome to the HRSys Employee Report and Acquisition Module (HRSyS ERAM)." << endl;
+	cout << "Information can be generated or edited for any active employee.\n" << endl;
 
 	cout << "Name: ";
-	string name;
-	cin >> name;
-	cout << endl;
+	getline(cin, name);
 
-	cout << "Birthdate can be entered in one of the following three formats:" << endl;
-	cout << "(1). MMDDYYYY" << endl;
-	cout << "(2). MM-DD-YYYY" << endl;
-	cout << "(3). MM/DD/YYYY" << endl;
-	cout << endl;
-    
     cout << "Birthdate: ";
-	string birthdate;
-	cin >> birthdate;
-	cout << endl;
+	getline(cin, birthdate);
+
+    cout << "Social Security Number: ";
+	cin >> social_security_number;
+    getline(cin, social_security_number);
     
-    cout << "Social Security Number can be entered in one of the following two formats:" << endl;
-    cout << "(1). AAA-GG-SSSS" << endl;
-    cout << "(2). AAGGSSSS" << endl;
-    cout << endl;
+    cout << "Attendance: ";
+	getline(attendance);
+
+	cout << "Leadership Ability: ";
+	getline(leadership_ability);
+
+	cout << "Quality of Work: ";
+	getline(quality_of_work);
+
+	cout << "Communication Skill: ";
+	getline(communication_skill);
+
+	cout << "Organization Skill: ";
+	getline(organizational_skill);
+
+	cout << "Responsibility: ";
+	getline(responsibility);
+
+	cout << "Time Management: ";
+	getline(time_management);
+
+	cout << "Team Player: ";
+	getline(team_player);
+
+	cout << "Additional Comments: ";
+    getline(additional_comments);
     
-	string social_security;
-	cout  << "SSN: ";
-    cin >> social_security;
-    cout << endl;
+    //
+    cout << "Name: " << name;
+    cout << "Birthdate: " << birthdate;
+    cout << "Social Security Number: " << social_security_number;
+    cout << "\n-------------------------------\n";
+    cout << "Attendance: " << attendance;
+    cout << "Leadership Ability: " << leadership_ability;
+    cout << "Quality of Work: " << quality_of_work;
+    cout << "Communciation Skill: " << communication_skill;
+    cout << "Organizational Skill: " << organizational_skill;
+    cout << "Responsibility: " << responsibility;
+    cout << "Time Management: " << time_management;
+    cout << "Team Player: " << team_player;
+    cout << "\n-------------------------------\n";
+    cout << "Additional Comments: " << additional_comments;
+}
+
+// Some testing.
+int main() {
+	EmployeeReport(); 
+	cout << "Preliminary test was a success!" << endl;
+	return 0;
 }
