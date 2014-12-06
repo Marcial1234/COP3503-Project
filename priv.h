@@ -1,3 +1,9 @@
+/*
+    File: priv.h
+    Authors: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
+    Submitted: December 8, 2014
+*/
+
 class Priv {
 private:
 	// these are ONLY input streams (they only read).

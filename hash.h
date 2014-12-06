@@ -1,7 +1,6 @@
 /*
 	File: Hash.h
 	Authors: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
-
 	Submitted: December 5, 2014
 */
 

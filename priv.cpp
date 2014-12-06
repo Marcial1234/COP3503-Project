@@ -60,7 +60,6 @@ void priv::login() {
 	pullUserRecords();
 
 	if(users.empty()) {
-	    // Question: Are we assuming the first user to setup the system will be an admin?
         setAdmin();
 	}
 
