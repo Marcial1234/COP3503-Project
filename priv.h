@@ -6,7 +6,7 @@
 #ifndef PRIV_H
 #define PRIV_H
 
-#include "generic dependencies.h"
+#include "gendepend.h"
 
 class Priv {
 private:
