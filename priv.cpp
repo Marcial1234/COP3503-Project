@@ -1,39 +1,6 @@
 #include "priv.h"
 
-class priv {
-private:
-	// These are ONLY input streams (they only read).
-	// We need output streams. Furthermore, the file they're looking at needs to be declared later on.
-	ifstream fileUsers;
-	ifstream filePasswords;
-	ifstream filePrivs;
-	// A sample output stream.
-	ostream usersWritter;
-
-
-	ifstream fileReader;
-	ostream fileWriter;
-
-	map<string, string> users;
-	map<string, int> privileges;
-	string user;
-	string password;
-
-	// Authorization levels are 1) read 2) read and write 3) read, write, and execute.
-	// Some information will only be accessible at level 3, the admin level.
-	int auth;
-
-public:
-	int getAuth();
-	void login();
-	void setAdmin();
-	void setAccess();
-	void setNewUser();
-	void setPassword();
-	void setUserName();
-	void pullUserRecords();
-	void pushUserRecords();
-};
+using namespace std;
 
 void priv::pullUserRecords() {
 	string username;
