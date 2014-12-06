@@ -7,6 +7,8 @@
 #include "priv.h"
 #include "crypt.h"
 
+using namespace std;
+
 int main() {
 	
 	Database database = *(new Database());
