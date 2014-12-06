@@ -1,11 +1,4 @@
 #include "validation.h"
-#include "database.h"
-#include "employee.h"
-#include "priv.h"
-#include "hash.h"
-#include "crypt.h"
-#include "perf.h"
-#include "generic dependencies.h"
 
 // Possible list of enums to link back and forth to functions
 // But most likely will be replaced by function pointers
