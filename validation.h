@@ -7,8 +7,8 @@
   Submitted: December 8, 2014
 */
 
-#ifndef validation_h
-#define validation_h
+#ifndef VALIDATION_H
+#define VALIDATION_H
 
 #include "database.h"
 #include "employee.h"
