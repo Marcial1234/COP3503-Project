@@ -135,8 +135,9 @@ int Hash::checkFunction(int check) {
 
 	cout << "Error: No valid hash function detected." << endl;
 	cout << "Would you like to default to the standard hash function? (Y/N): " << endl;
-	char input;
-	cin >> input;
+	// Changed char to string to play nice with getline().
+	string input;
+    getline(cin, input);
 
 	if(tolower(input) == 'y') {
 		return 1;
@@ -155,23 +156,29 @@ void Hash::changeFunction() {
 	cout << "\t" << "1. Standard (standard hash, fast)" << endl;
 	cout << "\t" << "2. Advanced (sophisticated hash, slowest)" << endl;
 	cout << "\t" << "3. Simple (basic hash, fastest)" << endl;
+    
+    // Ernie: Changed choice to string to play nice with getline().
+	string choice;
+	getline(cin, choice);
 
-	int choice;
-	cin >> choice;
-
-	if(choice == 1) {
+	if (choice == 1) {
 		hashFunction = "Standard";
 		return;
 	}
 
-	if(choice == 2) {
+	if (choice == 2) {
 		hashFunction = "Advanced";
 		return;
 	}
 
-	if(choice == 3) {
+	if (choice == 3) {
 		hashFunction = "Simple";
 		return;
+	}
+
+	else {
+		cout << "Invalid input was detected. Please try again." << endl;
+		changeFunction();
 	}
 
 	// We can expand more options later if time permits.

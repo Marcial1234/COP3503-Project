@@ -3,12 +3,12 @@
 
 class priv {
 private:
-	// these are ONLY input streams (they only read).
-	// Need output streams, and the file they're looking at needs to be declared later on 
+	// These are ONLY input streams (they only read).
+	// We need output streams. Furthermore, the file they're looking at needs to be declared later on.
 	ifstream fileUsers;
 	ifstream filePasswords;
 	ifstream filePrivs;
-	// sample output stream
+	// A sample output stream.
 	ostream usersWritter;
 
 
@@ -19,8 +19,9 @@ private:
 	map<string, int> privileges;
 	string user;
 	string password;
-	//auth levels are 1) read 2) read and write 3) read, write, and execute
-	//some information will only be accessible at level 3, the admin level
+
+	// Authorization levels are 1) read 2) read and write 3) read, write, and execute.
+	// Some information will only be accessible at level 3, the admin level.
 	int auth;
 
 public:
@@ -40,7 +41,7 @@ void priv::pullUserRecords() {
 	string password;
 	int authorization;
 	
-	while(!fileUsers.eof()) {
+	while (!fileUsers.eof()) {
 		// Reading order: [username] [password] [authorization]
 		fileUsers >> username;
 		filePasswords >> password;
@@ -52,24 +53,27 @@ void priv::pullUserRecords() {
 }
 
 void priv::pushUserRecords() {
-	//Iterate over maps, and output them to the file
-
+	// Iterate over maps, and output them to the file.
 }
 
 void priv::login() {
+
 	pullUserRecords();
 
 	if(users.empty()) {
         setAdmin();
 	}
 
-	// Repetition should start here
+	// Repetition should start here.
+	// Ernie: I changed cin to getline(). I hope that's OK.
 	cout << "Please enter your username: " << endl;
-	cin >> user;
+	string user;
+	getline(cin, user);
 	cout << "Please enter your password: " << endl;
-	cin >> password;
+	string password;
+	getline(cin, password);
 
-	// Might add this to the class, as well as an iter for privileges
+	// Might add this to the class, as well as an iter for privileges.
 	map<string, string>::iterator iter = users.find(user);
 
 	if (iter == users.end() || iter->first != user || iter->second != password)
@@ -79,11 +83,13 @@ void priv::login() {
 		
 		login();
 	}
+
 	else
 		auth = privileges[user];
 }
 
 void priv::setAdmin() {
+
 	cout << "Welcome to the Human Resources System (HRSys)!" << endl;
 	cout << "To get started, you will first need to create a username and password." << endl;
 	setUserName();
@@ -93,6 +99,7 @@ void priv::setAdmin() {
 }
 
 void priv::setNewUser() {
+
 	cout << "Welcome to the Human Resources System (HRSys)!" << endl;
 	cout << "To get started, you will first need to create a username and password." << endl;
 	setUserName();
@@ -101,40 +108,47 @@ void priv::setNewUser() {
 	privileges[user] = auth;
 }
 
-// Function for username/password validation
-
+// Function for setting the user password.
 void priv::setUserName() {
-	cout << "Please enter you username: " << endl;
+
+	cout << "Please enter your username: " << endl;
 	string tempUsername;
-	cin >> tempUsername;
+	getline(cin, tempUsername);
+
 	cout << "Please confirm your username: " << endl;
 	string tempUsername2;
-	cin >> tempUsername2;
+	getline(cin, tempUsername2);
+
 	if(tempUsername == tempUsername2) {
 		cout << "User name set." << endl;
 		user = tempUsername;
 		// fileUsers << tempUsername;
 		setPassword();
 	} 
+
 	else {
 		cout << "Error: Usernames do not match. Please retry." << endl;
 		setUserName();
 	}
 }
 
+// Function for setting the user password.
 void priv::setPassword() {
+
 	cout << "Please enter your password: " << endl;
 	string tempPassword;
-	cin >> tempPassword;
+	getline(cin, tempPassword);
+
 	cout << "Please confirm your password: " << endl;
 	string tempPassword2;
-	cin >> tempPassword2;
+	getline(cin, tempPassword2);
 
 	if (tempPassword == tempPassword2) {
 		cout << "Password set!" << endl;
 		password = tempPassword;
 		// filePasswords << tempPassword;
 	} 
+
 	else {
 		cout << "Error: Passwords do not match. Please retry." << endl;
 		setPassword();
@@ -142,30 +156,35 @@ void priv::setPassword() {
 }
 
 void priv::setAccess() {
+
 	// users[user] password;
+	// Ernie: I changed privlevel to a string so getline() would play nice.
 	cout << "Set Privilege Level: " << endl;
 	cout << "\t" << "1. Read-Only" << endl;
 	cout << "\t" << "2. Read and Modify" << endl;
 	cout << "\t" << "3. Full/Administrative Access" << endl;
-	int privlevel;
-	cin >> privlevel;
+	string privlevel;
+	getline(cin, privlevel);
 
 	// Validation
-	if (privlevel == 1) {
+	if (privlevel == "1") {
 		auth = 1;
 		// filePrivs << 1;
 		return;
 	}
-	if (privlevel == 2) {
+
+	if (privlevel == "2") {
 		auth = 2;
 		// filePrivs << 2;
 		return;
 	}
-	if (privlevel == 3) {
+
+	if (privlevel == "3") {
 		auth = 3;
 		// filePrivs << 3;
 		return;
 	}
+
 	cout << "Error: Invalid input. Please re-enter information." << endl;
 	setAccess();
 }
