@@ -1,4 +1,5 @@
 #include "employee.h"
+#include "priv.h"
 
 using namespace std;
 
