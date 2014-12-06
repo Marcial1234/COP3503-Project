@@ -1,5 +1,7 @@
 #include "hash.h"
 
+using namespace std;
+
 Hash::Hash() {
 	// Hash always defaults to standard hash function. 
 	hashFunction = "Standard";
