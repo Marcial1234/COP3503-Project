@@ -355,11 +355,3 @@ void Employee::printOccuption() {
 
 //other variable management functions
 void payEmployee();
-
-
-int main() {
-
-	cout << "mission successful" << endl;
-
-	return 0;
-}
