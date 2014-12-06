@@ -4,8 +4,10 @@
     Submitted: December 8, 2014
 */
 
-#ifndef crypt_h
-#define crypt_h
+#ifndef CRYPT_H
+#define CRYPT_H
+
+#include "generic dependencies.h"
 
 class Crypt {
 private:
