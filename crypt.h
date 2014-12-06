@@ -7,7 +7,7 @@
 #ifndef CRYPT_H
 #define CRYPT_H
 
-#include "generic dependencies.h"
+#include "gendepend.h"
 
 class Crypt {
 private:
