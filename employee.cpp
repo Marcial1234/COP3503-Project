@@ -13,8 +13,9 @@ Employee::Employee() {
 	setOccupation();
 	setHashSSN();
 	cout << "Is the employee new? (Y/N)" << endl;
-	string input;
+	char input;
 	cin >> input;
+
 	if(tolower(input) == 'n') {
 		setHoursWorkedWeek();
 		setHoursWorkedMonth();
@@ -50,7 +51,7 @@ int Employee::infoCheck(string type, string value) {
 	return 0;
 }
 
-//all 'setter' functions
+// All 'setter' functions
 void Employee::setName() {
 	cout << "\n" << "Please enter the employee's name (Last, First)" << endl;
 	string input;
@@ -61,6 +62,9 @@ void Employee::setName() {
 	}
 	name = input;
 }
+
+// Problem with all the string to doubles. I will have to deal with validation on all of them later.
+
 void Employee::setAge() {
 	cout << "\n" << "Please enter the employee's age" << endl;
 	string input;
@@ -145,7 +149,7 @@ void Employee::setTimeEmployed() {
 }
 void Employee::setInsurance() {
 	cout << "\n" << "If your employee qualifies for company insurance enter (Y)" << endl;
-	string input;
+	string input = "";
 	getline(cin,input);
 	if(infoCheck("string",input) == 1) {
 		cout << "Please enter a valid response (no numbers or special characters)" << endl;
@@ -197,6 +201,8 @@ void Employee::setHashSSN() {
 		setHashSSN();
 	}
 	input = strtod(input,NULL);
+
+	// What is this?
 	hashSSN = newHash.getHash(input);
 }
 void Employee::setOccupation() {
@@ -209,7 +215,8 @@ void Employee::setOccupation() {
 	}
 	occupation = input;
 }
-//all 'getter' functions
+
+// All 'getter' functions
 string Employee::getName() {
 	return name;
 }

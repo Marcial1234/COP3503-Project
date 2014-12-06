@@ -1,4 +1,4 @@
-class priv {
+class Priv {
 private:
 	// these are ONLY input streams (they only read).
 	// Need output streams, and the file they're looking at needs to be declared later on 

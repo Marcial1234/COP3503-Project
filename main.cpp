@@ -7,14 +7,11 @@
 #include "priv.h"
 #include "crypt.h"
 
-
-
 int main() {
-	Database database = new Database();
+	Database database = *(new Database());
 	database.pullFiles();
 
-
-	Priv priv = new Priv();
+	Priv priv = *(new Priv());
 	priv.login();
 	int tempauth = priv.getAuth();
 

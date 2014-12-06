@@ -63,27 +63,25 @@ void priv::login() {
 	    // Question: Are we assuming the first user to setup the system will be an admin?
         setAdmin();
 	}
+
+	// Repetition should start here
 	cout << "Please enter your username: " << endl;
 	cin >> user;
 	cout << "Please enter your password: " << endl;
 	cin >> password;
-	// THIS IS NOT MADE YET
-	// checkPassword();
-	// The following doesn't really follow how maps work... 
-	// Try with map.find() != map.end, ->first returns the key (user) and ->second returns value (password)
-	//for(int i = 0; i < 100; i++) {
-	//	if(user == users[i][0] && password == &users[i][1]) {
-	//		// Question: Why will priv be a two dimenstional array? 
-	//		// priv = users[i][2];
-	//		// return 1;
-	//	}
-	//}
 
-	cout << "Incorrect username/password combination. Please enter correct information." << endl;
-	cout << "Note: If you do not have a username and password, please contact your administrator for this system." << endl;
-	
-	// Infinate loop/recusion
-	login();
+	// Might add this to the class, as well as an iter for privileges
+	map<string, string>::iterator iter = users.find(user);
+
+	if (iter == users.end() || iter->first != user || iter->second != password)
+	{
+		cout << "Incorrect username/password combination. Please enter correct information." << endl;
+		cout << "Note: If you do not have a username and password, please contact your administrator for this system." << endl;
+		
+		login();
+	}
+	else
+		auth = privileges[user];
 }
 
 void priv::setAdmin() {

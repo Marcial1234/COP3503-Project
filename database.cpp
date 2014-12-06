@@ -3,7 +3,10 @@
 #include "database.h"
 #include "employee.h"
 
-bool loadEmployee(string filename) {
+// No idea of what 'add_employee' is. File manipulation is odd later on and should be done, rather
+// All the mods should be done on the local maps
+
+bool Database::loadEmployee(string filename) {
     if(ifstream(filename)) {
         add_employee(new Employee(filename));
         return true;
@@ -11,22 +14,23 @@ bool loadEmployee(string filename) {
     return false;
 }
 
-void addEmployee(Employee worker) {
+void Database::addEmployee(Employee worker) {
     records.push_back(worker);
 }
 
-bool deleteEmployee(Employee worker) {
+bool Database::deleteEmployee(Employee worker) {
     if(ifstream(worker.file)) {
         return ((bool)remove(worker.file) + 1);
     }
     return false;
 }
 
-void printRecord(Employee worker) {
-    cout << worker << endl;
+void Database::printRecord(Employee worker) {
+	// u high... yep
+    //cout << worker << endl;
 }
 
-bool newfile(string filename) {
+bool Database::newFile(string filename) {
     if(ifstream(filename)) {
         cout << "File already exists." << endl;
         return false;
@@ -38,10 +42,3 @@ bool newfile(string filename) {
     }
     return true;
 }
-
-void checkAuth();
-	vector<Employee> get_records() {
-        return this->records;
-    }
-
-};
