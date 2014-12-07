@@ -11,7 +11,7 @@ void Priv::login() {
 	if(usersFile.is_open() == false) {
 		setAdmin();
 	}
-
+	cout << "Login page:" << "\n" << endl;
 	cout << "Please enter your username: " << endl;
 	string user;
 	getline(cin, user);
@@ -28,19 +28,17 @@ void Priv::login() {
 			if(line1 == user && line2 == password) {
 				auth = line3;
 				success = true;
+				cout << "login successful" << "\n" << endl;
 			}
 		}
 		if(success == false) {
 			cout << "Username and/or password incorrect\n";
-			cout << "Note: If you do not have an account please contact an administrator\n";
+			cout << "Note: If you do not have an account please contact an administrator\n" << endl;
 
 			login();
 		}
 		
 	}
-	usersFile.close();
-	passFile.close();
-	privsFile.close();
 } 
 
 void Priv::setAdmin() {
@@ -49,22 +47,23 @@ void Priv::setAdmin() {
 	cout << "To get started, you will first need to create a username and password." << endl;
 	setUserName();
 
-	ofstream privsFile ("privs.txt");
+	ofstream privsFile ("privs.txt",ios_base::app);
 	privsFile << 3;
-	privsFile.close();
+	
 }
 
 void Priv::setNewUser() {
 
-	cout << "Welcome to the Human Resources System (HRSys)!" << endl;
-	cout << "To get started, you will first need to create a username and password." << endl;
+	//cout << "Welcome to the Human Resources System (HRSys)!" << endl;
+	//cout << "To get started, you will first need to create a username and password." << endl;
+	
 	setUserName();
 	setAccess();
 }
 
 // Function for setting the user password.
 void Priv::setUserName() {
-
+	cout << "Setting new user: " << "\n" << endl;
 	cout << "Please enter your username: " << endl;
 	string tempUsername;
 	getline(cin, tempUsername);
@@ -77,9 +76,8 @@ void Priv::setUserName() {
 		cout << "User name set." << endl;
 		user = tempUsername;
 		
-		ofstream usersFile ("users.txt");
+		ofstream usersFile ("users.txt",ios_base::app);
 		usersFile << user;
-		usersFile.close();
 
 		setPassword();
 	}
@@ -104,9 +102,8 @@ void Priv::setPassword() {
 		cout << "Password set!" << endl;
 		password = tempPassword;
 		
-		ofstream passFile ("pass.txt");
+		ofstream passFile ("pass.txt",ios_base::app);
 		passFile << password;
-		passFile.close();
 
 	}
 	else {
@@ -130,9 +127,8 @@ void Priv::setAccess() {
 	if (privlevel == "1") {
 		auth = 1;
 		
-		ofstream privsFile ("privs.txt");
+		ofstream privsFile ("privs.txt",ios_base::app);
 		privsFile << 1;
-		privsFile.close();
 
 		return;
 	}
@@ -140,9 +136,8 @@ void Priv::setAccess() {
 	if (privlevel == "2") {
 		auth = 2;
 		
-		ofstream privsFile ("privs.txt");
+		ofstream privsFile ("privs.txt",ios_base::app);
 		privsFile << 2;
-		privsFile.close();
 
 		return;
 	}
@@ -150,9 +145,8 @@ void Priv::setAccess() {
 	if (privlevel == "3") {
 		auth = 3;
 		
-		ofstream privsFile ("privs.txt");
+		ofstream privsFile ("privs.txt",ios_base::app);
 		privsFile << 3;
-		privsFile.close();
 
 		return;
 	}
@@ -165,7 +159,7 @@ string Priv::getAuth() {
 	return auth;
 }
 
-
+/*
 
 int tempAuth;
 
@@ -177,6 +171,9 @@ int main() {
 	
 	tempAuth = 1;
 
+	priv.setNewUser();
+
 	return 0;
 }
 
+*/
