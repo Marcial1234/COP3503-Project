@@ -17,25 +17,7 @@ enum Privs { Read, Write, Admin };
 int maxPrivValues[3] = { 1, 2, 4 };
 Privs auth = Read;
 
-string mainMenu[3][3] =
-{
-	// For now there's empty spots that'll be handled later.
-
-	// Read Menu
-	{
-		"Browse", "", "", ""
-	},
-	// Read & Write
-	{
-		"Browse", "Edit", "", ""
-	},
-	// Admin
-	{
-		"Browse", "Edit", "Build", "Go to Settings"
-	},
-};
-
-string mainMenu[3] =
+string mainMenu[4] =
 {
 	"Browse", "Edit", "Build", "Go to Settings"
 };
@@ -45,19 +27,6 @@ enum SettingsMenuOptions
 	SetHash,
 	SetCrypt,
 	ChangePriv,
-};
-
-enum BuildMenuOptions
-{
-	Move,
-	List,
-	ViewEmployee,
-	// Edit ends here
-	AddEmployee,
-	DeleteEmployee,
-	AddFile,
-	AddFolder,
-	DeleteFolder,
 };
 
 const string invalid = "\nSorry, that was an invalid input, try again\n";
@@ -79,7 +48,7 @@ int RecursivelyValitate(int max) {
 	int input = 0;
 
 	// *Cross Fingers*
-	if (getline(cin, input) && ValidateRange(input, max))
+	if ((cin >> input) && ValidateRange(input, max))
 		return input;
 	else
 	{
@@ -118,49 +87,31 @@ enum EditMenuOptions
 	DeleteFolder,
 };
 
-void (*functptrEdit[])() = { Rename, EditEmployee,  };
+//void (*functptrEdit[])() = { Rename, EditEmployee,  };
 void (*functptrSettings[])() = { Browse, Edit, Build, Settings };
 
 // Shouldn't Build just be "Build Everything"?
 void (*functptrBuild[])() = { Browse, Edit, Build, Settings };
 
-void mainMenu() {
+void printMenu() {
 	
 	cout << "Please type one of the following:" << endl;
 
 	// Printing custom Menu based on authorization type
 	// Could turn into a method and pass diff values to it, and end/go back
-	for (int i = 0; i < maxValues[auth]; ++i)
-		cout << i << ": To " << mainMenu[user][i] << endl;
+	for (int i = 0; i < maxPrivValues[auth]; ++i)
+		cout << i << ": To " << mainMenu[i] << endl;
 
-	cout << maxValues[auth] + 1 << ": To Exit" << endl;
+	cout << maxPrivValues[auth] + 1 << ": To Exit" << endl;
 
 	// Asking for user input
-	int whatToDo = RecursivelyValitate(maxValues[auth]);
+	int whatToDo = RecursivelyValitate(maxPrivValues[auth]);
 
 	// Array of function pointers to the desired 'whatToDo' function
-	void (*functionPointerArr[whatToDo])();
+	// Go die arrays and ur const values.....
+	// void (*functionPointerArr[whatToDo])();
 }
-
-void Browse(){
-	return hello;
-}
-
-void Edit(){
-	return hello;
-}
-
-void Build(){
-	return hello;
-}
-
-void Settings(){
-	return hello;
-}
-
 
 // void ClearCin() {
 // 	ClearCin();
 // }
-
-// Me will buy transporation later

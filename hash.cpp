@@ -8,58 +8,54 @@ Hash::Hash() {
 }
 
 // No clue but what is meant by "value.length", are you sure it should be an int or a string?
-int Hash::getHash(int value) {
+int Hash::getHash(string value) {
 
 	int num = checkFunction(1);
 	int temphash = 0;
 
-	if (num == 0) {
+	if (num == 0)
 		return 1;
-	}
 
 	// The standard hash function.
 	if (num == 1) {
-		for (int i = 0; i < value.length(); i++) {
-			temphash = (temphash << 4) + value.charAt(i);
-		}
+		for (int i = 0; i < value.length(); i++)
+			temphash = (temphash << 4) + value.at(i);
 	}
 
 	// The advanced hash function.
 	if (num == 2) {
-		for (int i = 0; i < value.length(); i++) {
-			temphash = (temphash << 4) + value.charAt(i);
-		}
+		for (int i = 0; i < value.length(); i++)
+			temphash = (temphash << 4) + value.at(i);
 	}
 
 	// The simple hash function.
 	if (num == 3) {
-		for (int i = 0; i < value.length(); i++) {
-			temphash = temphash + value.charAt(i);
-		}
+		for (int i = 0; i < value.length(); i++)
+			temphash = temphash + value.at(i);
 	}
 
 	return temphash;
 }
 
-string Hash::getHash(string value) {
+int Hash::getHash(string value) {
 
 	int num = checkFunction(2);
 	int temphash = 0;
 
-	if (num == 0) {
+	// Validation needed here
+	if (num == 0)
 		cout << "Error: Invalid hash function, please change." << endl;
-		return 1;
-	}
 
 	// The standard hash function.
 	if (num == 1) {
-		for(int i = 0; i < value.length(); i++) {
-			temphash = (temphash << 4) + value.charAt(i);
-			int bits = temphash & OxF0000000;
-			if(bits != 0) {
+		for(int i = 0; i < value.length(); i++)
+		{
+			temphash = (temphash << 4) + value.at(i);
+			int bits = temphash & 0xF0000000;
+			if (bits != 0)
 				temphash ^= bits >> 24;
-			}
-		temphash &= ~bits;
+
+			temphash &= ~bits;
 		}
 		return temphash;
 	}
@@ -67,9 +63,9 @@ string Hash::getHash(string value) {
 	// The advanced hash funciton.
 	if (num == 2) {
 		for(int i = 0; i < value.length(); i++) {
-			temphash = (temphash << 4) + value.charAt(i);
-			int bits = temphash & OxF0000000;
-			if(bits != 0) {
+			temphash = (temphash << 4) + value.at(i);
+			int bits = temphash & 0xF0000000;
+			if (bits != 0) {
 				temphash ^= bits >> 24;
 			}
 		temphash &= ~bits;
@@ -80,9 +76,9 @@ string Hash::getHash(string value) {
 	// The simple hash function.
 	if (num == 3) {
 		for(int i = 0; i < value.length(); i++) {
-			temphash = (temphash << 4) + value.charAt(i);
-			int bits = temphash & OxF0000000;
-			if(bits != 0) {
+			temphash = (temphash << 4) + value.at(i);
+			int bits = temphash & 0xF0000000;
+			if (bits != 0) {
 				temphash ^= bits >> 24;
 			}
 		temphash &= ~bits;
@@ -92,7 +88,7 @@ string Hash::getHash(string value) {
 }
 
 bool Hash::checkHash(int checkVal) {
-	if(checkVal == hash) {
+	if (checkVal == hash) {
 		return true;
 	} else {
 		return false;
@@ -102,51 +98,38 @@ bool Hash::checkHash(int checkVal) {
 int Hash::checkFunction(int check) {
 
 	// If the input is a integer.
-	if(check == 1) {
+	if (check == 1) {
 		// Confirms a standard hash function.
-		if (strcmp(hashFunction,"Standard") == 0) {
+		if (hashFunction == "Standard")
 			return 1;
-		}
-
-		if (strcmp(hashFunction,"Advanced") == 0) {
+		else if (hashFunction == "Advanced")
 			return 2;
-		}
-
-		if (strcmp(hashFunction,"Simple") == 0) {
+		else if (hashFunction == "Simple")
 			return 3;
-		}
 	}
 
 	// If the input is a string.
-	if(check == 2) {
-
+	if (check == 2) {
 		// Confirms a standard hash function.
-		if (strcmp(hashFunction,"Standard") == 0) {
+		if (hashFunction == "Standard")
 			return 1;
-		}
-
-		if (strcmp(hashFunction,"Advanced") == 0) {
+		else if (hashFunction == "Advanced")
 			return 2;
-		}
-
-		if (strcmp(hashFunction,"Simple") == 0) {
+		if (hashFunction == "Simple")
 			return 3;
-		}
 	}
 
 	cout << "Error: No valid hash function detected." << endl;
 	cout << "Would you like to default to the standard hash function? (Y/N): " << endl;
 	// Changed char to string to play nice with getline().
+	// String Validation needed here. Will do later
 	string input;
     getline(cin, input);
 
-	if(tolower(input) == 'y') {
+	if (input == "y")
 		return 1;
-	} 
-
-	else {
+	else
 		cout << "Warning: Hash value not calculated." << endl;
-	}
 
 	return 0;
 }
@@ -162,21 +145,12 @@ void Hash::changeFunction() {
 	string choice;
 	getline(cin, choice);
 
-	if (choice == 1) {
+	if (choice == "1")
 		hashFunction = "Standard";
-		return;
-	}
-
-	if (choice == 2) {
+	else if (choice == "2")
 		hashFunction = "Advanced";
-		return;
-	}
-
-	if (choice == 3) {
+	else if (choice == "3")
 		hashFunction = "Simple";
-		return;
-	}
-
 	else {
 		cout << "Invalid input was detected. Please try again." << endl;
 		changeFunction();

@@ -45,31 +45,31 @@ EmployeeReport::EmployeeReport() {
     getline(cin, social_security_number);
     
     cout << "Attendance: ";
-	getline(attendance);
+	getline(cin, attendance);
 
 	cout << "Leadership Ability: ";
-	getline(leadership_ability);
+	getline(cin, leadership_ability);
 
 	cout << "Quality of Work: ";
-	getline(quality_of_work);
+	getline(cin, quality_of_work);
 
 	cout << "Communication Skill: ";
-	getline(communication_skill);
+	getline(cin, communication_skill);
 
 	cout << "Organization Skill: ";
-	getline(organizational_skill);
+	getline(cin, organizational_skill);
 
 	cout << "Responsibility: ";
-	getline(responsibility);
+	getline(cin, responsibility);
 
 	cout << "Time Management: ";
-	getline(time_management);
+	getline(cin, time_management);
 
 	cout << "Team Player: ";
-	getline(team_player);
+	getline(cin, team_player);
 
 	cout << "Additional Comments: ";
-    getline(additional_comments);
+    getline(cin, additional_comments);
     
     //
     cout << "Name: " << name;

@@ -14,7 +14,7 @@ class Employee{
 
 private:
 	std::string name;
-	double age;
+	int age;
 	double salary;
 	double hashSSN;
 	double timeEmployed;

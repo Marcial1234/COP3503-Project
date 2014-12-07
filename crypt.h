@@ -13,15 +13,16 @@ class Crypt {
 private:
 	std::string key;
 	std::string cipher;
+	// Marcial: The user shouldn't have acces to the following 
+	std::string getKey();
+	std::string getCipher();
 
 public:
 	Crypt();
 	void setKey();
 	void setCipher();
-	std::string getKey();
 	std::string encrypt();
 	std::string decrypt();
-	std::string getCipher();
 };
 
 #endif

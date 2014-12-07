@@ -8,7 +8,7 @@ using namespace std;
 // All the mods should be done on the local maps
 
 bool Database::loadEmployee(string filename) {
-    if(ifstream(filename)) {
+    if (ifstream(filename)) {
         add_employee(new Employee(filename));
         return true;
     }
@@ -20,7 +20,7 @@ void Database::addEmployee(Employee worker) {
 }
 
 bool Database::deleteEmployee(Employee worker) {
-    if(ifstream(worker.file)) {
+    if (ifstream(worker.file)) {
         return ((bool)remove(worker.file) + 1);
     }
     return false;
@@ -32,7 +32,7 @@ void Database::printRecord(Employee worker) {
 }
 
 bool Database::newFile(string filename) {
-    if(ifstream(filename)) {
+    if (ifstream(filename)) {
         cout << "File already exists." << endl;
         return false;
     }

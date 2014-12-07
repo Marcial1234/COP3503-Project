@@ -18,7 +18,7 @@ Employee::Employee() {
 	char input;
 	cin >> input;
 
-	if(tolower(input) == 'n') {
+	if (tolower(input) == 'n') {
 		setHoursWorkedWeek();
 		setHoursWorkedMonth();
 		setRaise();
@@ -38,17 +38,17 @@ Employee::Employee() {
 // Again the issue of 'value.length', defaulted to string in this case since no prior type was present.
 int Employee::infoCheck(string type, string value) {
 
-	if(type == "string") {
+	if (type == "string") {
 		for(int i = 0; i < value.length(); i++) {
-			if(isdigit(value.at(i)) != 0) {
+			if (isdigit(value.at(i)) != 0) {
 				return 1;
 			}
 		}
 	}
 
-	if(type == "double") {
+	if (type == "double") {
 		for(int i = 0;i < value.length();i++) {
-			if(isalpha(value.at(i)) != 0) {
+			if (isalpha(value.at(i)) != 0) {
 				return 1;
 			}
 		}
@@ -64,7 +64,7 @@ void Employee::setName() {
 	string input;
 	getline(cin,input);
 
-	if(infoCheck("string",input) == 1) {
+	if (infoCheck("string",input) == 1) {
 		cout << "One or more invalid characters was detected. Please try again." << endl;
 		setName();
 	}
@@ -76,17 +76,17 @@ void Employee::setName() {
 void Employee::setAge() {
 
 	cout << "\n" << "Please enter the employee's age." << endl;
+	// Validation needed here
 	string input;
 	getline(cin,input);
 	
-	double tempCheck = atof(input);
-	if(infoCheck("double",input) == 1 || tempCheck <= 0) {
+	double tempCheck = stoi(input);
+	if (infoCheck("double",input) == 1 || tempCheck <= 0) {
 		cout << "Please enter a valid age (no letters or other characters)" << endl;
 		setAge();
 	}
 
-	input = atof(input);
-	age = input;
+	age = stoi(input);
 }
 
 void Employee::setSalary() {
@@ -95,13 +95,12 @@ void Employee::setSalary() {
 	string input;
 	getline(cin,input);
 
-	if(infoCheck("double",input) == 1 || atof(input) <= 0) {
+	if (infoCheck("double",input) == 1 || stod(input) <= 0) {
 		cout << "Please enter a valid salary (no letters or other characters)" << endl;
 		setSalary();
 	}
 
-	input = atof(input);
-	salary = input;
+	salary = stod(input);
 }
 
 void Employee::setRaise() {
@@ -110,12 +109,12 @@ void Employee::setRaise() {
 	string input;
 	getline(cin,input);
 
-	if(infoCheck("string",input) == 1) {
+	if (infoCheck("string",input) == 1) {
 		cout << "Please enter a valid response (no numbers or special characters)" << endl;
 		setRaise();
 	}
 
-	if(input == "Y" || input == "y") {
+	if (input == "Y" || input == "y") {
 		raise = true;
 		setRaiseValue();
 	} 
@@ -130,70 +129,74 @@ void Employee::setRaiseValue() {
 	cout << "\t" << "Note: Raise can be negative in the event of a reduction in salary" << endl;
 	string input;
 	getline(cin,input);
-	if(infoCheck("double",input) == 1 ) {
+	if (infoCheck("double",input) == 1 ) {
 		cout << "Please enter a valid number (no letters or other characters)" << endl;
 		setRaiseValue();
 	}
-	input = atof(input,NULL);
-	raiseValue = input;
+	raiseValue = stod(input);
 }
 void Employee::setHoursWorkedWeek() {
 	cout << "\n" << "Please enter the number of hours the employee worked this week" << endl;
 	string input;
 	getline(cin,input);
-	if(infoCheck("double",input) == 1 || atof(input) <= 0) {
+	if (infoCheck("double",input) == 1 || stod(input) <= 0) {
 		cout << "Please enter a valid number (no letters or other characters)" << endl;
 		setHoursWorkedWeek();
 	}
-	input = atof(input);
-	hoursWorkedWeek = input;
+	hoursWorkedWeek = stod(input);
 }
 void Employee::setHoursWorkedMonth() {
 	cout << "\n" << "Please enter the number of hours the employee worked this month" << endl;
 	string input;
 	getline(cin,input);
-	if(infoCheck("double",input) == 1 || atof(input) <= 0) {
+
+	if (infoCheck("double",input) == 1 || stod(input) <= 0) {
 		cout << "Please enter a valid number (no letters or other characters)" << endl;
 		setHoursWorkedMonth();
 	}
-	input = atof(input,NULL);
-	hoursWorkedMonth = input;
+
+	hoursWorkedMonth = stod(input);
 }
 void Employee::setTimeEmployed() {
 	cout << "\n" << "Please enter the time employed (months)" << endl;
 	string input;
 	getline(cin,input);
-	if(infoCheck("double",input) == 1 || atof(input) <= 0) {
+
+	if (infoCheck("double",input) == 1 || stod(input) <= 0) {
 		cout << "Please enter a valid number (no letters or other characters)" << endl;
 		setTimeEmployed();
 	}
-	input = atof(input);
-	timeEmployed = input;
+
+	timeEmployed = stod(input);
 }
 void Employee::setInsurance() {
+
 	cout << "\n" << "If your employee qualifies for company insurance enter (Y)" << endl;
 	string input = "";
 	getline(cin,input);
-	if(infoCheck("string",input) == 1) {
+
+	if (infoCheck("string",input) == 1) {
 		cout << "Please enter a valid response (no numbers or special characters)" << endl;
 		setInsurance();
 	}
-	if(tolower(input) == 'y') {
+	if (input == "y") {
 		insurance = true;
 		setInsurancePlan();
-	} else {
-		insurance = false;
 	}
+	else
+		insurance = false;
 }
 
 void Employee::setInsurancePlan() {
 	cout << "\n" << "Please enter the name of you employee's insurance plan" << endl;
 	string input;
 	getline(cin,input);
-	if(infoCheck("string",input) == 1) {
+
+	if (infoCheck("string",input) == 1) {
 		cout << "Please enter a valid response (no numbers or special characters)" << endl;
 		setInsurancePlan();
 	}
+
 	insurancePlan = input;
 }
 
@@ -208,7 +211,7 @@ void Employee::setComment() {
 	cout << "\n" << "If you have any comment's to add to the employee's record add them here" << endl;
 	string input;
 	getline(cin,input);
-	if(infoCheck("string",input) == 1) {
+	if (infoCheck("string",input) == 1) {
 		cout << "Please enter a comment" << endl;
 		setComment();
 	}
@@ -219,11 +222,12 @@ void Employee::setHashSSN() {
 	cout << "\t" << "Note: The SSN itself will not be stored, rather a hash result will be stored for later validation purposes" << endl;
 	string input;
 	getline(cin,input);
-	if(infoCheck("double",input) == 1 || input.length() != 9) {
+
+	if (infoCheck("double",input) == 1 || input.length() != 9) {
 		cout << "Please enter a valid number" << endl;
 		setHashSSN();
 	}
-	input = atof(input);
+	input = stod(input);
 
 	// What is this?
 	hashSSN = hash->getHash(input);
@@ -232,10 +236,12 @@ void Employee::setOccupation() {
 	cout << "\n" << "Please enter the name of you employee's role in your company" << endl;
 	string input;
 	getline(cin,input);
-	if(infoCheck("string",input) == 1) {
+
+	if (infoCheck("string",input) == 1) {
 		cout << "Please enter a valid response" << endl;
 		setOccupation();
 	}
+
 	occupation = input;
 }
 

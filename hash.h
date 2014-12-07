@@ -17,7 +17,7 @@ private:
 public:
 	Hash();
 	int getHash(int value);
-	std::string getHash(std::string value);
+	int getHash(std::string value);
 	int checkFunction(int);
 	bool checkHash(int);
 	void changeFunction();

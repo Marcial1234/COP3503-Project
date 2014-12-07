@@ -12,8 +12,7 @@
 
 class Database {
 private:
-
-    vector<Employee> records;
+    std::vector<Employee> records;
 
 public:
 //I'm assuming these are currently being built or will be built in the near future

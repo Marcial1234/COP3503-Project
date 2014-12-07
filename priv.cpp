@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void priv::pullUserRecords() {
+void Priv::pullUserRecords() {
 	string username;
 	string password;
 	int authorization;
@@ -18,20 +18,19 @@ void priv::pullUserRecords() {
 	}
 }
 
-void priv::pushUserRecords() {
+void Priv::pushUserRecords() {
 	// Iterate over maps, and output them to the file.
 }
 
-void priv::login() {
+void Priv::login() {
 
 	pullUserRecords();
 
-	if(users.empty()) {
+	if (users.empty()) {
         setAdmin();
 	}
 
 	// Repetition should start here.
-	// Ernie: I changed cin to getline(). I hope that's OK.
 	cout << "Please enter your username: " << endl;
 	string user;
 	getline(cin, user);
@@ -49,12 +48,11 @@ void priv::login() {
 		
 		login();
 	}
-
 	else
 		auth = privileges[user];
 }
 
-void priv::setAdmin() {
+void Priv::setAdmin() {
 
 	cout << "Welcome to the Human Resources System (HRSys)!" << endl;
 	cout << "To get started, you will first need to create a username and password." << endl;
@@ -64,7 +62,7 @@ void priv::setAdmin() {
 	// filePrivs << 3;
 }
 
-void priv::setNewUser() {
+void Priv::setNewUser() {
 
 	cout << "Welcome to the Human Resources System (HRSys)!" << endl;
 	cout << "To get started, you will first need to create a username and password." << endl;
@@ -75,7 +73,7 @@ void priv::setNewUser() {
 }
 
 // Function for setting the user password.
-void priv::setUserName() {
+void Priv::setUserName() {
 
 	cout << "Please enter your username: " << endl;
 	string tempUsername;
@@ -85,13 +83,12 @@ void priv::setUserName() {
 	string tempUsername2;
 	getline(cin, tempUsername2);
 
-	if(tempUsername == tempUsername2) {
+	if (tempUsername == tempUsername2) {
 		cout << "User name set." << endl;
 		user = tempUsername;
 		// fileUsers << tempUsername;
 		setPassword();
-	} 
-
+	}
 	else {
 		cout << "Error: Usernames do not match. Please retry." << endl;
 		setUserName();
@@ -99,7 +96,7 @@ void priv::setUserName() {
 }
 
 // Function for setting the user password.
-void priv::setPassword() {
+void Priv::setPassword() {
 
 	cout << "Please enter your password: " << endl;
 	string tempPassword;
@@ -113,15 +110,14 @@ void priv::setPassword() {
 		cout << "Password set!" << endl;
 		password = tempPassword;
 		// filePasswords << tempPassword;
-	} 
-
+	}
 	else {
 		cout << "Error: Passwords do not match. Please retry." << endl;
 		setPassword();
 	}
 }
 
-void priv::setAccess() {
+void Priv::setAccess() {
 
 	// users[user] password;
 	// Ernie: I changed privlevel to a string so getline() would play nice.
@@ -155,6 +151,6 @@ void priv::setAccess() {
 	setAccess();
 }
 
-int priv::getAuth() {
+int Priv::getAuth() {
 	return auth;
 }
