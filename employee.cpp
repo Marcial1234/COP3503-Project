@@ -34,24 +34,29 @@ Employee::Employee() {
 
 	cout << "Note: Make sure to update employee information on a regular basis." << endl;
 }
-friend ostream Employee::&operator<<(ostream &out, Employee worker)    
+friend ostream Employee::&operator<<(ostream &out, Employee worker)
 {
-     	 out << worker.getRaise();
-	 out << worker.getInsurance();
-	 out << worker.getName();
+     out << worker.getName();
+     out << worker.getOccupation();
+     if(worker.getRaise())
+     {
+         worker.getRaiseValue();
+     }
+     if(worker.getInsurance())
+     {
+         worker.getInsurancePlan();
+     }
 	 out << worker.getComment();
-     	 out << worker.getOccupation();
-	 out << worker.getInsurancePlan();
 	 out << worker.getAge();
 	 out << worker.getSalary();
 	 out << worker.getHashSSN();
-	 out << worker.getRaiseValue();
 	 out << worker.getTimeEmployed();
 	 out << worker.getHoursWorkedWeek();
 	 out << worker.getHoursWorkedMonth();
 	 out << worker.getPerformanceReport();
      return out;
 }
+
 // Again the issue of 'value.length', defaulted to string in this case since no prior type was present.
 int Employee::infoCheck(string type, string value) {
 
