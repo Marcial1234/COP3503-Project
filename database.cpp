@@ -27,10 +27,16 @@ bool Database::deleteEmployee(Employee worker) {
 }
 
 void Database::printRecord(Employee worker) {
-	// u high... yep
-    //cout << worker << endl;
+    cout << worker << endl;
 }
 
+void Database::printAllRecords(vector<Employee> employee_records)
+{
+	for(int i = 0; i != employee_records.size(); i++ )
+	{
+		cout << employee_records.at(i); << endl;
+	}
+}
 bool Database::newFile(string filename) {
     if (ifstream(filename)) {
         cout << "File already exists." << endl;
