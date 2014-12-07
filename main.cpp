@@ -9,14 +9,16 @@
 
 using namespace std;
 
+int tempAuth;
+
 int main() {
 	
 	Database database = *(new Database());
-	database.pullFiles();
-
+	
 	Priv priv = *(new Priv());
 	priv.login();
-	int tempauth = priv.getAuth();
+	
+	tempAuth = priv.getAuth();
 
 	bool stop = false;
 	while(stop == false) {
@@ -34,6 +36,6 @@ int main() {
 		}
 	}	
 
-	database.pushFiles();
+	//database.pushUserRecords();
 	return 0;
 }

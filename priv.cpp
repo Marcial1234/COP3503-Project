@@ -2,35 +2,16 @@
 
 using namespace std;
 
-void Priv::pullUserRecords() {
-	string username;
-	string password;
-	int authorization;
-	
-	while (!fileUsers.eof()) {
-		// Reading order: [username] [password] [authorization]
-		fileUsers >> username;
-		filePasswords >> password;
-		filePrivs >> authorization;
-		cout << "PARSED: " << username << " " << password << " " << authorization << "\n";
-		users[username] = password;
-		privileges[username] = authorization;
-	}
-}
-
-void Priv::pushUserRecords() {
-	// Iterate over maps, and output them to the file.
-}
-
 void Priv::login() {
 
-	pullUserRecords();
+	fstream usersFile ("users.txt");
+	fstream passFile ("pass.txt");
+	fstream privsFile ("privs.txt");
 
-	if (users.empty()) {
-        setAdmin();
+	if(usersFile.is_open() == false) {
+		setAdmin();
 	}
 
-	// Repetition should start here.
 	cout << "Please enter your username: " << endl;
 	string user;
 	getline(cin, user);
@@ -38,28 +19,39 @@ void Priv::login() {
 	string password;
 	getline(cin, password);
 
-	// Might add this to the class, as well as an iter for privileges.
-	map<string, string>::iterator iter = users.find(user);
+	string line1;
+	string line2;
+	string line3;
+	if(usersFile.is_open() && passFile.is_open() && privsFile.is_open()) {
+		bool success = false;
+		while(getline(usersFile,line1) && getline(passFile,line2) && getline(privsFile,line3)) {
+			if(line1 == user && line2 == password) {
+				auth = line3;
+				success = true;
+			}
+		}
+		if(success == false) {
+			cout << "Username and/or password incorrect\n";
+			cout << "Note: If you do not have an account please contact an administrator\n";
 
-	if (iter == users.end() || iter->first != user || iter->second != password)
-	{
-		cout << "Incorrect username/password combination. Please enter correct information." << endl;
-		cout << "Note: If you do not have a username and password, please contact your administrator for this system." << endl;
+			login();
+		}
 		
-		login();
 	}
-	else
-		auth = privileges[user];
-}
+	usersFile.close();
+	passFile.close();
+	privsFile.close();
+} 
 
 void Priv::setAdmin() {
 
 	cout << "Welcome to the Human Resources System (HRSys)!" << endl;
 	cout << "To get started, you will first need to create a username and password." << endl;
 	setUserName();
-	users[user] = password;
-	privileges[user] = 3;
-	// filePrivs << 3;
+
+	fstream privsFile ("privs.txt");
+	privsFile << 3;
+	privsFile.close();
 }
 
 void Priv::setNewUser() {
@@ -68,8 +60,6 @@ void Priv::setNewUser() {
 	cout << "To get started, you will first need to create a username and password." << endl;
 	setUserName();
 	setAccess();
-	users[user] = password;
-	privileges[user] = auth;
 }
 
 // Function for setting the user password.
@@ -86,7 +76,11 @@ void Priv::setUserName() {
 	if (tempUsername == tempUsername2) {
 		cout << "User name set." << endl;
 		user = tempUsername;
-		// fileUsers << tempUsername;
+		
+		fstream usersFile ("users.txt");
+		usersFile << user;
+		usersFile.close();
+
 		setPassword();
 	}
 	else {
@@ -109,7 +103,11 @@ void Priv::setPassword() {
 	if (tempPassword == tempPassword2) {
 		cout << "Password set!" << endl;
 		password = tempPassword;
-		// filePasswords << tempPassword;
+		
+		fstream passFile ("pass.txt");
+		cout << password;
+		passFile.close();
+
 	}
 	else {
 		cout << "Error: Passwords do not match. Please retry." << endl;
@@ -131,19 +129,31 @@ void Priv::setAccess() {
 	// Validation
 	if (privlevel == "1") {
 		auth = 1;
-		// filePrivs << 1;
+		
+		fstream privsFile ("privs.txt");
+		privsFile << 1;
+		privsFile.close();
+
 		return;
 	}
 
 	if (privlevel == "2") {
 		auth = 2;
-		// filePrivs << 2;
+		
+		fstream privsFile ("privs.txt");
+		privsFile << 2;
+		privsFile.close();
+
 		return;
 	}
 
 	if (privlevel == "3") {
 		auth = 3;
-		// filePrivs << 3;
+		
+		fstream privsFile ("privs.txt");
+		privsFile << 3;
+		privsFile.close();
+
 		return;
 	}
 
@@ -151,6 +161,23 @@ void Priv::setAccess() {
 	setAccess();
 }
 
-int Priv::getAuth() {
+string Priv::getAuth() {
 	return auth;
 }
+
+/*
+
+int tempAuth;
+
+
+int main() {
+	
+	Priv priv = *(new Priv());
+	priv.login();
+	
+	tempAuth = 1;
+
+	return 0;
+}
+
+*/

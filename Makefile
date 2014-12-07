@@ -2,7 +2,7 @@
 
 #Compiler settings
 CC = g++
-CFLAGS = -g -Wall
+CFLAGS = -g -Wall -std=c++0x
 
 default: HRSys
 
