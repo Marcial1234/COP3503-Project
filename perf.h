@@ -11,9 +11,19 @@
 #include "gendepend.h"
 
 class EmployeeReport {
+private:
+	std::string name;
+    std::string attendance;
+    std::string leadershipAbility;
+    std::string workQuality;
+    std::string communication;
+    std::string organization;
+    std::string responsibility;
+    std::string timeManagement;
+    std::string additionalComments;
 public:
-	EmployeeReport();
-	int check_user_authorization();
+	EmployeeReport(std::string employeeFile, std::string reportNumber);
+	int checkUserAuthorization();
 };
 
 #endif

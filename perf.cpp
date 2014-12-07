@@ -4,93 +4,61 @@
     Submitted: December 5, 2014
 */
 
-// Todo: Coordinate with Marcial and Dax on verification. May take out some extra formats.
-// Todo: Implement functions in "employee.cpp" to interface with "perf.cpp".
-// Todo: Implement comment system and viewing system. This probably depends on ability to save data to .txt files.
-// Todo: Unforseen bug-fixes. Work on other areas of the project which need assistance.
 #include "perf.h"
 
 using namespace std;
 
-EmployeeReport::EmployeeReport() {
+EmployeeReport::EmployeeReport(string employeeFile, string reportNumber) {
+    ofstream toFile(employeeFile,ios_base::app);
+    toFile << "\n" << reportNumber;
 
-    string name;
-    string birthdate;
-    string social_security_number;
-    string attendance;
-    string leadership_ability;
-    string quality_of_work;
-    string communication_skill;
-    string organizational_skill;
-    string responsibility;
-    string time_management;
-    string team_player;
-    string additional_comments;
+    cout << "Performance Report: " << "\n" << endl;
 
-	cout << "Welcome to the HRSys Employee Report and Acquisition Module (HRSyS ERAM)." << endl;
-	cout << "Information can be requested on any active employee." << endl;
-	cout << endl;
-
-	cout << "Welcome to the HRSys Employee Report and Acquisition Module (HRSyS ERAM)." << endl;
-	cout << "Information can be generated or edited for any active employee.\n" << endl;
-
-	cout << "Name: ";
+	cout << "Employee Name: ";
 	getline(cin, name);
-
-    cout << "Birthdate: ";
-	getline(cin, birthdate);
-
-    cout << "Social Security Number: ";
-	cin >> social_security_number;
-    getline(cin, social_security_number);
+    toFile << "Name: " << name << endl;
     
     cout << "Attendance: ";
 	getline(cin, attendance);
+    toFile << "Attendance: " << attendance << endl;
 
 	cout << "Leadership Ability: ";
-	getline(cin, leadership_ability);
+	getline(cin, leadershipAbility);
+    toFile << "Leadership Ability" << leadershipAbility << endl;
 
 	cout << "Quality of Work: ";
-	getline(cin, quality_of_work);
+	getline(cin, workQuality);
+    toFile << "Quality of Work: " << workQuality << endl;
 
-	cout << "Communication Skill: ";
-	getline(cin, communication_skill);
+	cout << "Communication Skills: ";./
+	getline(cin, communication);
+    toFile << "Communication: " << communication << endl;
 
-	cout << "Organization Skill: ";
-	getline(cin, organizational_skill);
+	cout << "Organizational Skill: ";
+	getline(cin, organization);
+    toFile << "Organizational Skill: " << organization << endl;
 
 	cout << "Responsibility: ";
 	getline(cin, responsibility);
+    toFile << "Responsibility: " << responsibility << endl;
 
 	cout << "Time Management: ";
-	getline(cin, time_management);
-
-	cout << "Team Player: ";
-	getline(cin, team_player);
+	getline(cin, timeManagement);
+    toFile << "Time Management: " << timeManagement << endl;
 
 	cout << "Additional Comments: ";
-    getline(cin, additional_comments);
+    getline(cin, additionalComments);
+    toFile << "Additional Comments: " << additionalComments << "\n" << endl;
     
-    //
-    cout << "Name: " << name;
-    cout << "Birthdate: " << birthdate;
-    cout << "Social Security Number: " << social_security_number;
-    cout << "\n-------------------------------\n";
-    cout << "Attendance: " << attendance;
-    cout << "Leadership Ability: " << leadership_ability;
-    cout << "Quality of Work: " << quality_of_work;
-    cout << "Communciation Skill: " << communication_skill;
-    cout << "Organizational Skill: " << organizational_skill;
-    cout << "Responsibility: " << responsibility;
-    cout << "Time Management: " << time_management;
-    cout << "Team Player: " << team_player;
-    cout << "\n-------------------------------\n";
-    cout << "Additional Comments: " << additional_comments;
+    toFile.close();
 }
-
-// Some testing.
+/*
+// Example use
 int main() {
-	EmployeeReport(); 
-	cout << "Preliminary test was a success!" << endl;
+    string employeeFile = "employeeFile.txt";
+    string reportNumber = "report1.txt";
+    EmployeeReport report = *(new EmployeeReport(employeeFile, reportNumber));
+
 	return 0;
 }
+*/
