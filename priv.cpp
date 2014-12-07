@@ -81,8 +81,9 @@ void Priv::setUserName() {
 	if (tempUsername == tempUsername2) {
 		cout << "User name set." << endl;
 		user = tempUsername;
-		
+
 		ofstream usersFile ("users.txt",ios_base::app);
+		Crypt crypt = *(new Crypt());
 		user = crypt.encrypt(user);
 		usersFile << "\n" << user;
 		setPassword();
@@ -109,6 +110,7 @@ void Priv::setPassword() {
 		password = tempPassword;
 		
 		ofstream passFile ("pass.txt",ios_base::app);
+		Crypt crypt = *(new Crypt());
 		password = crypt.encrypt(password);
 		passFile << "\n" << password;
 
