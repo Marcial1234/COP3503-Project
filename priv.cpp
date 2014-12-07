@@ -8,6 +8,9 @@ void Priv::login() {
 	ifstream usersFile ("users.txt");
 	ifstream passFile ("pass.txt");
 	ifstream privsFile ("privs.txt");
+	//ifstream settingsFile ("set.txt");
+
+	Crypt crypt = *(new Crypt());
 
 	if(usersFile.is_open() == false) {
 		setAdmin();
@@ -26,6 +29,8 @@ void Priv::login() {
 	if(usersFile.is_open() && passFile.is_open() && privsFile.is_open()) {
 		bool success = false;
 		while(getline(usersFile,line1) && getline(passFile,line2) && getline(privsFile,line3)) {
+			line1 = crypt.decrypt(line1);
+			line2 = crypt.decrypt(line2);
 			if(line1 == user && line2 == password) {
 				auth = line3;
 				success = true;
@@ -78,8 +83,8 @@ void Priv::setUserName() {
 		user = tempUsername;
 		
 		ofstream usersFile ("users.txt",ios_base::app);
+		user = crypt.encrypt(user);
 		usersFile << "\n" << user;
-
 		setPassword();
 	}
 	else {
@@ -104,6 +109,7 @@ void Priv::setPassword() {
 		password = tempPassword;
 		
 		ofstream passFile ("pass.txt",ios_base::app);
+		password = crypt.encrypt(password);
 		passFile << "\n" << password;
 
 	}

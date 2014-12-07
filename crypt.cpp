@@ -3,35 +3,56 @@
 using namespace std;
 
 Crypt::Crypt() {
-	// Ernie: I added a string variable called key. It seemed to be used later on (line 42) but was never declared.
-	string key;
+	int shift = 5;
 	string cipher = "Caesar";
 	cout << "Please enter a key: " << endl;
 	getline(cin, key);
 }
 
-string Crypt::encrypt() {
+string Crypt::encrypt(string text) {
 	// Validation needed here
-	if (cipher == "Caesar")
-		// Code goes here.
-		;
-	else if (cipher == "Vigenere")
+	if (cipher == "Caesar") {
+		int tempInt;
+		char ch;
+		string newstring;
+		for(char& c : text) {
+			tempInt = (int) c + shift;
+			if(tempInt > 126) {
+				tempInt = (int) c - 126;
+			}
+			ch = tempInt;
+			newstring += ch;
+		}
+		return newstring;
+	} else if (cipher == "Vigenere") {
 		// Code goes here
-		;
-	else
+		return text;
+	} else {
 		cout << "No cipher set, please rectify." << endl;
+	}
 }
 
-string Crypt::decrypt() {
+string Crypt::decrypt(string text) {
 
-	if (cipher == "Caesar")
+	if (cipher == "Caesar") {
+		int tempInt;
+		char ch;
+		string newstring;
+		for(char& c : text) {
+			tempInt = (int) c - shift;
+			if(tempInt < 1) {
+				tempInt = (int) c + 126; 
+			}
+			ch = tempInt;
+			newstring += ch;
+		}
+		return newstring;
+	} else if (cipher == "Vigenere")
         // Code goes here.
-		return;
-	else if (cipher == "Vigenere")
-        // Code goes here.
-		return;
-	else
+		return text;
+	else {
 		cout << "No cipher set, please rectify." << endl;
+	}
 }
 
 string Crypt::getKey() {
