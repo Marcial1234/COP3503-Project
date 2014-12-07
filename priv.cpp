@@ -1,4 +1,5 @@
 #include "priv.h"
+#include "crypt.h"
 
 using namespace std;
 
@@ -48,7 +49,7 @@ void Priv::setAdmin() {
 	setUserName();
 
 	ofstream privsFile ("privs.txt",ios_base::app);
-	privsFile << 3;
+	privsFile << "\n" << 3;
 	
 }
 
@@ -77,7 +78,7 @@ void Priv::setUserName() {
 		user = tempUsername;
 		
 		ofstream usersFile ("users.txt",ios_base::app);
-		usersFile << user;
+		usersFile << "\n" << user;
 
 		setPassword();
 	}
@@ -103,7 +104,7 @@ void Priv::setPassword() {
 		password = tempPassword;
 		
 		ofstream passFile ("pass.txt",ios_base::app);
-		passFile << password;
+		passFile << "\n" << password;
 
 	}
 	else {
@@ -128,7 +129,7 @@ void Priv::setAccess() {
 		auth = 1;
 		
 		ofstream privsFile ("privs.txt",ios_base::app);
-		privsFile << 1;
+		privsFile << "\n" << 1;
 
 		return;
 	}
@@ -137,7 +138,7 @@ void Priv::setAccess() {
 		auth = 2;
 		
 		ofstream privsFile ("privs.txt",ios_base::app);
-		privsFile << 2;
+		privsFile << "\n" << 2;
 
 		return;
 	}
@@ -146,7 +147,7 @@ void Priv::setAccess() {
 		auth = 3;
 		
 		ofstream privsFile ("privs.txt",ios_base::app);
-		privsFile << 3;
+		privsFile << "\n" << 3;
 
 		return;
 	}
@@ -159,13 +160,12 @@ string Priv::getAuth() {
 	return auth;
 }
 
-/*
+
 
 int tempAuth;
 
 
 int main() {
-	
 	Priv priv = *(new Priv());
 	priv.login();
 	
@@ -175,5 +175,3 @@ int main() {
 
 	return 0;
 }
-
-*/
