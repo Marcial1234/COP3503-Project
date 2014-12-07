@@ -7,9 +7,9 @@ using namespace std;
 // No idea of what 'add_employee' is. File manipulation is odd later on and should be done, rather
 // All the mods should be done on the local maps
 
-bool Database::loadEmployee(string filename) {
+bool Database::loadEmployee() {
     if (ifstream(filename)) {
-        add_employee(new Employee(filename));
+        add_employee(new Employee());
         return true;
     }
     return false;
@@ -20,8 +20,12 @@ void Database::addEmployee(Employee worker) {
 }
 
 bool Database::deleteEmployee(Employee worker) {
-    if (ifstream(worker.file)) {
-        return ((bool)remove(worker.file) + 1);
+    if (ifstream(worker.reports)) 
+    {
+        if(remove(worker.reports) == 0 ))
+        {
+        	return true;
+        }
     }
     return false;
 }
@@ -37,6 +41,7 @@ void Database::printAllRecords(vector<Employee> employee_records)
 		cout << employee_records.at(i); << endl;
 	}
 }
+
 bool Database::newFile(string filename) {
     if (ifstream(filename)) {
         cout << "File already exists." << endl;
