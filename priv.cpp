@@ -4,9 +4,9 @@ using namespace std;
 
 void Priv::login() {
 
-	fstream usersFile ("users.txt");
-	fstream passFile ("pass.txt");
-	fstream privsFile ("privs.txt");
+	ifstream usersFile ("users.txt");
+	ifstream passFile ("pass.txt");
+	ifstream privsFile ("privs.txt");
 
 	if(usersFile.is_open() == false) {
 		setAdmin();
@@ -49,7 +49,7 @@ void Priv::setAdmin() {
 	cout << "To get started, you will first need to create a username and password." << endl;
 	setUserName();
 
-	fstream privsFile ("privs.txt");
+	ofstream privsFile ("privs.txt");
 	privsFile << 3;
 	privsFile.close();
 }
@@ -77,7 +77,7 @@ void Priv::setUserName() {
 		cout << "User name set." << endl;
 		user = tempUsername;
 		
-		fstream usersFile ("users.txt");
+		ofstream usersFile ("users.txt");
 		usersFile << user;
 		usersFile.close();
 
@@ -104,8 +104,8 @@ void Priv::setPassword() {
 		cout << "Password set!" << endl;
 		password = tempPassword;
 		
-		fstream passFile ("pass.txt");
-		cout << password;
+		ofstream passFile ("pass.txt");
+		passFile << password;
 		passFile.close();
 
 	}
@@ -130,7 +130,7 @@ void Priv::setAccess() {
 	if (privlevel == "1") {
 		auth = 1;
 		
-		fstream privsFile ("privs.txt");
+		ofstream privsFile ("privs.txt");
 		privsFile << 1;
 		privsFile.close();
 
@@ -140,7 +140,7 @@ void Priv::setAccess() {
 	if (privlevel == "2") {
 		auth = 2;
 		
-		fstream privsFile ("privs.txt");
+		ofstream privsFile ("privs.txt");
 		privsFile << 2;
 		privsFile.close();
 
@@ -150,7 +150,7 @@ void Priv::setAccess() {
 	if (privlevel == "3") {
 		auth = 3;
 		
-		fstream privsFile ("privs.txt");
+		ofstream privsFile ("privs.txt");
 		privsFile << 3;
 		privsFile.close();
 
@@ -165,7 +165,7 @@ string Priv::getAuth() {
 	return auth;
 }
 
-/*
+
 
 int tempAuth;
 
@@ -180,4 +180,3 @@ int main() {
 	return 0;
 }
 
-*/
