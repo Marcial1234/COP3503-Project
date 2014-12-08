@@ -1,4 +1,5 @@
 #include "validation.h"
+#include "gendepend.h"
 
 // This file might give warnings. Not worrying about them for now.
 
@@ -35,14 +36,12 @@ enum SettingsMenuOptions
 	ChangePriv,
 };
 
-const string invalid = "\nSorry, that was an invalid input, try again\n";
-
-// End of "Globals"
+// End of "Globals".
 
 void SpitOutStupidity() {
-	cout << invalid << endl;
-	cin.clear();
-	cin.ignore(1024, '\n');
+	std::cout << "\nSorry, that was an invalid input, try again.\n" << std::endl;
+	std::cin.clear();
+	std::cin.ignore(1024, '\n');
 }
 
 // Numeric validation
