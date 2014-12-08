@@ -1,5 +1,6 @@
 #include "priv.h"
 #include "crypt.h"
+#include "validation.h"
 
 using namespace std;
 
