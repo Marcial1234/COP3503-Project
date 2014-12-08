@@ -4,13 +4,13 @@
     Submitted: December 5, 2014
 */
 
-
 #ifndef PERF_H
 #define PERF_H
 
 #include "gendepend.h"
 
 class EmployeeReport {
+
 private:
 	std::string name;
     std::string attendance;
@@ -21,6 +21,7 @@ private:
     std::string responsibility;
     std::string timeManagement;
     std::string additionalComments;
+
 public:
 	EmployeeReport(std::string employeeFile, std::string reportNumber);
 	int checkUserAuthorization();
