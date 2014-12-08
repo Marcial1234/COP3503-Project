@@ -80,18 +80,14 @@ string RecursivelyValitate(vector<string> &options) {
 	}
 }
 
-// Come up with ideas of why this should return the variable value.
 void printGenericMenu(string placeHolder, vector<string> &v) {
 	cout << placeHolder << endl;
 
 	// Printing custom Menu based on vector parameters type
 	for (unsigned int i = 0; i < v.size(); ++i)
 		cout << "\t" << i << ": " << v[i] << endl;
-		
-	// TBA: Actual implementation of this.
-	// Menus with "No" on them don't really need this...
-	// cout << "\t" << v.size() << ": To Go Back" << endl;
 }
+
 void printMainMenu(int auth) {
 	int maxPrivValues[3] = { 1, 2, 4 };
 	string mainMenu[4] = { "Browse", "Edit", "Build", "Settings" };
@@ -101,27 +97,4 @@ void printMainMenu(int auth) {
 	for (int i = 0; i < maxPrivValues[auth]; ++i)
 		cout << "\t" << i << ": To " << mainMenu[i] << endl;
 	cout << "\t" << maxPrivValues[auth] << ": To Exit" << endl;
-
-	// Array of function pointers to the desired 'whatToDo' function
-	// Go die arrays and ur const values.....
-	// void (*functionPointerArr[whatToDo])();
 }
-
-/**********************************************************
-            IGNORE BUT DO NOT DELETE THE FOLLOWING
- **********************************************************/
-
-// Possible list of enums to link back and forth to functions
-// But most likely will be replaced by function pointers
-// Array of max values of submenus somewhere
-
-// "Globals"
-
-// End of "Globals".
-
-//void (*functptrMainMenu[])() = { Browse, Edit, Build, Settings };
-//void (*functptrEdit[])() = { Rename, EditEmployee,  };
-//void (*functptrSettings[])() = { Browse, Edit, Build, Settings };
-
-// Shouldn't Build just be "Build Everything"?
-//void (*functptrBuild[])() = { Browse, Edit, Build, Settings };
