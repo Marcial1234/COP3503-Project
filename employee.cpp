@@ -1,4 +1,4 @@
-\#pragma once
+#pragma once
 #include "perf.h"
 #include "perf.cpp"
 #include "validation.h"

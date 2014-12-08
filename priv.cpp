@@ -44,7 +44,7 @@ void Priv::login() {
 			line1 = crypt.decrypt(line1);
 			line2 = crypt.decrypt(line2);
 			if (line1 == user && line2 == password) {
-				auth = Priv::Privs(line3);
+				auth = Priv::Privs(stoi(line3));
 				success = true;
 				cout << "login successful" << "\n" << endl;
 			}
@@ -136,7 +136,7 @@ void Priv::setAccess() {
 	int input = RecursivelyValitate(options.size());
 
 	ofstream privsFile ("privs.txt",ios_base::app);
-	auth = input;
+	auth = Priv::Privs(input);
 	privsFile << "\n" << input+1;
 }
 
