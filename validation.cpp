@@ -38,6 +38,8 @@ enum SettingsMenuOptions
 
 // End of "Globals".
 
+using namespace std;
+
 void SpitOutStupidity() {
 	std::cout << "\nSorry, that was an invalid input, try again.\n" << std::endl;
 	std::cin.clear();
