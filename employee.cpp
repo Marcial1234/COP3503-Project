@@ -6,8 +6,8 @@ using namespace std;
 
 Employee::Employee() {
 
-	cout << "Please fill out employee information" << endl;
-	cout << "Information can be changed at any time if necessary" << endl;
+	cout << "Please fill out employee information." << endl;
+	cout << "Information can be changed at any time if necessary." << endl;
 
 	setName();
 	setAge();
@@ -36,8 +36,8 @@ Employee::Employee() {
 	cout << "Note: Make sure to update employee information on a regular basis." << endl;
 }
 
-friend ostream Employee::&operator<<(ostream &out, Employee worker)
-{
+friend ostream Employee::&operator<<(ostream &out, Employee worker) {
+
 	out << worker.getAge();
     out << worker.getName();
 	out << worker.getSalary();
@@ -60,66 +60,76 @@ friend ostream Employee::&operator<<(ostream &out, Employee worker)
 
 // All 'setter' functions.
 void Employee::setName() {
+
 	cout << "\n" << "Please enter the employee's name (Last, First)." << endl;
 	string input;
 	getline(cin,input);
-
 	name = input;
 }
 
 void Employee::setAge() {
+
 	cout << "\n" << "Please enter the employee's age." << endl;
-	int input = RecursivelyValitate(1024); // That's pretty high for an age.
+	 // That's pretty high for an age.
+	int input = RecursivelyValitate(1024);
 	age = input;
 }
 
 void Employee::setSalary() {
+
 	cout << "\n" << "Please enter the employee's salary." << endl;
-	// for the billionaires and stuff
+	// For the billionaires and stuff.
 	long long int input = RecursivelyValitate(9223372036854775807);
 
 	salary = input;
 }
 
 void Employee::setRaise() {
-	string instructions = "\nIs your employee is marked down for a raise?";
+
+	string instructions = "\nIs your employee is marked for a raise?";
 	vector<string> options = { "For No", "For Yes" };
 	printGenericMenu(instructions, options);
 	int input = RecursivelyValitate(options.size(), instructions);
 
-	// 0 == false, 1 == true. Go Back won't work
+	// 0 == false, 1 == true. Go back won't work?
+	// What do you mean by go back?
 	raise = input;
 	if (input)
 		setRaiseValue();
 }
 
 void Employee::setRaiseValue() {
-	cout << "\n" << "Please enter the raise amount" << endl;
-	// Marcial: Can't handle negatives at the momement
+
+	cout << "\n" << "Please enter the raise amount." << endl;
+	// Marcial: Can't handle negatives at the momement.
 	// cout << "\t" << "Note: Raise can be negative in the event of a reduction in salary" << endl;
 
-	// For the billionaires
+	// For the billionaires.
 	raiseValue = RecursivelyValitate(9223372036854775807)
 }
 
 void Employee::setHoursWorkedWeek() {
+
 	cout << "\n" << "Number of hours the employee worked this week:" << endl;
 	hoursWorkedWeek = RecursivelyValitate(169);
 }
 
 void Employee::setHoursWorkedMonth() {
+
 	cout << "\n" << "Number of hours the employee worked this month:" << endl;
 	hoursWorkedMonth = RecursivelyValitate(5270);
 }
 
 void Employee::setTimeEmployed() {
+
 	cout << "\n" << "Enter the time employed (months):" << endl;
 	timeEmployed = RecursivelyValitate(1212);
 }
 
 void Employee::setInsurance() {
+
 	vector<string> options = { "For Yes", "For No" };
-	printGenericMenu("\nDoes your employee qualifies for company insurance?", options);
+	printGenericMenu("\nDoes your employee qualify for company insurance?", options);
 
 	// Hmm. Don't go back here. Back will set it to true
 	if (RecursivelyValitate(options.size()))
@@ -127,7 +137,8 @@ void Employee::setInsurance() {
 }
 
 void Employee::setInsurancePlan() {
-	cout << "\n" << "Please enter the name of you employee's insurance plan" << endl;
+
+	cout << "\n" << "Please enter the name of your employee's insurance plan:" << endl;
 	string input;
 	getline(cin,input);
 	// Try breaking it and see if validation is needed.
@@ -143,7 +154,8 @@ void setPerformanceReport() {
 */
 
 void Employee::setComment() {
-	cout << "\n" << "If you have any comment's to add to the employee's record add them here" << endl;
+
+	cout << "\n" << "If you have any comments to add to the employee's record, add them here:" << endl;
 	string input;
 	getline(cin,input);
 	// Try breaking it and see if validation is needed.
@@ -152,8 +164,9 @@ void Employee::setComment() {
 }
 
 void Employee::setHashSSN() {
-	cout << "\n" << "Please enter the name of you employee's SSN (Social Security Number)" << endl;
-	cout << "\t" << "Note: The SSN itself will not be stored, rather a hash result will be stored for later validation purposes" << endl;
+
+	cout << "\n" << "Please enter the name of your employee's SSN (Social Security Number)" << endl;
+	cout << "\t" << "Note: The SSN itself will not be stored. Rather, a hash result will be stored for later validation purposes." << endl;
 	long long int input = RecursivelyValitate(10000000000);
 
 	// Marcial: What is this?
@@ -161,7 +174,7 @@ void Employee::setHashSSN() {
 }
 
 void Employee::setOccupation() {
-	cout << "\n" << "Please enter the name of you employee's role in your company" << endl;
+	cout << "\n" << "Please enter the name of you employee's role in your company." << endl;
 	string input;
 	getline(cin,input);
 	// Try breaking it and see if validation is needed.
