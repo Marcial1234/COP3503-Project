@@ -11,7 +11,8 @@ class Hash {
 
 private:
 	int hash;
-	std::string hashFunction;
+	enum fx { Standard, Advanced, Simple };
+	fx hashFunction;
 
 public:
 	Hash();

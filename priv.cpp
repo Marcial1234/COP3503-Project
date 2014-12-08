@@ -36,13 +36,13 @@ void Priv::login() {
 		while(getline(usersFile,line1) && getline(passFile,line2) && getline(privsFile,line3)) {
 			line1 = crypt.decrypt(line1);
 			line2 = crypt.decrypt(line2);
-			if(line1 == user && line2 == password) {
+			if (line1 == user && line2 == password) {
 				auth = line3;
 				success = true;
 				cout << "login successful" << "\n" << endl;
 			}
 		}
-		if(success == false) {
+		if (success == false) {
 			cout << "Username and/or password incorrect\n";
 			cout << "Note: If you do not have an account please contact an administrator\n" << endl;
 

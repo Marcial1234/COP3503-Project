@@ -11,9 +11,13 @@ class Crypt {
 	
 private:
 	std::string key;
-	std::string cipher;
 	std::string getKey();
-	std::string getCipher();
+	enum CypherType { Caesar, Vigenere}; //, XOR
+	CypherType getCipher();
+	CypherType cipher;
+	//std::string CaesarCipher(std::string, bool);
+	//std::string VigenereCipher(std::string, bool);
+	std::string XOREncryption(std::string);
 
 public:
 	Crypt();

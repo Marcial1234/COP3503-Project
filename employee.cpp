@@ -18,11 +18,11 @@ Employee::Employee() {
 	setOccupation();
 	setHashSSN();
 
-	vector<string> options = { "For Yes", "For No" };
+	vector<string> options = { "No", "Yes" };
 	printGenericMenu("Is the employee new? (Y/N)", options);
 	int input = RecursivelyValitate(options.size());
 
-	if (input == 0) {
+	if (input) {
 		setHoursWorkedWeek();
 		setHoursWorkedMonth();
 		setRaise();
@@ -68,12 +68,11 @@ void Employee::setSalary() {
 void Employee::setRaise() {
 
 	string instructions = "\nIs your employee is marked for a raise?";
-	vector<string> options = { "For No", "For Yes" };
+	vector<string> options = { "No", "Yes" };
 	printGenericMenu(instructions, options);
 	int input = RecursivelyValitate(options.size());
 
-	// 0 == false, 1 == true. Go back won't work?
-	// What do you mean by go back?
+	// 0 == false, 1 == true.
 	raise = input;
 	if (input)
 		setRaiseValue();
@@ -109,10 +108,9 @@ void Employee::setTimeEmployed() {
 
 void Employee::setInsurance() {
 
-	vector<string> options = { "For Yes", "For No" };
+	vector<string> options = { "No", "Yes" };
 	printGenericMenu("\nDoes your employee qualify for company insurance?", options);
 
-	// Hmm. Don't go back here. Back will set it to true
 	if (RecursivelyValitate(options.size()))
 		setInsurancePlan();
 }
