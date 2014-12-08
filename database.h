@@ -10,14 +10,9 @@
 
 class Database {
 private:
-    std::vector<Employee> records;
 
 public:
-    bool newFile(std::string filename);
-    bool loadEmployee(std::string filename);
-    bool deleteEmployee(std::string filename);
-    void addEmployee(Employee worker);
-    void printRecords(Employee worker);
-    void printAllRecords(std::vector<Employee> worker);
-
+    bool deleteEmployee(std::string worker);
+    void addEmployee(std::string worker);
+ 
 };

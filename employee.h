@@ -34,7 +34,7 @@ private:
 	int performanceReport;
 
 public:
-	Employee();
+	Employee(std::string worker);
 
 	// infoCheck() ensures valid information is entered.
 	int infoCheck(std::string type, std::string value);
@@ -87,6 +87,7 @@ public:
 	void printHoursWorkedMonth();
 	void printPerformanceReport();
 	void printEmployeeRecords();
+	void writeEmployeeRecords(std::string worker);
 
 	// Other variable management functions.
 	void payEmployee();

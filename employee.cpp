@@ -9,8 +9,11 @@
 
 using namespace std;
 
-Employee::Employee() {
+string tempstring;
 
+Employee::Employee(string workerFile) {
+	tempstring = workerFile + ".txt";
+	
 	cout << "Please fill out employee information." << endl;
 	cout << "Information can be changed at any time if necessary." << endl;
 
@@ -20,24 +23,18 @@ Employee::Employee() {
 	setOccupation();
 	setHashSSN();
 
-	vector<string> options = { "No", "Yes" };
-	printGenericMenu("Is the employee new? (Y/N)", options);
-	int input = RecursivelyValitate(options.size());
-
-	if (input) {
-		setHoursWorkedWeek();
-		setHoursWorkedMonth();
-		setRaise();
+	setHoursWorkedWeek();
+	setHoursWorkedMonth();
+	setRaise();
 		// if setRaise() is true, setRaiseValue will be called
 		// setRaiseValue();
-		setInsurance();
+	setInsurance();
 		// if Insurance is true, setInsurance() calls setInsurancePlan()
 		// setInsurancePlan();
 		// setPerformanceReport() is handled by the performance report class (perf.cpp)
 		// setPerformanceReport();
-		setComment();
-	}
-
+	setComment();
+	
 	cout << "Note: Make sure to update employee information on a regular basis." << endl;
 }
 
@@ -48,6 +45,9 @@ void Employee::setName() {
 	string input;
 	getline(cin,input);
 	name = input;
+	
+	ofstream workerFile (tempstring);
+	workerFile << "Name: " << input << endl;
 }
 
 void Employee::setAge() {
@@ -56,6 +56,9 @@ void Employee::setAge() {
 	 // That's pretty high for an age.
 	int input = RecursivelyValitate(1024);
 	age = input;
+	
+	ofstream workerFile (tempstring);
+	workerFile << "Age: " << to_string(input) << endl;
 }
 
 void Employee::setSalary() {
@@ -65,6 +68,9 @@ void Employee::setSalary() {
 	long long int input = RecursivelyValitate(9223372036854775807);
 
 	salary = input;
+	
+	ofstream workerFile (tempstring);
+	workerFile << "Salary: " << to_string(input) << endl;
 }
 
 void Employee::setRaise() {
@@ -76,7 +82,11 @@ void Employee::setRaise() {
 
 	// 0 == false, 1 == true.
 	raise = input;
-	if (input)
+	
+	ofstream workerFile (tempstring);
+	workerFile << "Raise: " << to_string(input) << endl;
+	
+	if (input) 
 		setRaiseValue();
 }
 
@@ -85,35 +95,52 @@ void Employee::setRaiseValue() {
 	cout << "\n" << "Please enter the raise amount." << endl;
 	// Marcial: Can't handle negatives at the momement.
 	// cout << "\t" << "Note: Raise can be negative in the event of a reduction in salary" << endl;
-
-	// For the billionaires.
+	
+	
 	raiseValue = RecursivelyValitate(9223372036854775807);
+	
+	ofstream workerFile (tempstring);
+	workerFile << "RaiseAmount: " << to_string(raiseValue) << endl;
 }
 
 void Employee::setHoursWorkedWeek() {
 
 	cout << "\n" << "Number of hours the employee worked this week:" << endl;
 	hoursWorkedWeek = RecursivelyValitate(169);
+	
+	ofstream workerFile (tempstring);
+	workerFile << to_string(hoursWorkedWeek) << endl;
 }
 
 void Employee::setHoursWorkedMonth() {
 
 	cout << "\n" << "Number of hours the employee worked this month:" << endl;
 	hoursWorkedMonth = RecursivelyValitate(5270);
+	
+	ofstream workerFile (tempstring);
+	workerFile << "Hours worked this month: " << to_string(hoursWorkedMonth) << endl;
 }
 
 void Employee::setTimeEmployed() {
 
 	cout << "\n" << "Enter the time employed (months):" << endl;
 	timeEmployed = RecursivelyValitate(1212);
+	
+	ofstream workerFile (tempstring);
+	workerFile << "Time employed: " << to_string(timeEmployed) << endl;
 }
 
 void Employee::setInsurance() {
 
 	vector<string> options = { "No", "Yes" };
 	printGenericMenu("\nDoes your employee qualify for company insurance?", options);
-
-	if (RecursivelyValitate(options.size()))
+	
+	int input = RecursivelyValitate(options.size());
+	
+	ofstream workerFile (tempstring);
+	workerFile << "Insurance: " << to_string(input) << endl;
+	
+	if (input)
 		setInsurancePlan();
 }
 
@@ -122,7 +149,9 @@ void Employee::setInsurancePlan() {
 	cout << "\n" << "Please enter the name of your employee's insurance plan:" << endl;
 	string input;
 	getline(cin,input);
-	// Try breaking it and see if validation is needed.
+	
+	ofstream workerFile (tempstring);
+	workerFile << "Insurance Plan" << input << endl;
 
 	insurancePlan = input;
 }
@@ -139,7 +168,9 @@ void Employee::setComment() {
 	cout << "\n" << "If you have any comments to add to the employee's record, add them here:" << endl;
 	string input;
 	getline(cin,input);
-	// Try breaking it and see if validation is needed.
+	
+	ofstream workerFile (tempstring);
+	workerFile << "Comments: " << input << endl;
 
 	comment = input;
 }
@@ -149,6 +180,9 @@ void Employee::setHashSSN() {
 	cout << "\n" << "Please enter the name of your employee's SSN (Social Security Number)" << endl;
 	cout << "\t" << "Note: The SSN itself will not be stored. Rather, a hash result will be stored for later validation purposes." << endl;
 	long long int input = RecursivelyValitate(10000000000);
+	
+	ofstream workerFile (tempstring);
+	workerFile << "HashSSN: " << to_string(input) << endl;
 
 	// Marcial: What is this?
 	Hash hash = *(new Hash());
@@ -160,6 +194,9 @@ void Employee::setOccupation() {
 	string input;
 	getline(cin,input);
 	// Try breaking it and see if validation is needed.
+
+	ofstream workerFile (tempstring);
+	workerFile << "Job: " << input << endl;
 
 	occupation = input;
 }
@@ -282,6 +319,7 @@ void Employee::printOccuption() {
 
 //Function to print info of Employee
 void Employee::printEmployeeRecords() {
+	ofstream workerFile (tempstring,ios_base::app);
 	printAge();
 	printName();
 	printRaise();
@@ -299,3 +337,4 @@ void Employee::printEmployeeRecords() {
 }
 //other variable management functions
 // void payEmployee();
+
