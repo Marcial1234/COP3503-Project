@@ -36,7 +36,8 @@ int main() {
 		// "EditFolder",
 		// "DeleteFolder",
 	};
-	int maxPrivValues[3] = { 3, 4, MenuOptions.size() };
+	int maxAdminVal = MenuOptions.size();
+	int maxPrivValues[3] = { 3, 4, maxAdminVal };
 
 	// Initialization
 	Database database = *(new Database());
