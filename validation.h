@@ -23,4 +23,4 @@ bool ValidateRange(string, vector<string>&);
 string RecursivelyValitate(vector<string>&);
 
 void printMainMenu();
-void printGenericMenu(vector<string>&, string);
+void printGenericMenu(string, vector<string>&);
