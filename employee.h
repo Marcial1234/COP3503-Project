@@ -86,6 +86,7 @@ public:
 	void printHoursWorkedWeek();
 	void printHoursWorkedMonth();
 	void printPerformanceReport();
+	void printEmployeeRecords();
 
 	// Other variable management functions.
 	void payEmployee();

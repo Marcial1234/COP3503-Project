@@ -85,7 +85,7 @@ void Employee::setRaiseValue() {
 	// cout << "\t" << "Note: Raise can be negative in the event of a reduction in salary" << endl;
 
 	// For the billionaires.
-	raiseValue = RecursivelyValitate(9223372036854775807)
+	raiseValue = RecursivelyValitate(9223372036854775807);
 }
 
 void Employee::setHoursWorkedWeek() {
