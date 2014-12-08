@@ -1,52 +1,40 @@
 #pragma once
-#include "validation.h"
 #include "gendepend.h"
+#include "validation.h"
 
 using namespace std;
 
-// This file might give warnings. Not worrying about them for now.
+/*
+	Documentation/How to Use:
+		
+		printMainMenu(){}:
+		Prints the "Main Menu" based on a local definition of 'auth'
 
-// Possible list of enums to link back and forth to functions
-// But most likely will be replaced by function pointers
-// Array of max values of submenus somewhere
+		printGenericMenu(string, vector<stirng>){}
+		Menu generator. Generates the following:
+		[action description/instructions]
+			[i]: vector[i]
+			...
+		Example:
+		printGenericMenu("Do you know your name?", { "Yes", "No" });
+		Do you know your name?
+			0. Yes
+			1. No
 
-// "Globals"
-enum MenuOptions
-{
-	Browse,
-	Edit,
-	Build,
-	Settings
-};
+		RecursivelyValitate(maxNumber){}
+		Returns the input of a number ONLY LOWER than the passed max/upper limit.
 
-enum EditMenuOptions
-{
-	List,
-	Move,
-	AddFile, // Meh...
-	AddEmployee,
-	ViewEmployee,
-	DeleteEmployee,
-	AddFolder,
-	EditFolder,
-	DeleteFolder,
-};
+		Did not combine them (as in Recur.Val. inside Gener.Menu). MIGHT do so later.
+		Wanted flexibility.
+ */
 
-enum SettingsMenuOptions
-{
-	SetHash,
-	SetCrypt,
-	ChangePriv,
-};
 
-// End of "Globals".
-
-using namespace std;
+// This file might give warnings/type converstion errors. Not worrying about them for now.
 
 void SpitOutStupidity() {
-	std::cout << "\nSorry, that was an invalid input, try again.\n" << std::endl;
-	std::cin.clear();
-	std::cin.ignore(1024, '\n');
+	cout << "\nSorry, that was an invalid input, try again.\n" << endl;
+	cin.clear();
+	cin.ignore(1024, '\n');
 }
 
 // Numeric validation
@@ -149,6 +137,45 @@ void testMain() {
 			cout << "Cipher successfully changed." << endl;
 	}
 }
+
+/**********************************************************
+            IGNORE BUT DO NOT DELETE THE FOLLOWING
+ **********************************************************/
+
+// Possible list of enums to link back and forth to functions
+// But most likely will be replaced by function pointers
+// Array of max values of submenus somewhere
+
+// "Globals"
+enum MenuOptions
+{
+	Browse,
+	Edit,
+	Build,
+	Settings
+};
+
+enum EditMenuOptions
+{
+	List,
+	Move,
+	AddFile, // Meh...
+	AddEmployee,
+	ViewEmployee,
+	DeleteEmployee,
+	AddFolder,
+	EditFolder,
+	DeleteFolder,
+};
+
+enum SettingsMenuOptions
+{
+	SetHash,
+	SetCrypt,
+	ChangePriv,
+};
+
+// End of "Globals".
 
 //void (*functptrMainMenu[])() = { Browse, Edit, Build, Settings };
 //void (*functptrEdit[])() = { Rename, EditEmployee,  };

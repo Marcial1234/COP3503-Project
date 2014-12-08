@@ -1,3 +1,4 @@
+#pragma once
 /*
     File: perf.cpp
     Author: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
