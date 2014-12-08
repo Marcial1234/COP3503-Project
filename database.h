@@ -18,7 +18,6 @@ public:
     bool newFile(std::string filename);
     bool loadEmployee(std::string filename);
     bool deleteEmployee(Employee worker);
-    void checkAuth();
     void addEmployee(Employee worker);
     void printRecord(Employee worker);
 
