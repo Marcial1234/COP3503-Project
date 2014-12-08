@@ -13,7 +13,7 @@ HRSys: main.cpp database.o priv.o crypt.o employee.o hash.o perf.o validation.o
 
 #source files for validation.o
 
-validation.o: valdiation.cpp validation.h database.h priv.h crypt.h hash.h perf.h employee.h validation.h
+validation.o: validation.cpp validation.h database.h priv.h crypt.h hash.h perf.h employee.h validation.h
 	$(CC) $(CFLAGS) -c validation.cpp
 
 #source files for database.o
