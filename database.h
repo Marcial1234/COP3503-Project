@@ -12,7 +12,6 @@ class Database {
 private:
     std::vector<Employee> records;
 
-// I'm assuming these are currently being built or will be built in the near future.
 public:
     void pushFiles();
     void pullFiles();
