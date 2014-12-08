@@ -56,8 +56,8 @@ void Database::editEmployee(string input) {
 		{
 			if(line1 == input) 
 			{
-				database.deleteEmployee(name);
-				database.addEmployee(name);
+				this->deleteEmployee(input);
+				this->addEmployee(input);
 				return;
 			}
 		}

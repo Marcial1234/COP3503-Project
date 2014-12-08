@@ -21,7 +21,7 @@ string getEmployeeName()
 	cout << "Please enter the employee name: " << endl;
 	string input;
 	getline(cin, input);
-	return input
+	return input;
 }
 
 int main() {
@@ -73,7 +73,7 @@ int main() {
 					database.listEmployees();
 					break;					
 				case 1:
-					database.viewEmployee(getEmployeeName());
+					// database.viewEmployee(getEmployeeName());
 					break;					
 				case 2:
 					database.editEmployee(getEmployeeName());
