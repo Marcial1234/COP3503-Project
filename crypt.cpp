@@ -30,8 +30,8 @@ string Crypt::encrypt(string text) {
 
 		return newstring;
 	}
-	else if (cipher == Vigenere) {
-		for (int i = 0; i < text.length(); ++i)
+	else {//if (cipher == Vigenere) {
+		for (unsigned int i = 0; i < text.length(); ++i)
 		{
 			tempInt = (int) text[i] + (int) key[i];
 			ch = (char)tempInt;
@@ -40,8 +40,6 @@ string Crypt::encrypt(string text) {
 
 		return newstring;
 	}
-	//else
-		//XOREncryption(text);
 }
 
 string Crypt::decrypt(string text) {
@@ -58,9 +56,9 @@ string Crypt::decrypt(string text) {
 
 		return newstring;
 	}
-	else if (cipher == Vigenere)
+	else //if (cipher == Vigenere)
 	{
-		for (int i = 0; i < text.length(); ++i)
+		for (unsigned int i = 0; i < text.length(); ++i)
 		{
 			tempInt = (int)text[i] - (int)key[i];
 			ch = (char)tempInt;
@@ -68,8 +66,6 @@ string Crypt::decrypt(string text) {
 		}
 		return newstring;
 	}
-	//else
-		//XOREncryption(text);
 }
 
 /* 
