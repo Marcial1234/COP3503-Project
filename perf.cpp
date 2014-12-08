@@ -68,25 +68,3 @@ EmployeeReport::EmployeeReport(string employeeFile, string reportNumber) {
     
     toFile.close();
 }
-
-// Some testing.
-int main() {
-
-  string continueOption = "1";
-  int numberOfReports = 0;
-
-    while (continueOption == "1") {
-        
-        string employeeFile = "employeeFile.txt";
-        string reportNumber = "Employee Report";
-        EmployeeReport report = *(new EmployeeReport(employeeFile, reportNumber));
-        numberOfReports++;
-
-        cout << "\nDo you wish to add another employee report?" << endl;
-        cout << "If so, enter '1' (no quotes). Otherwise, enter anything else." << endl;
-        getline(cin, continueOption);
-        cout << numberOfReports << endl;
-    }
-
-	return 0;
-}

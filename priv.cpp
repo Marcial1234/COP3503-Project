@@ -132,14 +132,6 @@ void Priv::setAccess() {
 	privsFile << "\n" << input+1;
 }
 
-int Priv::getAuth() {
+string Priv::getAuth() {
 	return auth;
-}
-
-int main() {
-	Priv priv = *(new Priv());
-	priv.login();
-	priv.setNewUser();
-
-	return 0;
 }
