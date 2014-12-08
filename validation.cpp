@@ -122,7 +122,7 @@ void printMainMenu() {
 	// void (*functionPointerArr[whatToDo])();
 }
 
-void main() {
+void testMain() {
 	// Need to actually get this from somewhere. Cannot hard set it
 	printMainMenu();
 
