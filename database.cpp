@@ -62,12 +62,3 @@ bool Database::newFile(string filename) {
     else
         return true;
 }
-
-void Database::pushFiles() {
-	
-}
-
-void Database::pullFiles() {
-	
-}
-}
