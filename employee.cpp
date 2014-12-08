@@ -89,7 +89,7 @@ void Employee::setRaise() {
 	string instructions = "\nIs your employee is marked for a raise?";
 	vector<string> options = { "For No", "For Yes" };
 	printGenericMenu(instructions, options);
-	int input = RecursivelyValitate(options.size(), instructions);
+	int input = RecursivelyValitate(options.size());
 
 	// 0 == false, 1 == true. Go back won't work?
 	// What do you mean by go back?

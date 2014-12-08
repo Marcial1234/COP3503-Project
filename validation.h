@@ -4,23 +4,18 @@
   Submitted: December 8, 2014
 */
 
-#include "database.h"
-#include "employee.h"
-#include "priv.h"
-#include "hash.h"
-#include "crypt.h"
-#include "perf.h"
 #include "gendepend.h"
 
-using namespace std;
-
-#pragma once
+#ifndef VALIDATION_H
+#define VALIDATION_H
 
 void SpitOutStupidity();
 bool ValidateRange(long long int, long long int);
 long long int RecursivelyValitate(long long int);
-bool ValidateRange(string, vector<string>&);
-string RecursivelyValitate(vector<string>&);
+bool ValidateRange(std::string, std::vector<std::string>&);
+std::string RecursivelyValitate(std::vector<std::string>&);
 
 void printMainMenu();
-void printGenericMenu(string, vector<string>&);
+void printGenericMenu(std::string, std::vector<std::string> &);
+
+#endif

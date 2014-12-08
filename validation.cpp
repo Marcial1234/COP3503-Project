@@ -48,7 +48,7 @@ void SpitOutStupidity() {
 // Numeric validation
 bool ValidateRange(long long int input, long long int  max) {
 	// Use of Discrete right here
-	return max >= input && input >= 0;
+	return max > input && input >= 0;
 }
 
 long long int RecursivelyValitate(long long int max) {
