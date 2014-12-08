@@ -279,12 +279,34 @@ void Employee::printOccuption() {
 	cout << occupation << endl;
 }
 
+//Function to print info of Employee
+void Employee::printEmployeeRecords() {
+	cout << worker.getName();
+	cout << worker.getOccupation();
+     	if(worker.getRaise())
+     	{
+        	cout << worker.getRaiseValue();
+     	}
+        if(worker.getInsurance())
+        {
+         	cout << worker.getInsurancePlan();
+        }
+	 cout << worker.getComment();
+	 cout << worker.getAge();
+	 cout << worker.getSalary();
+	 cout << worker.getHashSSN();
+	 cout << worker.getTimeEmployed();
+	 cout << worker.getHoursWorkedWeek();
+	 cout << worker.getHoursWorkedMonth();
+	 cout << worker.getPerformanceReport();
+}
 //other variable management functions
 void payEmployee();
 
-
+/*
 int main()
 {
 Employee o = *(new Employee());
 return 0;
 }
+*/
