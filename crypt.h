@@ -10,6 +10,7 @@
 #include "gendepend.h"
 
 class Crypt {
+	
 private:
 	std::string key;
 	std::string cipher;
