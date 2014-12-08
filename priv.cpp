@@ -137,7 +137,7 @@ void Priv::setAccess() {
 
 	ofstream privsFile ("privs.txt",ios_base::app);
 	auth = Priv::Privs(input);
-	privsFile << "\n" << input+1;
+	privsFile << "\n" << input;
 }
 
 Priv::Privs Priv::getAuth() {

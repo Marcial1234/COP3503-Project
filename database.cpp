@@ -39,10 +39,27 @@ bool Database::deleteEmployee(string filename) {
 }
 
 void Database::listEmployees() {
-		ifstream openFile ("employees.txt");
-		string newstring;
-		while(getline(openFile,newstring)) {
-				cout << newstring << endl;
-		}
+	ifstream openFile ("employees.txt");
+	string newstring;
+	while(getline(openFile,newstring))
+		cout << newstring << endl;
+
 	return;	
+}
+
+void Database::editEmployee(string input) {
+	ifstream openFile ("employees.txt");
+	if(openFile.is_open()) 
+	{
+		string line1;
+		while(getline(openFile,line1)) 
+		{
+			if(line1 == input) 
+			{
+				database.deleteEmployee(name);
+				database.addEmployee(name);
+				return;
+			}
+		}
+	}
 }

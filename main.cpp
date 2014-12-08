@@ -16,6 +16,14 @@
 
 using namespace std;
 
+string getEmployeeName()
+{
+	cout << "Please enter the employee name: " << endl;
+	string input;
+	getline(cin, input);
+	return input
+}
+
 int main() {
 
 	string instructions = "Please choose one of the following:";
@@ -61,21 +69,20 @@ int main() {
 
 			switch (menuOptions)
 			{
-				// This is not 100% runnable
 				case 0:
-					// ListAllEmployees();
+					database.listEmployees();
 					break;					
 				case 1:
-					// ViewEmployee();
+					database.viewEmployee(getEmployeeName());
 					break;					
 				case 2:
-					// EditEmployee();
+					database.editEmployee(getEmployeeName());
 					break;					
 				case 3:
-					//database.addEmployee(oink);
+					database.addEmployee(getEmployeeName());
 					break;					
 				case 4:
-					//database.deleteEmployee("");
+					database.deleteEmployee(getEmployeeName());
 					break;
 				// Tentative Deletion
 				case 5:
@@ -86,9 +93,6 @@ int main() {
 					break;
 				case 7:
 					priv.setKey();
-					break;
-				case 8:
-					// ChangeUserPriviledges();
 					break;
 				default:
 					break;

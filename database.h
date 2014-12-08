@@ -12,7 +12,8 @@ class Database {
 private:
 
 public:
-    bool deleteEmployee(std::string filename);
-    void addEmployee(std::string worker);
     void listEmployees();
+    void editEmployee(std::string);
+    void addEmployee(std::string worker);
+    bool deleteEmployee(std::string filename);
 };
