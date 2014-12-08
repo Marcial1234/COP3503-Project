@@ -10,15 +10,13 @@
 class Hash {
 
 private:
-	int hash;
+	long long int hash;
 	enum fx { Standard, Advanced, Simple };
 	fx hashFunction;
 
 public:
 	Hash();
-	int getHash(int value);
-	int getHash(std::string value);
-	int checkFunction(int);
+	long long int getHash(long long int value);
 	bool checkHash(int);
 	void changeFunction();
 };

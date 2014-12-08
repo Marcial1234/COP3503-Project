@@ -14,7 +14,7 @@ private:
 	std::string name;
 	int age;
 	double salary;
-	double hashSSN;
+	long long int hashSSN;
 	double timeEmployed;
 	double hoursWorkedWeek;
 	double hoursWorkedMonth;
@@ -64,7 +64,7 @@ public:
 	std::string getInsurancePlan();
 	double getAge();
 	double getSalary();
-	double getHashSSN();
+	long long int getHashSSN();
 	double getRaiseValue();
 	double getTimeEmployed();
 	double getHoursWorkedWeek();

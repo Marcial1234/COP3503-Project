@@ -23,12 +23,12 @@ void Database::addEmployee(Employee worker) {
 }
 
 bool Database::deleteEmployee(string filename) {
-    if (remove (filename) != 0) {
+   /* if (remove (filename) != 0) {
         perror("Error deleting file");
         return false;
     } else {
         return true;
-    }
+    }*/
     return false;
 }
 
@@ -59,9 +59,3 @@ bool Database::newFile(string filename) {
     else 
         return true;
 }
-/*
-int main()
-{
-Database o = *(new Database());
-return 0;
-}*/

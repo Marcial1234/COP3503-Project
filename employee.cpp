@@ -4,6 +4,8 @@
 #include "validation.h"
 #include "validation.cpp"
 #include "employee.h"
+#include "hash.h"
+#include "hash.cpp"
 
 using namespace std;
 
@@ -149,7 +151,8 @@ void Employee::setHashSSN() {
 	long long int input = RecursivelyValitate(10000000000);
 
 	// Marcial: What is this?
-	hashSSN = hash->getHash(input);
+	Hash hash = *(new Hash());
+	hashSSN = hash.getHash(input);
 }
 
 void Employee::setOccupation() {
@@ -210,7 +213,7 @@ string Employee::getComment() {
 	return comment;
 }
 
-double Employee::getHashSSN() {
+long long int Employee::getHashSSN() {
 	return hashSSN;
 }
 
@@ -297,10 +300,3 @@ void Employee::printEmployeeRecords() {
 //other variable management functions
 void payEmployee();
 
-/*
-int main()
-{
-Employee o = *(new Employee());
-return 0;
-}
-*/
