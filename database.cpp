@@ -9,27 +9,35 @@ using namespace std;
 
 void Database::addEmployee(string worker) {
 	ofstream employeesFile ("employees.txt",ios_base::app);
-	string tempstring = (worker += ".txt");
-	employeesFile << tempstring << endl;
+	employeesFile << worker << endl;
 	employeesFile.close();
 	Employee worker1 = *(new Employee(worker));
     return;
 }
 
-bool Database::deleteEmployee(string worker) {
-	string tempstring = worker += ".txt";
-    if (remove(tempstring) != 0) {
+bool Database::deleteEmployee(const char * filename) {
+	string tempstring = filename += ".txt";
+    if (remove(filename) != 0) {
         perror("Error deleting file");
         return false;
-    } 
+     } 
     fstream openFile ("employees.txt");
     string line1;
     if(openFile.is_open()) {
 		while(getline(openFile,line1)) {
 			if(line1 == tempstring) {
 				openFile << "employee removed";
-				openFile << "employee removed";
 			}
 	}
     return false;
+	}
 }
+
+void Database::listEmployees() {
+		ifstream openFile ("employees.txt")
+		string newstring;
+		while(getline(openFile,newstring)) {
+				cout << newstring << endl;
+		}
+	return;	
+}	

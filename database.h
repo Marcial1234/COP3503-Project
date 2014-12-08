@@ -12,7 +12,7 @@ class Database {
 private:
 
 public:
-    bool deleteEmployee(std::string worker);
+    bool deleteEmployee(const char * filename);
     void addEmployee(std::string worker);
  
 };
