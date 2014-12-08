@@ -32,14 +32,13 @@ bool Database::deleteEmployee(Employee worker) {
 }
 
 void Database::printRecord(Employee worker) {
-
-    cout << worker << endl;
+	worker.printEmployeeRecords();
 }
 
 void Database::printAllRecords(vector<Employee> employee_records) {
 
 	for (int i = 0; i != employee_records.size(); i++ ) {
-		cout << employee_records.at(i); << endl;
+		printRecord(employee_records.at(i));
 	}
 }
 
