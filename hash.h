@@ -10,6 +10,7 @@
 #include "gendepend.h"
 
 class Hash {
+
 private:
 	int hash;
 	std::string hashFunction;

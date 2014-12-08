@@ -42,7 +42,7 @@ int Hash::getHash(string value) {
 	int num = checkFunction(2);
 	int temphash = 0;
 
-	// Validation needed here
+	// Validation needed here.
 	if (num == 0)
 		cout << "Error: Invalid hash function, please change." << endl;
 
@@ -122,7 +122,7 @@ int Hash::checkFunction(int check) {
 	cout << "Error: No valid hash function detected." << endl;
 	cout << "Would you like to default to the standard hash function? (Y/N): " << endl;
 	// Changed char to string to play nice with getline().
-	// String Validation needed here. Will do later
+	// String validation is needed here. Will do later.
 	string input;
     getline(cin, input);
 
@@ -141,7 +141,7 @@ void Hash::changeFunction() {
 	cout << "\t" << "2. Advanced (sophisticated hash, slowest)" << endl;
 	cout << "\t" << "3. Simple (basic hash, fastest)" << endl;
     
-    // Ernie: Changed choice to string to play nice with getline().
+    // Changed choice to string to play nice with getline().
 	string choice;
 	getline(cin, choice);
 
