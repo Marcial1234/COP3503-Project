@@ -14,10 +14,10 @@ class Database {
 private:
     std::vector<Employee> records;
 
+// I'm assuming these are currently being built or will be built in the near future.
 public:
-//I'm assuming these are currently being built or will be built in the near future
-void pushFiles();
-void pullFiles();
+    void pushFiles();
+    void pullFiles();
     bool newFile(std::string filename);
     bool loadEmployee(std::string filename);
     bool deleteEmployee(Employee worker);
@@ -26,4 +26,5 @@ void pullFiles();
     void printRecord(Employee worker);
 
 };
-#endif // Database_h
+
+#endif
