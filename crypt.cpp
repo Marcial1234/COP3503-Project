@@ -10,45 +10,48 @@ Crypt::Crypt() {
 }
 
 string Crypt::encrypt(string text) {
+
 	if (cipher == "Caesar") {
 		int tempInt;
 		char ch;
 		string newstring;
 
-		for(char& c : text) {
+		for (char& c : text) {
 			tempInt = (int) c + (int) key[0];
-			if(tempInt > 126)
-				tempInt = (int) c - 126;
-
+			if (tempInt > 126)
+			    tempInt = (int) c - 126;
 			ch = tempInt;
 			newstring += ch;
 		}
 
 		return newstring;
 	}
-	else if (cipher == "Vigenere")
-		// Code goes here
+
+	else if (cipher == "Vigenere") {
+		// Code goes here.
 		return text;
+	}
 }
 
 string Crypt::decrypt(string text) {
+
 	if (cipher == "Caesar") {
 		int tempInt;
 		char ch;
 		string newstring;
 
-		for(char& c : text) {
+		for (char& c : text) {
 			// This does not nessesarily work all the time.
 			tempInt = (int) c - (int) key[0];
 			if(tempInt < 1)
 				tempInt = (int) c + 126; 
-
 			ch = tempInt;
 			newstring += ch;
 		}
 
 		return newstring;
 	} 
+
 	else // if (cipher == "Vigenere")
         // Code goes here.
 		return text;
@@ -63,8 +66,9 @@ string Crypt::getCipher() {
 }
 
 void Crypt::setKey() {
-	// I doubt we should be even asking this types of questions.
-	// No need for double verfication
+
+	// I doubt we should be even asking these type of questions.
+	// No need for double verfication.
 	vector<string> options = { "For Yes", "For No" };
 	printGenericMenu("Do you want to change the key? (Y/N):\n", options);
 	int response = RecursivelyValitate(options.size());
@@ -74,13 +78,15 @@ void Crypt::setKey() {
 		getline(cin, key); // No real validation needed here, since 'nothing' seems to break a string
 		cout << "The key was successfully changed." << endl;
 	}
-	else //there will only be 2 values for response, thanks to validation 
+
+	else // There will only be 2 values for response, thanks to validation.
 		return;
 }
 
 void Crypt::setCipher() {
-	// I doubt we should be even asking this types of questions.
-	// No need for double verfication
+
+	// I doubt we should be even asking these type of questions.
+	// No need for double verfication.
 	string instructions = "Do you want to change the cipher? (Y/N)\n";
 	instructions += "(Warning: Changing the cipher might affect the success of encrypting and decrypting text.\n";
 	vector<string> options = { "For Yes", "For No" };
@@ -94,11 +100,13 @@ void Crypt::setCipher() {
 		
 		int input = RecursivelyValitate(options.size());
 
-		// 0 == false/Caesar, 1 == true/Vigenere. Go Back won't work
+		// 0 == false/Caesar, 1 == true/Vigenere. Going back won't work.
 		if (input)
 			cipher = "Vigenere";
+
 		else
 			cipher = "Caesar";
+
 		cout << "Cipher successfully changed." << endl;
 	}
 }
