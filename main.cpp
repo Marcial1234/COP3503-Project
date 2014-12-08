@@ -21,7 +21,8 @@ int main() {
 	tempAuth = priv.getAuth();
 
 	bool stop = false;
-	while(stop == false) {
+
+	while (stop == false) {
 
 		if (tempauth >= 3) {
 			//menu.getMenuOptions(3);
