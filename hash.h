@@ -1,11 +1,9 @@
+#pragma once
 /*
 	File: Hash.h
 	Authors: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
 	Submitted: December 5, 2014
 */
-
-#ifndef HASH_H
-#define HASH_H
 
 #include "gendepend.h"
 
@@ -23,5 +21,3 @@ public:
 	bool checkHash(int);
 	void changeFunction();
 };
-
-#endif

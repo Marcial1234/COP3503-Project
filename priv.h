@@ -1,11 +1,9 @@
+#pragma once
 /*
     File: priv.h
     Authors: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
     Submitted: December 8, 2014
 */
-    
-#ifndef PRIV_H
-#define PRIV_H
 
 #include "gendepend.h"
 
@@ -24,5 +22,3 @@ public:
 	void setPassword();
 	void setUserName();
 };
-
-#endif

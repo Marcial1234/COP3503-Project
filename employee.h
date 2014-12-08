@@ -1,11 +1,9 @@
+#pragma once
 /*
 	File: Employee.h
 	Authors: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
 	Submitted: December 5, 2014
 */
-
-#ifndef EMPLOYEE_H
-#define EMPLOYEE_H
 
 #include "gendepend.h"
 #include "hash.h"
@@ -92,5 +90,3 @@ public:
 	// Other variable management functions.
 	void payEmployee();
 };
-
-#endif

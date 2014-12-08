@@ -1,6 +1,9 @@
+#pragma once
 #include "database.h"
 #include "employee.h"
 #include "priv.h"
+#include "employee.cpp"
+#include "priv.cpp"
 
 using namespace std;
 
@@ -66,3 +69,9 @@ bool Database::newFile(string filename) {
     else 
         return true;
 }
+/*
+int main()
+{
+Database o = *(new Database());
+return 0;
+}*/

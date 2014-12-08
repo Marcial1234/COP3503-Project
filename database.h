@@ -1,11 +1,9 @@
+#pragma once
 /*
     File: database.h
     Authors: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
     Submitted: December 8, 2014
 */
-
-#ifndef DATABASE_H
-#define DATABASE_H
 
 #include "gendepend.h"
 #include "employee.h"
@@ -26,5 +24,3 @@ public:
     void printRecord(Employee worker);
 
 };
-
-#endif

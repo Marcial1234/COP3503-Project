@@ -1,4 +1,7 @@
+#pragma once
 #include "hash.h"
+#include "validation.h"
+#include "validation.cpp"
 
 using namespace std;
 
@@ -37,55 +40,7 @@ int Hash::getHash(string value) {
 	return temphash;
 }
 
-int Hash::getHash(string value) {
 
-	int num = checkFunction(2);
-	int temphash = 0;
-
-	// Validation needed here.
-	if (num == 0)
-		cout << "Error: Invalid hash function, please change." << endl;
-
-	// The standard hash function.
-	if (num == 1) {
-		for(int i = 0; i < value.length(); i++)
-		{
-			temphash = (temphash << 4) + value.at(i);
-			int bits = temphash & 0xF0000000;
-			if (bits != 0)
-				temphash ^= bits >> 24;
-
-			temphash &= ~bits;
-		}
-		return temphash;
-	}
-
-	// The advanced hash funciton.
-	if (num == 2) {
-		for(int i = 0; i < value.length(); i++) {
-			temphash = (temphash << 4) + value.at(i);
-			int bits = temphash & 0xF0000000;
-			if (bits != 0) {
-				temphash ^= bits >> 24;
-			}
-		temphash &= ~bits;
-		}
-		return temphash;
-	}
-
-	// The simple hash function.
-	if (num == 3) {
-		for(int i = 0; i < value.length(); i++) {
-			temphash = (temphash << 4) + value.at(i);
-			int bits = temphash & 0xF0000000;
-			if (bits != 0) {
-				temphash ^= bits >> 24;
-			}
-		temphash &= ~bits;
-		}
-		return temphash;
-	}
-}
 
 bool Hash::checkHash(int checkVal) {
 	if (checkVal == hash) {
@@ -159,4 +114,11 @@ void Hash::changeFunction() {
 	// We can expand more options later if time permits.
 	cout << "Error: Please choose one of the listed options:" << endl;
 	changeFunction();
+}
+
+int main()
+{
+	Hash pt = *(new Hash());
+
+	return 0;
 }

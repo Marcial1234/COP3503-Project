@@ -1,6 +1,9 @@
+#pragma once
 #include "priv.h"
 #include "crypt.h"
+#include "crypt.cpp"
 #include "validation.h"
+#include "validation.cpp"
 
 using namespace std;
 
@@ -134,9 +137,6 @@ string Priv::getAuth() {
 }
 
 int main() {
-	// Marcial: What's this?
-	int tempAuth;
-	tempAuth = 1;
 	Priv priv = *(new Priv());
 	priv.login();
 	priv.setNewUser();

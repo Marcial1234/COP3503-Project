@@ -1,5 +1,4 @@
-#ifndef GENDEPEND_H
-#define GENDEPEND_H
+#pragma once
 
 #include <map>
 #include <string>
@@ -11,5 +10,3 @@
 #include <fstream>
 #include <iostream>
 #include <stdlib.h>
-
-#endif

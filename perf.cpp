@@ -1,3 +1,4 @@
+#pragma once
 /*
     File: perf.cpp
     Author: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
@@ -30,7 +31,7 @@ EmployeeReport::EmployeeReport(string employeeFile, string reportNumber) {
 	getline(cin, workQuality);
     toFile << "Quality of Work: " << workQuality << endl;
 
-	cout << "Communication Skills: ";./
+	cout << "Communication Skills: ";
 	getline(cin, communication);
     toFile << "Communication: " << communication << endl;
 

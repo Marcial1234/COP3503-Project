@@ -1,4 +1,7 @@
+#pragma once
 #include "validation.h"
+
+using namespace std;
 
 // This file might give warnings. Not worrying about them for now.
 

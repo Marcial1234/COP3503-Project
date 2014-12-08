@@ -1,6 +1,9 @@
-#include "employee.h"
+#pragma once
 #include "perf.h"
+#include "perf.cpp"
 #include "validation.h"
+#include "validation.cpp"
+#include "employee.h"
 
 using namespace std;
 
@@ -17,7 +20,7 @@ Employee::Employee() {
 
 	vector<string> options = { "For Yes", "For No" };
 	printGenericMenu("Is the employee new? (Y/N)", options);
-	int input = RecursivelyValitate(options.size()+1);
+	int input = RecursivelyValitate(options.size());
 
 	if (input == 0) {
 		setHoursWorkedWeek();
@@ -323,4 +326,10 @@ friend ostream &operator<<(ostream &out, Employee worker)
 	 out << worker.getHoursWorkedMonth();
 	 out << worker.getPerformanceReport();
      return out;
+}
+
+int main()
+{
+Employee o = *(new Employee());
+return 0;
 }

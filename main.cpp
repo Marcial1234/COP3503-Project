@@ -1,11 +1,18 @@
 #include "gendepend.h"
 #include "database.h"
+#include "database.cpp"
 #include "validation.h"
+#include "validation.cpp"
 #include "employee.h"
+#include "employee.cpp"
 #include "hash.h"
+#include "hash.cpp"
 #include "perf.h"
+#include "perf.cpp"
 #include "priv.h"
+#include "priv.cpp"
 #include "crypt.h"
+#include "crypt.cpp"
 
 using namespace std;
 
@@ -18,21 +25,21 @@ int main() {
 	Priv priv = *(new Priv());
 	priv.login();
 	
-	tempAuth = priv.getAuth();
+	int tempAuth = stoi(priv.getAuth());
 
 	bool stop = false;
 
-	while (stop == false) {
+	while (stop == true) {
 
-		if (tempauth >= 3) {
+		if (tempAuth >= 3) {
 			//menu.getMenuOptions(3);
 		}
 
-		if (tempauth >= 2) {
+		if (tempAuth >= 2) {
 			//menu.getMenuOptions(2);
 		}
 
-		if (tempauth >= 1) {
+		if (tempAuth >= 1) {
 			//menu.getMenuOptions(1);
 		}
 	}	

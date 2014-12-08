@@ -1,5 +1,7 @@
+#pragma once
 #include "crypt.h"
 #include "validation.h"
+#include "validation.cpp"
 
 using namespace std;
 
