@@ -16,6 +16,8 @@
     Note: I'm planning on implmenting some very rudimentary validation checking. 
           For example, the module might ask the user to try again if a field was 
           left blank. Marcial, I'd appreciate any insight you have on validation.
+
+  Marcial: Read Validation.cpp
 */
 
 #include "perf.h"

@@ -7,18 +7,13 @@
 
 using namespace std;
 
-// No idea of what 'add_employee' is. File manipulation is odd later on and should be done, rather.
-// All the mods should be done on the local maps.
-// Ernie: What does "mods being done on local maps" mean?
-
 bool Database::loadEmployee() {
 
     if (ifstream(filename)) {
         add_employee(new Employee());
         return true;
     }
-
-    else 
+    else
         return false;
 }
 
@@ -30,14 +25,10 @@ void Database::addEmployee(Employee worker) {
 bool Database::deleteEmployee(Employee worker) {
 
     if (ifstream(worker.reports)) {
-
-        if(remove(worker.reports) == 0 )) {
+        if (remove(worker.reports) == 0 ))
         	return true;
-        }
     }
-
-    else 
-        return false;
+    return false;
 }
 
 void Database::printRecord(Employee worker) {
@@ -65,7 +56,6 @@ bool Database::newFile(string filename) {
         cout << "File could not be created" << endl;
         return false;
     }
-
     else 
         return true;
 }

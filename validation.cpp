@@ -16,10 +16,10 @@ using namespace std;
 			[i]: vector[i]
 			...
 		Example:
-		printGenericMenu("Do you know your name?", { "Yes", "No" });
+		printGenericMenu("Do you know your name?", { "No", "Yes" });
 		Do you know your name?
-			0. Yes
-			1. No
+			0. No
+			1. Yes
 
 		RecursivelyValitate(maxNumber){}
 		Returns the input of a number ONLY LOWER than the passed max/upper limit.
@@ -120,21 +120,16 @@ void testMain() {
 
 	string instructions = "Do you want to change the cipher? (Y/N)\n";
 	instructions += "(Warning: Changing the cipher might affect the success of encrypting and decrypting text.\n";
-	vector<string> options = { "For Yes", "For No" };
+	vector<string> options = { "No", "Yes" };
 	printGenericMenu(instructions, options);
 	int response = RecursivelyValitate(options.size());
 
-	if (response == 0) {
+	if (response) {
 		options = { "Caesar Cipher", "Vigenere Cipher" };
 		printGenericMenu("Cipher Options:\n", options);
 		// cout << "\t" << "3. More options coming soon" << endl;
 		
 		int input = RecursivelyValitate(options.size());
-
-		if (input == 0)
-			cout << "Cipher successfully changed." << endl;
-		else // if (input == "2"), again validation
-			cout << "Cipher successfully changed." << endl;
 	}
 }
 
