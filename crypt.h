@@ -12,7 +12,6 @@
 class Crypt {
 private:
 	std::string key;
-	int shift;
 	std::string cipher;
 	std::string getKey();
 	std::string getCipher();

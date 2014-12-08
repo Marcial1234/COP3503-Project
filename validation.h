@@ -1,13 +1,8 @@
-// Added for the sake of completeness and makefile/dependency compliance.
-
 /*
   File: validation.h
   Authors: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
   Submitted: December 8, 2014
 */
-
-#ifndef VALIDATION_H
-#define VALIDATION_H
 
 #include "database.h"
 #include "employee.h"
@@ -17,4 +12,15 @@
 #include "perf.h"
 #include "gendepend.h"
 
-#endif
+using namespace std;
+
+#pragma once
+
+void SpitOutStupidity();
+bool ValidateRange(long long int, long long int);
+long long int RecursivelyValitate(long long int);
+bool ValidateRange(string, vector<string>&);
+string RecursivelyValitate(vector<string>&);
+
+void printMainMenu();
+void printGenericMenu(vector<string>&, string);

@@ -14,11 +14,11 @@ Employee::Employee() {
 	setOccupation();
 	setHashSSN();
 
-	cout << "Is the employee new? (Y/N)" << endl;
-	char input;
-	cin >> input;
+	vector<string> options = { "For Yes", "For No" };
+	printGenericMenu("Is the employee new? (Y/N)", options);
+	int input = RecursivelyValitate(options.size()+1);
 
-	if (tolower(input) == 'n') {
+	if (input == 0) {
 		setHoursWorkedWeek();
 		setHoursWorkedMonth();
 		setRaise();
@@ -35,168 +35,101 @@ Employee::Employee() {
 	cout << "Note: Make sure to update employee information on a regular basis." << endl;
 }
 
+friend ostream Employee::&operator<<(ostream &out, Employee worker)
+{
+	out << worker.getAge();
+    out << worker.getName();
+	out << worker.getSalary();
+	out << worker.getComment();
+	out << worker.getHashSSN();
+    out << worker.getOccupation();
+	out << worker.getTimeEmployed();
+	out << worker.getHoursWorkedWeek();
+	out << worker.getHoursWorkedMonth();
+	out << worker.getPerformanceReport();
+    
+	if(worker.getRaise())
+		worker.getRaiseValue();
 
-// Again the issue of 'value.length', defaulted to string in this case since no prior type was present.
-int Employee::infoCheck(string type, string value) {
+	if(worker.getInsurance())
+		worker.getInsurancePlan();
 
-	if (type == "string") {
-		for(int i = 0; i < value.length(); i++) {
-			if (isdigit(value.at(i)) != 0) {
-				return 1;
-			}
-		}
-	}
-
-	if (type == "double") {
-		for(int i = 0;i < value.length();i++) {
-			if (isalpha(value.at(i)) != 0) {
-				return 1;
-			}
-		}
-	}
-
-	return 0;
+    return out;
 }
 
 // All 'setter' functions.
 void Employee::setName() {
-
 	cout << "\n" << "Please enter the employee's name (Last, First)." << endl;
 	string input;
 	getline(cin,input);
 
-	if (infoCheck("string",input) == 1) {
-		cout << "One or more invalid characters was detected. Please try again." << endl;
-		setName();
-	}
-
 	name = input;
 }
 
-// Problem with all the string to doubles. I will have to deal with validation on all of them later.
 void Employee::setAge() {
-
 	cout << "\n" << "Please enter the employee's age." << endl;
-	// Validation needed here
-	string input;
-	getline(cin,input);
-	
-	double tempCheck = stoi(input);
-	if (infoCheck("double",input) == 1 || tempCheck <= 0) {
-		cout << "Please enter a valid age (no letters or other characters)" << endl;
-		setAge();
-	}
-
-	age = stoi(input);
+	int input = RecursivelyValitate(1024); // That's pretty high for an age.
+	age = input;
 }
 
 void Employee::setSalary() {
-
 	cout << "\n" << "Please enter the employee's salary." << endl;
-	string input;
-	getline(cin,input);
+	// for the billionaires and stuff
+	long long int input = RecursivelyValitate(9223372036854775807);
 
-	if (infoCheck("double",input) == 1 || stod(input) <= 0) {
-		cout << "Please enter a valid salary (no letters or other characters)" << endl;
-		setSalary();
-	}
-
-	salary = stod(input);
+	salary = input;
 }
 
 void Employee::setRaise() {
+	string instructions = "\nIs your employee is marked down for a raise?";
+	vector<string> options = { "For No", "For Yes" };
+	printGenericMenu(instructions, options);
+	int input = RecursivelyValitate(options.size(), instructions);
 
-	cout << "\n" << "If your employee is marked down for a raise enter (Y) otherwise enter (N)" << endl;
-	string input;
-	getline(cin,input);
-
-	if (infoCheck("string",input) == 1) {
-		cout << "Please enter a valid response (no numbers or special characters)" << endl;
-		setRaise();
-	}
-
-	if (input == "Y" || input == "y") {
-		raise = true;
+	// 0 == false, 1 == true. Go Back won't work
+	raise = input;
+	if (input)
 		setRaiseValue();
-	} 
-
-	else {
-		raise = false;
-	}
-	
 }
+
 void Employee::setRaiseValue() {
 	cout << "\n" << "Please enter the raise amount" << endl;
-	cout << "\t" << "Note: Raise can be negative in the event of a reduction in salary" << endl;
-	string input;
-	getline(cin,input);
-	if (infoCheck("double",input) == 1 ) {
-		cout << "Please enter a valid number (no letters or other characters)" << endl;
-		setRaiseValue();
-	}
-	raiseValue = stod(input);
+	// Marcial: Can't handle negatives at the momement
+	// cout << "\t" << "Note: Raise can be negative in the event of a reduction in salary" << endl;
+
+	// For the billionaires
+	raiseValue = RecursivelyValitate(9223372036854775807)
 }
+
 void Employee::setHoursWorkedWeek() {
-	cout << "\n" << "Please enter the number of hours the employee worked this week" << endl;
-	string input;
-	getline(cin,input);
-	if (infoCheck("double",input) == 1 || stod(input) <= 0) {
-		cout << "Please enter a valid number (no letters or other characters)" << endl;
-		setHoursWorkedWeek();
-	}
-	hoursWorkedWeek = stod(input);
+	cout << "\n" << "Number of hours the employee worked this week:" << endl;
+	hoursWorkedWeek = RecursivelyValitate(169);
 }
+
 void Employee::setHoursWorkedMonth() {
-	cout << "\n" << "Please enter the number of hours the employee worked this month" << endl;
-	string input;
-	getline(cin,input);
-
-	if (infoCheck("double",input) == 1 || stod(input) <= 0) {
-		cout << "Please enter a valid number (no letters or other characters)" << endl;
-		setHoursWorkedMonth();
-	}
-
-	hoursWorkedMonth = stod(input);
+	cout << "\n" << "Number of hours the employee worked this month:" << endl;
+	hoursWorkedMonth = RecursivelyValitate(5270);
 }
+
 void Employee::setTimeEmployed() {
-	cout << "\n" << "Please enter the time employed (months)" << endl;
-	string input;
-	getline(cin,input);
-
-	if (infoCheck("double",input) == 1 || stod(input) <= 0) {
-		cout << "Please enter a valid number (no letters or other characters)" << endl;
-		setTimeEmployed();
-	}
-
-	timeEmployed = stod(input);
+	cout << "\n" << "Enter the time employed (months):" << endl;
+	timeEmployed = RecursivelyValitate(1212);
 }
+
 void Employee::setInsurance() {
+	vector<string> options = { "For Yes", "For No" };
+	printGenericMenu("\nDoes your employee qualifies for company insurance?", options);
 
-	cout << "\n" << "If your employee qualifies for company insurance enter (Y)" << endl;
-	string input = "";
-	getline(cin,input);
-
-	if (infoCheck("string",input) == 1) {
-		cout << "Please enter a valid response (no numbers or special characters)" << endl;
-		setInsurance();
-	}
-	if (input == "y") {
-		insurance = true;
+	// Hmm. Don't go back here. Back will set it to true
+	if (RecursivelyValitate(options.size()))
 		setInsurancePlan();
-	}
-	else
-		insurance = false;
 }
 
 void Employee::setInsurancePlan() {
 	cout << "\n" << "Please enter the name of you employee's insurance plan" << endl;
 	string input;
 	getline(cin,input);
-
-	if (infoCheck("string",input) == 1) {
-		cout << "Please enter a valid response (no numbers or special characters)" << endl;
-		setInsurancePlan();
-	}
+	// Try breaking it and see if validation is needed.
 
 	insurancePlan = input;
 }
@@ -212,36 +145,25 @@ void Employee::setComment() {
 	cout << "\n" << "If you have any comment's to add to the employee's record add them here" << endl;
 	string input;
 	getline(cin,input);
-	if (infoCheck("string",input) == 1) {
-		cout << "Please enter a comment" << endl;
-		setComment();
-	}
+	// Try breaking it and see if validation is needed.
+
 	comment = input;
 }
+
 void Employee::setHashSSN() {
 	cout << "\n" << "Please enter the name of you employee's SSN (Social Security Number)" << endl;
 	cout << "\t" << "Note: The SSN itself will not be stored, rather a hash result will be stored for later validation purposes" << endl;
-	string input;
-	getline(cin,input);
+	long long int input = RecursivelyValitate(10000000000);
 
-	if (infoCheck("double",input) == 1 || input.length() != 9) {
-		cout << "Please enter a valid number" << endl;
-		setHashSSN();
-	}
-	input = stod(input);
-
-	// What is this?
+	// Marcial: What is this?
 	hashSSN = hash->getHash(input);
 }
+
 void Employee::setOccupation() {
 	cout << "\n" << "Please enter the name of you employee's role in your company" << endl;
 	string input;
 	getline(cin,input);
-
-	if (infoCheck("string",input) == 1) {
-		cout << "Please enter a valid response" << endl;
-		setOccupation();
-	}
+	// Try breaking it and see if validation is needed.
 
 	occupation = input;
 }
@@ -349,6 +271,7 @@ void Employee::printPerformanceReport() {
 		
 	}
 }
+
 void Employee::printComment() {
 	cout << comment << endl;
 }
