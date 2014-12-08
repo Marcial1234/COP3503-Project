@@ -94,7 +94,7 @@ void Priv::setUserName() {
 		ofstream usersFile ("users.txt",ios_base::app);
 		Crypt crypt = *(new Crypt());
 		user = crypt.encrypt(user);
-		usersFile << "\n" << user;
+		usersFile << user << endl;;
 		setPassword();
 	}
 	else {
@@ -121,7 +121,7 @@ void Priv::setPassword() {
 		ofstream passFile ("pass.txt",ios_base::app);
 		Crypt crypt = *(new Crypt());
 		password = crypt.encrypt(password);
-		passFile << "\n" << password;
+		passFile << password << endl;
 	}
 	else {
 		cout << "Error: Passwords do not match. Please retry." << endl;
