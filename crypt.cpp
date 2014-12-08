@@ -128,6 +128,7 @@ void Crypt::setCipher() {
 }
 
 // Testing
+/*
 int main()
 {
 	Crypt test = *(new Crypt);
@@ -144,3 +145,4 @@ int main()
 
 	return 0;
 }
+*/
