@@ -7,10 +7,10 @@
 
 using namespace std;
 
-bool Database::loadEmployee() {
+bool Database::loadEmployee(string filename) {
 
     if (ifstream(filename)) {
-        add_employee(new Employee());
+        addEmployee(*(new Employee()));
         return true;
     }
     else
@@ -22,11 +22,12 @@ void Database::addEmployee(Employee worker) {
     records.push_back(worker);
 }
 
-bool Database::deleteEmployee(Employee worker) {
-
-    if (ifstream(worker.reports)) {
-        if (remove(worker.reports) == 0 ))
-        	return true;
+bool Database::deleteEmployee(string filename) {
+    if (remove (filename) != 0) {
+        perror("Error deleting file");
+        return false;
+    } else {
+        return true;
     }
     return false;
 }

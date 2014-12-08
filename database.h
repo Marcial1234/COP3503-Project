@@ -17,8 +17,9 @@ public:
     void pullFiles();
     bool newFile(std::string filename);
     bool loadEmployee(std::string filename);
-    bool deleteEmployee(Employee worker);
+    bool deleteEmployee(std::string filename);
     void addEmployee(Employee worker);
     void printRecord(Employee worker);
+    void printAllRecords(std::vector<Employee> worker);
 
 };
