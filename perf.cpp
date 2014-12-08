@@ -30,7 +30,7 @@ EmployeeReport::EmployeeReport(string employeeFile, string reportNumber) {
 	getline(cin, workQuality);
     toFile << "Quality of Work: " << workQuality << endl;
 
-	cout << "Communication Skills: ";./
+	cout << "Communication Skills: ";
 	getline(cin, communication);
     toFile << "Communication: " << communication << endl;
 
