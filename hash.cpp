@@ -37,6 +37,7 @@ int Hash::getHash(string value) {
 	return temphash;
 }
 
+// We can't overload getHash here. This is giving some errors in Cygwin.
 int Hash::getHash(string value) {
 
 	int num = checkFunction(2);
