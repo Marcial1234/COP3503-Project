@@ -43,19 +43,19 @@ void Database::printAllRecords(vector<Employee> employee_records) {
 	}
 }
 
-bool Database::newFile(string filename) {
+bool newFile(string filename) {
+	ifstream stream(filename);
+    	if (stream) {
+        	cout << "File already exists." << endl;
+        	return false;
+    	}
 
-    if (ifstream(filename)) {
-        cout << "File already exists." << endl;
-        return false;
-    }
+    	ofstream file(filename);
 
-    ofstream file(filename);
-
-    if (!file) {
-        cout << "File could not be created" << endl;
-        return false;
-    }
-    else 
-        return true;
+    	if (!file) {
+        	cout << "File could not be created" << endl;
+        	return false;
+    	}
+    	else
+        	return true;
 }
