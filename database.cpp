@@ -43,7 +43,7 @@ void Database::printAllRecords(vector<Employee> employee_records) {
 	}
 }
 
-bool newFile(string filename) {
+bool Database::newFile(string filename) {
 	ifstream stream(filename);
     	if (stream) {
         	cout << "File already exists." << endl;
