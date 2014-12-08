@@ -26,6 +26,7 @@ void Database::addEmployee(Employee worker) {
 
 // TODO
 bool Database::deleteEmployee(string filename) {
+	records.delete()
    /* if (remove (filename) != 0) {
         perror("Error deleting file");
         return false;
@@ -61,4 +62,20 @@ bool Database::newFile(string filename) {
     }
     else
         return true;
+}
+
+void Database::printDirectory(string filepath)
+{
+    /*
+    DIR *dpdf;
+    struct dirent *epdf;
+    dpdf = opendir("C:/Users/David/Desktop/exemple2.txt");
+    if(dpdf != NULL)
+    {
+    	while (epdf = readdir(dpdf)){
+      	printf("Filename: %s",epdf->d_name);
+      // std::out << epdf->d_name << std::endl;
+   	}
+    }
+    */
 }
