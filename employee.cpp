@@ -39,28 +39,6 @@ Employee::Employee() {
 	cout << "Note: Make sure to update employee information on a regular basis." << endl;
 }
 
-friend ostream Employee::&operator<<(ostream &out, Employee worker) {
-
-	out << worker.getAge();
-    out << worker.getName();
-	out << worker.getSalary();
-	out << worker.getComment();
-	out << worker.getHashSSN();
-    out << worker.getOccupation();
-	out << worker.getTimeEmployed();
-	out << worker.getHoursWorkedWeek();
-	out << worker.getHoursWorkedMonth();
-	out << worker.getPerformanceReport();
-    
-	if(worker.getRaise())
-		worker.getRaiseValue();
-
-	if(worker.getInsurance())
-		worker.getInsurancePlan();
-
-    return out;
-}
-
 // All 'setter' functions.
 void Employee::setName() {
 
@@ -304,29 +282,6 @@ void Employee::printOccuption() {
 //other variable management functions
 void payEmployee();
 
-//Overloaded << operator to print the details of a Employee object
-friend ostream &operator<<(ostream &out, Employee worker)
-{
-     out << worker.getName();
-     out << worker.getOccupation();
-     if(worker.getRaise())
-     {
-         worker.getRaiseValue();
-     }
-     if(worker.getInsurance())
-     {
-         worker.getInsurancePlan();
-     }
-	 out << worker.getComment();
-	 out << worker.getAge();
-	 out << worker.getSalary();
-	 out << worker.getHashSSN();
-	 out << worker.getTimeEmployed();
-	 out << worker.getHoursWorkedWeek();
-	 out << worker.getHoursWorkedMonth();
-	 out << worker.getPerformanceReport();
-     return out;
-}
 
 int main()
 {
