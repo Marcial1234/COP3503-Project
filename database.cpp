@@ -14,9 +14,9 @@ void Database::addEmployee(string worker) {
 	Employee worker1 = *(new Employee(worker));
 }
 
-bool Database::deleteEmployee(const char * filename) {
-	string tempstring = filename += ".txt";
-    if (remove(filename) != 0) 
+bool Database::deleteEmployee(string filename) {
+	string tempstring = filename + ".txt";
+    if (remove(tempstring.c_str()) != 0) 
     {
         perror("Error deleting file");
         return false;
@@ -39,7 +39,7 @@ bool Database::deleteEmployee(const char * filename) {
 }
 
 void Database::listEmployees() {
-		ifstream openFile ("employees.txt")
+		ifstream openFile ("employees.txt");
 		string newstring;
 		while(getline(openFile,newstring)) {
 				cout << newstring << endl;
