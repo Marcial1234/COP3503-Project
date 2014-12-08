@@ -33,8 +33,9 @@ bool Database::deleteEmployee(const char * filename) {
 			}
 			return false;
 		}
-		return false;
+		
 	}
+	return false;
 }
 
 void Database::listEmployees() {
