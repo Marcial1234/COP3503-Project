@@ -16,10 +16,9 @@
 
 using namespace std;
 
-int tempAuth;
 
 int main() {
-	
+
 	Database database = *(new Database());
 	
 	Priv priv = *(new Priv());

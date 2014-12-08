@@ -1,5 +1,6 @@
 #pragma once
 #include "validation.h"
+#include "gendepend.h"
 
 using namespace std;
 
@@ -38,14 +39,14 @@ enum SettingsMenuOptions
 	ChangePriv,
 };
 
-const string invalid = "\nSorry, that was an invalid input, try again\n";
+// End of "Globals".
 
-// End of "Globals"
+using namespace std;
 
 void SpitOutStupidity() {
-	cout << invalid << endl;
-	cin.clear();
-	cin.ignore(1024, '\n');
+	std::cout << "\nSorry, that was an invalid input, try again.\n" << std::endl;
+	std::cin.clear();
+	std::cin.ignore(1024, '\n');
 }
 
 // Numeric validation

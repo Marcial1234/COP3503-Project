@@ -10,7 +10,6 @@ Hash::Hash() {
 	hashFunction = "Standard";
 }
 
-// No clue but what is meant by "value.length", are you sure it should be an int or a string?
 int Hash::getHash(string value) {
 
 	int num = checkFunction(1);
@@ -39,8 +38,6 @@ int Hash::getHash(string value) {
 
 	return temphash;
 }
-
-
 
 bool Hash::checkHash(int checkVal) {
 	if (checkVal == hash) {
@@ -79,7 +76,7 @@ int Hash::checkFunction(int check) {
 	// Changed char to string to play nice with getline().
 	// String validation is needed here. Will do later.
 	string input;
-    getline(cin, input);
+	getline(cin, input);
 
 	if (input == "y")
 		return 1;
@@ -115,10 +112,10 @@ void Hash::changeFunction() {
 	cout << "Error: Please choose one of the listed options:" << endl;
 	changeFunction();
 }
-
+/*
 int main()
 {
 	Hash pt = *(new Hash());
 
 	return 0;
-}
+}*/
