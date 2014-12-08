@@ -9,16 +9,16 @@
 
 using namespace std;
 
-int tempAuth;
 
 int main() {
-	
+
 	Database database = *(new Database());
 	
 	Priv priv = *(new Priv());
 	priv.login();
 	
-	tempAuth = priv.getAuth();
+	int tempauth;
+	tempauth = priv.getAuth();
 
 	bool stop = false;
 

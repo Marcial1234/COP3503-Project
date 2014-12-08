@@ -129,7 +129,7 @@ void Priv::setAccess() {
 	privsFile << "\n" << input+1;
 }
 
-string Priv::getAuth() {
+int Priv::getAuth() {
 	return auth;
 }
 
