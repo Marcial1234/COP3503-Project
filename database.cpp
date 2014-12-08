@@ -13,7 +13,6 @@ void Database::addEmployee(string worker) {
 	employeesFile << tempstring << endl;
 	employeesFile.close();
 	Employee worker1 = *(new Employee(worker));
-    return;
 }
 
 bool Database::deleteEmployee(string worker) {
@@ -21,7 +20,8 @@ bool Database::deleteEmployee(string worker) {
     if (remove(tempstring) != 0) {
         perror("Error deleting file");
         return false;
-    } 
+    }
+
     fstream openFile ("employees.txt");
     string line1;
     if(openFile.is_open()) {
@@ -30,6 +30,7 @@ bool Database::deleteEmployee(string worker) {
 				openFile << "employee removed";
 				openFile << "employee removed";
 			}
+		}
+    	return false;
 	}
-    return false;
 }

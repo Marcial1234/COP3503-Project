@@ -60,7 +60,7 @@ int main() {
 			menuOptions = RecursivelyValitate(visibility);
 
 			// This is needed for add employee, supposedly
-			Employee oink = (*new Employee());
+			//Employee oink = (*new Employee());
 
 			switch (menuOptions)
 			{
@@ -75,7 +75,7 @@ int main() {
 					// EditEmployee();
 					break;					
 				case 3:
-					database.addEmployee(oink);
+					//database.addEmployee(oink);
 					break;					
 				case 4:
 					database.deleteEmployee("");
