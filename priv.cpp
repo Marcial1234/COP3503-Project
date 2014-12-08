@@ -125,7 +125,7 @@ void Priv::setAccess() {
 	int input = RecursivelyValitate(options.size());
 
 	ofstream privsFile ("privs.txt",ios_base::app);
-	auth = privlevel;
+	auth = input;
 	privsFile << "\n" << input+1;
 }
 
