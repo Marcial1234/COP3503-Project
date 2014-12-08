@@ -39,7 +39,7 @@ int main() {
 		if (tempAuth == 1) {
 			//menu.getMenuOptions(1);
 		}
-		// break at some point to exit loop.
+		// David:  break at some point to exit infinite loop.
 	}	
 
 	//database.pushUserRecords();
