@@ -46,22 +46,18 @@ int main() {
 
 	while(true) {
 
-		printMainMenu(priv.getAuth());
 		int visibility = maxPrivValues[priv.getAuth()];
 		// Asking for user input. +1 so it exits on max +1, which is Exit
 		int menuOptions = RecursivelyValitate(visibility+1);
 
 		// Based on menuOptions go to each submenu. Or Exit
-		if (menuOptions != visibility)
+		if (menuOptions < visibility)
 		{
 			vector<string> TempMenu = MenuOptions;
 			TempMenu.resize(visibility);
 			vector<string> CustomMenu = TempMenu;
 			printGenericMenu(instructions, CustomMenu);
 			menuOptions = RecursivelyValitate(visibility);
-
-			// This is needed for add employee, supposedly
-			//Employee oink = (*new Employee());
 
 			switch (menuOptions)
 			{
@@ -79,7 +75,7 @@ int main() {
 					//database.addEmployee(oink);
 					break;					
 				case 4:
-					database.deleteEmployee("");
+					//database.deleteEmployee("");
 					break;
 				// Tentative Deletion
 				case 5:

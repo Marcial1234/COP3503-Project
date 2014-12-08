@@ -87,14 +87,3 @@ void printGenericMenu(string placeHolder, vector<string> &v) {
 	for (unsigned int i = 0; i < v.size(); ++i)
 		cout << "\t" << i << ": " << v[i] << endl;
 }
-
-void printMainMenu(int auth) {
-	int maxPrivValues[3] = { 1, 2, 4 };
-	string mainMenu[4] = { "Browse", "Edit", "Build", "Settings" };
-	cout << "Please type one of the following:" << endl;
-
-	// Printing custom Menu based on authorization type
-	for (int i = 0; i < maxPrivValues[auth]; ++i)
-		cout << "\t" << i << ": To " << mainMenu[i] << endl;
-	cout << "\t" << maxPrivValues[auth] << ": To Exit" << endl;
-}
