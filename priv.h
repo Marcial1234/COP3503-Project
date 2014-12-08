@@ -3,6 +3,7 @@
     Authors: Marcial Abrahantes, Ernie Chu, David Frick, Dax Gerts
     Submitted: December 8, 2014
 */
+    
 #ifndef PRIV_H
 #define PRIV_H
 
