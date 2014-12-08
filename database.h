@@ -13,8 +13,6 @@ private:
     std::vector<Employee> records;
 
 public:
-    void pushFiles();
-    void pullFiles();
     bool newFile(std::string filename);
     bool loadEmployee(std::string filename);
     bool deleteEmployee(std::string filename);
