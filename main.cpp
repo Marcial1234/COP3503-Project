@@ -25,22 +25,21 @@ int main() {
 	priv.login();
 	
 	int tempAuth = stoi(priv.getAuth());
+	// David: Assumed this was menu to make choices.
+	while (true) {
 
-	bool stop = false;
-
-	while (stop == true) {
-
-		if (tempAuth >= 3) {
+		if (tempAuth == 3) {
 			//menu.getMenuOptions(3);
 		}
 
-		if (tempAuth >= 2) {
+		if (tempAuth == 2) {
 			//menu.getMenuOptions(2);
 		}
 
-		if (tempAuth >= 1) {
+		if (tempAuth == 1) {
 			//menu.getMenuOptions(1);
 		}
+		// break at some point to exit loop.
 	}	
 
 	//database.pushUserRecords();
