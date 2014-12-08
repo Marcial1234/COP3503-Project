@@ -15,9 +15,6 @@ private:
 	enum CypherType { Caesar, Vigenere}; //, XOR
 	CypherType getCipher();
 	CypherType cipher;
-	//std::string CaesarCipher(std::string, bool);
-	//std::string VigenereCipher(std::string, bool);
-	std::string XOREncryption(std::string);
 
 public:
 	Crypt();

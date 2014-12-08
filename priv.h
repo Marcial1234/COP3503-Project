@@ -6,19 +6,23 @@
 */
 
 #include "gendepend.h"
+#include "crypt.h"
 
 class Priv {
 private:
 	// 0 == Read, 1 == Write, 2 == Admin
 	enum Privs { Read, Write, Admin };
 	Privs auth;
+	Crypt crypt;
 	std::string user;
 	std::string password;
 
 public:
 	Privs getAuth();
 	void login();
+	void setKey();
 	void setAdmin();
+	void setCipher();
 	void setAccess();
 	void setNewUser();
 	void setPassword();

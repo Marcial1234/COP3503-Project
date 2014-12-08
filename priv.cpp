@@ -14,7 +14,7 @@ void Priv::login() {
 	ifstream privsFile ("privs.txt");
 	//ifstream settingsFile ("set.txt");
 
-	Crypt crypt = *(new Crypt());
+	crypt = *(new Crypt());
 
 	/*
 		Test this:
@@ -142,4 +142,12 @@ void Priv::setAccess() {
 
 Priv::Privs Priv::getAuth() {
 	return auth;
+}
+
+void Priv::setCipher() {
+	crypt.setCipher();
+}
+
+void Priv::setKey() {
+	crypt.setKey();
 }

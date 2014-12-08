@@ -80,10 +80,6 @@ string RecursivelyValitate(vector<string> &options) {
 	}
 }
 
-string mainMenu[4] = { "Browse", "Edit", "Build", "Go to Settings" };
-// Can have a lot of these for prompts.
-
-
 // Come up with ideas of why this should return the variable value.
 void printGenericMenu(string placeHolder, vector<string> &v) {
 	cout << placeHolder << endl;
@@ -97,8 +93,8 @@ void printGenericMenu(string placeHolder, vector<string> &v) {
 	// cout << "\t" << v.size() << ": To Go Back" << endl;
 }
 void printMainMenu(int auth) {
-	// Privs auth = Admin;
 	int maxPrivValues[3] = { 1, 2, 4 };
+	string mainMenu[4] = { "Browse", "Edit", "Build", "Settings" };
 	cout << "Please type one of the following:" << endl;
 
 	// Printing custom Menu based on authorization type
