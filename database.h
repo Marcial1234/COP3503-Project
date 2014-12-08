@@ -19,7 +19,7 @@ public:
     bool loadEmployee(std::string filename);
     bool deleteEmployee(std::string filename);
     void addEmployee(Employee worker);
-    void printRecord(Employee worker);
+    void printRecords(Employee worker);
     void printAllRecords(std::vector<Employee> worker);
 
 };

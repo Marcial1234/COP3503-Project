@@ -13,5 +13,5 @@ long long int RecursivelyValitate(long long int);
 bool ValidateRange(std::string, std::vector<std::string>&);
 std::string RecursivelyValitate(std::vector<std::string>&);
 
-void printMainMenu();
+void printMainMenu(int);
 void printGenericMenu(std::string, std::vector<std::string> &);

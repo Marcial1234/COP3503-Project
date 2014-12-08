@@ -16,32 +16,99 @@
 
 using namespace std;
 
+/*WILL NOT COMPILE*/
+enum Menu
+{
+	Browse,
+	Edit,
+	Build,
+	Settings
+};
+
+enum EditMenu
+{
+	List,
+	AddFile, // Meh...
+	AddEmployee,
+	ViewEmployee,
+	DeleteEmployee,
+	// No?
+	AddFolder,
+	EditFolder,
+	DeleteFolder,
+};
+
+enum SettingsMenu
+{
+	SetHash,
+	SetCrypt,
+	ChangePriv,
+};
+/*WILL NOT COMPILE*/
+
+void printSettingsMenu(){
+
+}
+
+void printBuildMenu(){
+
+}
+
+void printBrowseMenu(){
+	// JUST FUCKING DISPLAY ERRTHING
+}
 
 int main() {
 
+	void (*foo)();
+	foo = printSettingsMenu();
+
+	vector<void (*)()> v = { foo, foo1,  };
+
+	string instructions = "Please choose one of the following:";
+	vector<string> MenuOptions = { "", "" };
+	vector<string> SettingsMenuOptions = { "Set Hash?", "Set Encryption Key", "Change User Priviledges" };
+	vector<string> EditMenuOptions = 
+	{
+		"AddEmployee",
+		"ViewEmployee",
+		"DeleteEmployee",
+		// Double check
+		"List",
+		"AddFile", // Meh...
+		// No Dax Said?
+		"AddFolder",
+		"EditFolder",
+		"DeleteFolder",
+	};
+
+	// Function pointer with the preset things.
+
+	int maxPrivValues[3] = { 1, 2, 4 };
+
+	// Initialization
 	Database database = *(new Database());
-	
-	Priv priv = *(new Priv());
-	priv.login();
-	
-	int tempAuth = stoi(priv.getAuth());
-	// David: Assumed this was menu to make choices.
-	while (true) {
+	// database.pullUserRecords;
 
-		if (tempAuth == 3) {
-			//menu.getMenuOptions(3);
-		}
+	while(true) {
 
-		if (tempAuth == 2) {
-			//menu.getMenuOptions(2);
-		}
+		Priv priv = *(new Priv());
+		priv.login();
+		printMainMenu(priv.getAuth());
 
-		if (tempAuth == 1) {
-			//menu.getMenuOptions(1);
+		// Asking for user input. +1 so it exits on max +1, which is Exit
+		int menuOptions = RecursivelyValitate(maxPrivValues[priv.getAuth()]+1);
+
+		// Based on menuOptions go to each submenu. Or Exit
+		if (menuOptions != maxPrivValues[priv.getAuth()])
+		{
+			/* SubMenus */
 		}
-		// David:  break at some point to exit infinite loop.
-	}	
+		else
+			break;
+	}
 
 	//database.pushUserRecords();
+
 	return 0;
 }

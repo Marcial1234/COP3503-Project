@@ -16,6 +16,12 @@ void Priv::login() {
 
 	Crypt crypt = *(new Crypt());
 
+	/*
+		Test this:
+			When file Doesn't have an admin by default.
+			When it does have one.
+	*/ 
+
 	if (usersFile.is_open() == false)
 		setAdmin();
 
@@ -33,16 +39,18 @@ void Priv::login() {
 
 	if (usersFile.is_open() && passFile.is_open() && privsFile.is_open()) {
 		bool success = false;
+
 		while(getline(usersFile,line1) && getline(passFile,line2) && getline(privsFile,line3)) {
 			line1 = crypt.decrypt(line1);
 			line2 = crypt.decrypt(line2);
 			if (line1 == user && line2 == password) {
-				auth = line3;
+				auth = Priv::Privs(line3);
 				success = true;
 				cout << "login successful" << "\n" << endl;
 			}
 		}
-		if (success == false) {
+
+		if (!success) {
 			cout << "Username and/or password incorrect\n";
 			cout << "Note: If you do not have an account please contact an administrator\n" << endl;
 
@@ -57,7 +65,7 @@ void Priv::setAdmin() {
 	setUserName();
 
 	ofstream privsFile ("privs.txt",ios_base::app);
-	privsFile << "\n" << 3;
+	privsFile << "\n" << 2;
 }
 
 void Priv::setNewUser() {
@@ -132,6 +140,6 @@ void Priv::setAccess() {
 	privsFile << "\n" << input+1;
 }
 
-string Priv::getAuth() {
+Priv::Privs Priv::getAuth() {
 	return auth;
 }

@@ -1,4 +1,4 @@
-#pragma once
+\#pragma once
 #include "perf.h"
 #include "perf.cpp"
 #include "validation.h"
@@ -298,5 +298,4 @@ void Employee::printEmployeeRecords() {
 	printPerformanceReport();
 }
 //other variable management functions
-void payEmployee();
-
+// void payEmployee();

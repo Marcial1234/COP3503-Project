@@ -9,12 +9,14 @@
 
 class Priv {
 private:
+	// 0 == Read, 1 == Write, 2 == Admin
+	enum Privs { Read, Write, Admin };
+	Privs auth;
 	std::string user;
 	std::string password;
-	std::string auth;
 
 public:
-	std::string getAuth();
+	Privs getAuth();
 	void login();
 	void setAdmin();
 	void setAccess();

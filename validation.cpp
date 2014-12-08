@@ -4,6 +4,8 @@
 
 using namespace std;
 
+// Marcial: Make these methods static later.
+
 /*
 	Documentation/How to Use:
 		
@@ -81,7 +83,6 @@ string RecursivelyValitate(vector<string> &options) {
 string mainMenu[4] = { "Browse", "Edit", "Build", "Go to Settings" };
 // Can have a lot of these for prompts.
 
-enum Privs { Read, Write, Admin };
 
 // Come up with ideas of why this should return the variable value.
 void printGenericMenu(string placeHolder, vector<string> &v) {
@@ -95,10 +96,9 @@ void printGenericMenu(string placeHolder, vector<string> &v) {
 	// Menus with "No" on them don't really need this...
 	// cout << "\t" << v.size() << ": To Go Back" << endl;
 }
-
-void printMainMenu() {
+void printMainMenu(int auth) {
+	// Privs auth = Admin;
 	int maxPrivValues[3] = { 1, 2, 4 };
-	Privs auth = Admin;
 	cout << "Please type one of the following:" << endl;
 
 	// Printing custom Menu based on authorization type
@@ -106,31 +106,9 @@ void printMainMenu() {
 		cout << "\t" << i << ": To " << mainMenu[i] << endl;
 	cout << "\t" << maxPrivValues[auth] << ": To Exit" << endl;
 
-	// Asking for user input. +1 so it exits on max +1
-	int whatToDo = RecursivelyValitate(maxPrivValues[auth]+1);
-
 	// Array of function pointers to the desired 'whatToDo' function
 	// Go die arrays and ur const values.....
 	// void (*functionPointerArr[whatToDo])();
-}
-
-void testMain() {
-	// Need to actually get this from somewhere. Cannot hard set it
-	printMainMenu();
-
-	string instructions = "Do you want to change the cipher? (Y/N)\n";
-	instructions += "(Warning: Changing the cipher might affect the success of encrypting and decrypting text.\n";
-	vector<string> options = { "No", "Yes" };
-	printGenericMenu(instructions, options);
-	int response = RecursivelyValitate(options.size());
-
-	if (response) {
-		options = { "Caesar Cipher", "Vigenere Cipher" };
-		printGenericMenu("Cipher Options:\n", options);
-		// cout << "\t" << "3. More options coming soon" << endl;
-		
-		int input = RecursivelyValitate(options.size());
-	}
 }
 
 /**********************************************************
@@ -142,33 +120,6 @@ void testMain() {
 // Array of max values of submenus somewhere
 
 // "Globals"
-enum MenuOptions
-{
-	Browse,
-	Edit,
-	Build,
-	Settings
-};
-
-enum EditMenuOptions
-{
-	List,
-	Move,
-	AddFile, // Meh...
-	AddEmployee,
-	ViewEmployee,
-	DeleteEmployee,
-	AddFolder,
-	EditFolder,
-	DeleteFolder,
-};
-
-enum SettingsMenuOptions
-{
-	SetHash,
-	SetCrypt,
-	ChangePriv,
-};
 
 // End of "Globals".
 

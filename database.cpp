@@ -7,6 +7,8 @@
 
 using namespace std;
 
+// The database should be a map
+
 bool Database::loadEmployee(string filename) {
 
     if (ifstream(filename)) {
@@ -22,6 +24,7 @@ void Database::addEmployee(Employee worker) {
     records.push_back(worker);
 }
 
+// TODO
 bool Database::deleteEmployee(string filename) {
    /* if (remove (filename) != 0) {
         perror("Error deleting file");
@@ -32,30 +35,30 @@ bool Database::deleteEmployee(string filename) {
     return false;
 }
 
-void Database::printRecord(Employee worker) {
+void Database::printRecords(Employee worker) {
 	worker.printEmployeeRecords();
 }
 
 void Database::printAllRecords(vector<Employee> employee_records) {
 
 	for (int i = 0; i != employee_records.size(); i++ ) {
-		printRecord(employee_records.at(i));
+		printRecords(employee_records.at(i));
 	}
 }
 
 bool Database::newFile(string filename) {
-	ifstream stream(filename);
-    	if (stream) {
-        	cout << "File already exists." << endl;
-        	return false;
-    	}
+    ifstream stream(filename);
+    if (stream) {
+        cout << "File already exists." << endl;
+        return false;
+    }
 
-    	ofstream file(filename);
+    ofstream file(filename);
 
-    	if (!file) {
-        	cout << "File could not be created" << endl;
-        	return false;
-    	}
-    	else
-        	return true;
+    if (!file) {
+        cout << "File could not be created" << endl;
+        return false;
+    }
+    else
+        return true;
 }
