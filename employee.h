@@ -10,15 +10,15 @@
 class Employee{
 
 private:
-	std::string name;
 	int age;
+	bool insurance;
+	std::string name;
+	std::string insurancePlan;
 	long long int salary;
 	long long int hashSSN;
 	long long int timeEmployed;
 	long long int hoursWorkedWeek;
 	long long int hoursWorkedMonth;
-	bool insurance;
-	std::string insurancePlan;
 
 	// A brief description of an employee's role in a company. 
 	std::string occupation;

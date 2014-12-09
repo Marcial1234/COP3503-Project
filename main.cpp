@@ -17,7 +17,7 @@ using namespace std;
 string getEmployeeName()
 {
 	cout << "Please enter the employee name: " << endl;
-	string input = RecursivelyValitate();
+	string input = RecursivelyValidate();
 	return input;
 }
 
@@ -32,7 +32,6 @@ int main() {
 		"EditEmployee",
 		"AddEmployee",
 		"DeleteEmployee",
-		"Set Hash",
 		"Set Cipher",
 		"Set Encryption Key",
 		"Performance Reports"
@@ -58,7 +57,7 @@ int main() {
 		vector<string> CustomMenu = TempMenu;
 		CustomMenu.push_back("Exit");
 		printGenericMenu(instructions, CustomMenu);
-		int menuOptions = RecursivelyValitate(visibility+1);
+		int menuOptions = RecursivelyValidate(visibility+1);
 
 		// Based on menuOptions go to each submenu. Or Exit
 		if (menuOptions < visibility)
@@ -80,15 +79,12 @@ int main() {
 			case 4:
 				database.deleteEmployee(getEmployeeName());
 				break;
-				// Tentative Deletion
 			case 5:
-				// SetHash();
-				break;
-			case 6:
 				priv.setCipher();
 				break;
-			case 7:
+			case 6:
 				priv.setKey();
+			case 7:
 				break;
 			case 8:
 				/*code*/

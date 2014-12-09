@@ -23,7 +23,7 @@ using namespace std;
 			0. No
 			1. Yes
 
-		RecursivelyValitate(maxNumber){}
+		RecursivelyValidate(maxNumber){}
 		Returns the input of a number ONLY LOWER than the passed max/upper limit.
 
 		Did not combine them (as in Recur.Val. inside Gener.Menu). MIGHT do so later.
@@ -47,7 +47,7 @@ bool ValidateRange(long long int input, long long int  max) {
 	return max > input && input >= 0;
 }
 
-long long int RecursivelyValitate(long long int max) {
+long long int RecursivelyValidate(long long int max) {
 	long long int input = 0;
 
 	if ((cin >> input) && ValidateRange(input, max))
@@ -55,12 +55,12 @@ long long int RecursivelyValitate(long long int max) {
 	else
 	{
 		SpitOutStupidity();
-		return RecursivelyValitate(max);
+		return RecursivelyValidate(max);
 	}
 }
 
 // String Validation
-string RecursivelyValitate() {
+string RecursivelyValidate() {
 	string input = "";
 	ClearCin();
 
@@ -69,7 +69,7 @@ string RecursivelyValitate() {
 	else
 	{
 		SpitOutStupidity();
-		return RecursivelyValitate();
+		return RecursivelyValidate();
 	}
 }
 

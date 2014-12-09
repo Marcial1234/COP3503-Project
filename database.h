@@ -20,4 +20,5 @@ public:
     void makeDirectory(std::string filename);
     void removeDirectory(std::string filename);
     void performanceReport(std::string filename);
+
 };
