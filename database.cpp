@@ -65,7 +65,7 @@ void Database::editEmployee(string input) {
 }
 
 void Database::makeDirectory(string filename) {
-	const int dir_err = mkdir("C:/", S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+	const int dir_err = mkdir(".\", S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
 	if (dir_err == -1)
 	{
     		cout << "Error creating directory!" << endl;
@@ -73,7 +73,7 @@ void Database::makeDirectory(string filename) {
 }
 
 void Database::removeDirectory(string filename) {
-	const int dir_err = rmdir("C:/");
+	const int dir_err = rmdir(".\");
 	if(dir_err == -1) 
 	{
 		cout << "Error removing directory!" << endl;
