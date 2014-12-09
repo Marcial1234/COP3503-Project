@@ -84,11 +84,12 @@ void Database::performanceReport(string filename) {
 	if(employeesFiles1.is_open()) {
 			string newline;
 			while(getline(employeesFiles1,newline)) {
-					if("Employee Name: " == newline) {
+					if("Name: " == newline) {
 						reportNumber++;
 					}
 					if(filename == newline) {
 							EmployeeReport report = *(new EmployeeReport(filename,reportNumber));
+							cout << endl;
 							return;
 					}
 			}
