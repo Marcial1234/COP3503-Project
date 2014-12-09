@@ -27,9 +27,9 @@ void Priv::login() {
 
 	cout << "Login page:" << "\n" << endl;
 	cout << "Please enter your username: " << endl;
-	user = RecursivelyValidate();
+	getline(cin, user);
 	cout << "Please enter your password: " << endl;
-	password = RecursivelyValidate();
+	getline(cin, password);
 
 	string line1;
 	string line2;
@@ -77,10 +77,12 @@ void Priv::setNewUser() {
 bool Priv::setUserName() {
 	cout << "Setting new user: " << "\n" << endl;
 	cout << "Please enter your username: " << endl;
-	string tempUsername = RecursivelyValidate();
+	string tempUsername;
+	getline(cin, tempUsername);
 
 	cout << "Please confirm your username: " << endl;
-	string tempUsername2 = RecursivelyValidate();
+	string tempUsername2;
+	getline(cin, tempUsername2);
 
 	ifstream readFile ("users.txt");
 	string newline;
@@ -112,10 +114,12 @@ bool Priv::setUserName() {
 void Priv::setPassword() {
 
 	cout << "Please enter your password: " << endl;
-	string tempPassword = RecursivelyValidate();
+	string tempPassword;
+	getline(cin, tempPassword);
 
 	cout << "Please confirm your password: " << endl;
-	string tempPassword2 = RecursivelyValidate();
+	string tempPassword2;
+	getline(cin, tempPassword2);
 
 	if (tempPassword == tempPassword2) {
 		cout << "Password set!" << endl;
