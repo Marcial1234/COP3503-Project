@@ -29,15 +29,15 @@ void Database::addEmployee(string worker) {
 
 bool Database::deleteEmployee(string filename) {
 	string tempstring = filename + ".txt";
-    if (remove(tempstring.c_str()) != 0) 
-    {
-        perror("Error deleting file");
-        return false;
-    }
+	 if (remove(tempstring.c_str()) != 0) 
+    	{
+        	perror("Error deleting file");
+        	return false;
+    	}
     
     
-    ifstream openFile ("employees.txt");
-    string line1;
+	ifstream openFile ("employees.txt");
+    	string line1;
 	ofstream writeFile ("employees2.txt");
 	string line2;
 	while(getline(openFile,line1)) {
