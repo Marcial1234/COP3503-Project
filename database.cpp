@@ -73,12 +73,12 @@ void Database::editEmployee(string input) {
 		string line1;
 		while(getline(openFile,line1)) 
 		{
-			if(line1 == input) 
-			{
+			//if(line1 == input) 
+			//{
 				deleteEmployee(input);
 				addEmployee(input);
 				return;
-			}
+			//}
 		}
 	}
 }
