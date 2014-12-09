@@ -19,8 +19,7 @@ using namespace std;
 string getEmployeeName()
 {
 	cout << "Please enter the employee name: " << endl;
-	string input;
-	cin >> input;
+	string input = RecursivelyValitate();
 	return input;
 }
 
@@ -30,16 +29,15 @@ int main() {
 	
 	vector<string> MenuOptions = 
 	{
-		"ListAllEmployees", // 1 All
-		"ViewEmployee", // 1
-		"EditEmployee", // 2
-		"AddEmployee", // 3
-		"DeleteEmployee", // 3
-		"Setting", // 3
+		"ListAllEmployees",
+		"ViewEmployee",
+		"EditEmployee",
+		"AddEmployee",
+		"DeleteEmployee",
 		"Set Hash",
 		"Set Cipher",
-		"Set Encryption Key",
-		"Change User Priviledges"//, ""
+		"Set Encryption Key"//,
+		// "Change User Priviledges"
 		// "AddFolder",
 		// "EditFolder",
 		// "DeleteFolder",
@@ -59,40 +57,45 @@ int main() {
 		vector<string> TempMenu = MenuOptions;
 		TempMenu.resize(visibility);
 		vector<string> CustomMenu = TempMenu;
+		CustomMenu.push_back("Exit");
 		printGenericMenu(instructions, CustomMenu);
 		int menuOptions = RecursivelyValitate(visibility+1);
 
 		// Based on menuOptions go to each submenu. Or Exit
-		switch (menuOptions)
+		if (menuOptions < visibility)
 		{
-		case 0:
-			database.listEmployees();
-			break;
-		case 1:
-			// database.viewEmployee(getEmployeeName());
-			break;
-		case 2:
-			database.editEmployee(getEmployeeName());
-			break;
-		case 3:
-			database.addEmployee(getEmployeeName());
-			break;
-		case 4:
-			database.deleteEmployee(getEmployeeName());
-			break;
-			// Tentative Deletion
-		case 5:
-			// SetHash();
-			break;
-		case 6:
-			priv.setCipher();
-			break;
-		case 7:
-			priv.setKey();
-			break;
-		default:
-			break;
+			switch (menuOptions)
+			{
+			case 0:
+				database.listEmployees();
+				break;
+			case 1:
+				// database.viewEmployee(getEmployeeName());
+				break;
+			case 2:
+				database.editEmployee(getEmployeeName());
+				break;
+			case 3:
+				database.addEmployee(getEmployeeName());
+				break;
+			case 4:
+				database.deleteEmployee(getEmployeeName());
+				// Tentative Deletion
+			case 5:
+				// SetHash();
+				break;
+			case 6:
+				priv.setCipher();
+				break;
+			case 7:
+				priv.setKey();
+				break;
+			default:
+				break;
+			}
 		}
+		else
+			break;
 	}
 
 	return 0;

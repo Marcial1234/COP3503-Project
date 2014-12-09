@@ -32,11 +32,15 @@ using namespace std;
 
 
 // This file might give warnings/type converstion errors. Not worrying about them for now.
+void ClearCin()
+{
+	cin.clear();
+	cin.ignore(1024, '\n');
+}
 
 void SpitOutStupidity() {
 	cout << "\nSorry, that was an invalid input, try again.\n" << endl;
-	cin.clear();
-	cin.ignore(1024, '\n');
+	ClearCin();
 }
 
 // Numeric validation
@@ -58,25 +62,16 @@ long long int RecursivelyValitate(long long int max) {
 }
 
 // String Validation
-bool ValidateRange(string input, vector<string> &options) {
-	// Find if the input is in the map/vector
-	for (unsigned int i = 0; i < options.size(); ++i)
-	{
-		if (options[i] == input)
-			return true;
-	}
-	return false;
-}
-
-string RecursivelyValitate(vector<string> &options) {
+string RecursivelyValitate() {
 	string input = "";
+	ClearCin();
 
-	if ((cin >> input) && ValidateRange(input, options))
+	if (getline(cin, input))
 		return input;
 	else
 	{
 		SpitOutStupidity();
-		return RecursivelyValitate(options);
+		return RecursivelyValitate();
 	}
 }
 
