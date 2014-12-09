@@ -73,7 +73,7 @@ void Database::makeDirectory(string filename) {
 }
 
 //#include <unistd.h>
-void Database::removeDirectory() {
+void Database::removeDirectory(string filename) {
 	const int dir_err = rmdir("C:/");
 	if(dir_err == -1) {
 		cout << "Error removing directory!" << endl;
