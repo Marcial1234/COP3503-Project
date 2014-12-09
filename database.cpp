@@ -4,10 +4,23 @@
 #include "priv.h"
 #include "employee.cpp"
 #include "priv.cpp"
+#include "perf.h"
+#include "perf.cpp"
 
 using namespace std;
 
 void Database::addEmployee(string worker) {
+	ifstream employeesFiles1 ("employees.txt");
+	if(employeesFiles1.is_open()) {
+			string newline;
+			while(getline(employeesFiles1,newline)) {
+					if(worker == newline) {
+						cout << "Error: " << worker << " already exists." << endl;
+						return;
+					}
+			}
+	}
+	employeesFiles1.close();
 	ofstream employeesFile ("employees.txt",ios_base::app);
 	employeesFile << worker << endl;
 	employeesFile.close();
@@ -39,6 +52,7 @@ bool Database::deleteEmployee(string filename) {
 }
 
 void Database::listEmployees() {
+	cout << endl;
 	ifstream openFile ("employees.txt");
 	string newstring;
 	while(getline(openFile,newstring))
@@ -62,6 +76,25 @@ void Database::editEmployee(string input) {
 			}
 		}
 	}
+}
+
+void Database::performanceReport(string filename) {
+	int reportNumber = 1;
+	ifstream employeesFiles1 ("employees.txt");
+	if(employeesFiles1.is_open()) {
+			string newline;
+			while(getline(employeesFiles1,newline)) {
+					if("Employee Name: " == newline) {
+						reportNumber++;
+					}
+					if(filename == newline) {
+							Perf perf = *(new Perf(filename,reportNumber));
+							return;
+					}
+			}
+	cout << "Error: " << filename << " does not exist." << endl;
+	return;
+}
 }
 //#include <sys/stat.h>
 void Database::makeDirectory(string filename) {

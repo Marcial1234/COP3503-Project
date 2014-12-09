@@ -21,7 +21,7 @@ private:
     std::string additionalComments;
 
 public:
-	EmployeeReport(std::string employeeFile, std::string reportNumber);
+	EmployeeReport(std::string employeeFile, int reportNumber);
     // Ain't needed. Should be handled by validation.
 	int checkUserAuthorization();
 };

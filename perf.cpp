@@ -25,13 +25,11 @@ Marcial: Read Validation.cpp
 
 using namespace std;
 
-EmployeeReport::EmployeeReport(string employeeFile, string reportNumber) {
+EmployeeReport::EmployeeReport(string employeeFile, int reportNumber) {
+	employeeFile = employeeFile + ".txt";
 	
 	ofstream toFile(employeeFile,ios_base::app);
-	toFile << "\n" << reportNumber << "\n";
-
-	cout << "\nWelcome to the HRS Employee Report and Aquisition Module!" << endl;
-	cout << "Please enter the information requested and press [Enter] after finishing." << "\n" << endl;
+	toFile << "\n" << "Report: " << reportNumber << "\n";
 
 	cout << "Employee Name: ";
 	getline(cin, name);
