@@ -63,7 +63,7 @@ void Database::editEmployee(string input) {
 		}
 	}
 }
-//#include <sys/stat.h>
+
 void Database::makeDirectory(string filename) {
 	const int dir_err = mkdir("C:/", S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
 	if (dir_err == -1)
@@ -72,7 +72,6 @@ void Database::makeDirectory(string filename) {
 	}
 }
 
-//#include <unistd.h>
 void Database::removeDirectory(string filename) {
 	const int dir_err = rmdir("C:/");
 	if(dir_err == -1) {
