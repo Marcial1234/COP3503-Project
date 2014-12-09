@@ -115,7 +115,11 @@ void Employee::setHoursWorkedMonth() {
 
 	cout << "\n" << "Number of hours the employee worked this month:" << endl;
 	hoursWorkedMonth = RecursivelyValidate(5270);
-	
+	if(hoursWorkedMonth < hoursWorkedWeek)
+	{
+		cout << "Please enter a valid input. The number of hours worked in a month can not be less than a week.";
+		cout << endl;
+	}
 	ofstream workerFile (tempstring,ios_base::app);
 	workerFile << "Hours worked this month: " << to_string(hoursWorkedMonth) << endl;
 }
