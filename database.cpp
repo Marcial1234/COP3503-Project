@@ -74,7 +74,8 @@ void Database::makeDirectory(string filename) {
 
 void Database::removeDirectory(string filename) {
 	const int dir_err = rmdir("C:/");
-	if(dir_err == -1) {
+	if(dir_err == -1) 
+	{
 		cout << "Error removing directory!" << endl;
 	}
 }
