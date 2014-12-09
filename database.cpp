@@ -8,9 +8,20 @@
 using namespace std;
 
 void Database::addEmployee(string worker) {
-	ofstream employeesFile ("employees.txt",ios_base::app);
-	employeesFile << worker << endl;
-	employeesFile.close();
+	ifstream employeesFile1 ("employees.txt");
+	if(employeesFile1.is_open()) {
+		string newLine;
+		while(getline(employeesFile1,newLine)) {
+			if(newLine == worker) {
+				cout << "Error:" << worker << " already exists" << endl;
+				return;
+			}
+		}
+	}
+	employeesFile1.close();
+	ofstream employeesFile2 ("employees.txt",ios_base::app);
+	employeesFile2 << worker << endl;
+	employeesFile2.close();
 	Employee worker1 = *(new Employee(worker));
 }
 

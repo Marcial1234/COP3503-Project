@@ -85,11 +85,11 @@ void Employee::setRaise() {
 	// 0 == false, 1 == true.
 	raise = input;
 	
-	
+	ofstream workerFile (tempstring,ios_base::app);
+	workerFile << input << endl;
 	
 	if (input) 
-		ofstream workerFile (tempstring,ios_base::app);
-		workerFile << "Raise: yes" << endl;
+		
 		setRaiseValue();
 }
 
