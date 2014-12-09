@@ -20,7 +20,7 @@ string getEmployeeName()
 {
 	cout << "Please enter the employee name: " << endl;
 	string input;
-	getline(cin, input);
+	cin >> input;
 	return input;
 }
 
