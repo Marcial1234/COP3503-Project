@@ -20,6 +20,8 @@ private:
 	std::string password;
 
 public:
+	// boolean to check for new users
+	bool recentNewUser;
 	// Get's the current user's authorization
 	int getAuth();
 	// Starts the Login process

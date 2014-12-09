@@ -30,7 +30,6 @@ private:
     std::string additionalComments;
 
 public:
+    // Constructor
 	EmployeeReport(std::string employeeFile, int reportNumber);
-    // Ain't needed. Should be handled by validation.
-	int checkUserAuthorization();
 };

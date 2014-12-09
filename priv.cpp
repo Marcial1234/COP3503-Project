@@ -16,17 +16,12 @@ void Priv::login() {
 
 	crypt = *(new Crypt());
 
-	/*
-		Test this:
-			When file Doesn't have an admin by default.
-			When it does have one.
-	*/ 
-
 	if (usersFile.is_open() == false)
 		setAdmin();
 
-	cout << "Login page:" << "\n" << endl;
+	cout << endl << "Login page:" << endl << endl;
 	cout << "Please enter your username: " << endl;
+	
 	getline(cin, user);
 	cout << "Please enter your password: " << endl;
 	getline(cin, password);
@@ -67,30 +62,29 @@ void Priv::setAdmin() {
 }
 
 void Priv::setNewUser() {
-	if(setUserName() == false) {
+	if (setUserName() == false) {
 		return;
 	}
 	setAccess();
 }
 
-// Function for setting the user password.
 bool Priv::setUserName() {
-	cout << "Setting new user: " << "\n" << endl;
-	cout << "Please enter your username: " << endl;
+	cout << "Setting new user: " << endl << endl;
+	cout << "Please enter your username: " << endl << endl;
 	string tempUsername;
 	getline(cin, tempUsername);
 
-	cout << "Please confirm your username: " << endl;
+	cout << "Please confirm your username: " << endl << endl;
 	string tempUsername2;
 	getline(cin, tempUsername2);
 
 	ifstream readFile ("users.txt");
 	string newline;
 	while(getline(readFile,newline)) {
-			if(newline == tempUsername) {
-				cout << "Error: " << newline << " already exists." << endl;
-				return false;
-			}
+		if(newline == tempUsername) {
+			cout << "Error: " << newline << " already exists." << endl;
+			return false;
+		}
 	}
 
 	if (tempUsername == tempUsername2) {
@@ -107,6 +101,7 @@ bool Priv::setUserName() {
 		cout << "Error: Usernames do not match. Please retry." << endl;
 		setUserName();
 	}
+
 	return true;
 }
 
@@ -126,7 +121,6 @@ void Priv::setPassword() {
 		password = tempPassword;
 		
 		ofstream passFile ("pass.txt",ios_base::app);
-		Crypt crypt = *(new Crypt());
 		password = crypt.encrypt(password);
 		passFile << password << endl;
 	}
@@ -137,14 +131,13 @@ void Priv::setPassword() {
 }
 
 void Priv::setAccess() {
-	// users[user] password;
 	vector<string> options = { "Read-Only", "Read and Modify", "Full/Administrative Access" };
 	printGenericMenu("Set Privilege Level:", options);
 	int input = RecursivelyValidate(options.size());
 
 	ofstream privsFile ("privs.txt",ios_base::app);
 	auth = input;
-	privsFile << input << endl;
+	privsFile << input << endl << endl;
 }
 
 int Priv::getAuth() {

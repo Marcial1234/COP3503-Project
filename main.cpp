@@ -31,7 +31,6 @@ int main() {
 	{
 		"List All Employees",
 		"View Employee",
-		"Edit Employee",
 		"Add Employee",
 		"Delete Employee",
 		"Add New User",
@@ -74,24 +73,21 @@ int main() {
 				database.viewEmployee(getEmployeeName());
 				break;
 			case 2:
-				database.editEmployee(getEmployeeName());
-				break;
-			case 3:
 				database.addEmployee(getEmployeeName());
 				break;
-			case 4:
+			case 3:
 				database.deleteEmployee(getEmployeeName());
 				break;
-			case 5:
+			case 4:
 				priv.setNewUser();
 				break;
-			case 6:
+			case 5:
 				priv.setCipher();
 				break;
-			case 7:
+			case 6:
 				priv.setKey();
 				break;
-			case 8:
+			case 7:
 				database.performanceReport(getEmployeeName());
 				break;
 			default:

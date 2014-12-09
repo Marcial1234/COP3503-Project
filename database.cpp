@@ -11,17 +11,17 @@
 
 using namespace std;
 
-
 void Database::addEmployee(string worker) {
 	ifstream employeesFiles1 ("employees.txt");
 	if(employeesFiles1.is_open()) {
-			string newline;
-			while(getline(employeesFiles1,newline)) {
-					if(worker == newline) {
-						cout << "Error: " << worker << " already exists." << endl;
-						return;
-					}
+		string newline;
+		while(getline(employeesFiles1,newline)) 
+		{
+			if(worker == newline) {
+				cout << "Error: " << worker << " already exists." << endl;
+				return;
 			}
+		}
 	}
 	employeesFiles1.close();
 	ofstream employeesFile ("employees.txt",ios_base::app);
@@ -35,20 +35,18 @@ void Database::addEmployee(string worker) {
 bool Database::deleteEmployee(string filename) {
 	string tempstring = filename + ".txt";
 	 if (remove(tempstring.c_str()) != 0) 
-    	{
-        	perror("Error deleting file");
-        	return false;
-    	}
-    
+	{
+		perror("Error deleting file");
+		return false;
+	}
     
 	ifstream openFile ("employees.txt");
     	string line1;
 	ofstream writeFile ("employees2.txt");
 	string line2;
 	while(getline(openFile,line1)) {
-		if(line1 != filename) {
+		if(line1 != filename)
 			writeFile << line1;
-		}
 	}
 	openFile.close();
 	writeFile.close();
@@ -62,13 +60,11 @@ bool Database::deleteEmployee(string filename) {
 }
 
 void Database::listEmployees() {
-	cout << endl;
 	ifstream openFile ("employees.txt");
 	string newstring;
 	while(getline(openFile,newstring))
 		cout << newstring << endl;
 	cout << endl;
-	return;	
 }
 
 void Database::editEmployee(string input) {
@@ -88,24 +84,25 @@ void Database::editEmployee(string input) {
 	}
 }
 
-void Database::performanceReport(string filename) {
+void Database::performanceReport(string filename) {	
 	int reportNumber = 1;
 	ifstream employeesFiles1 ("employees.txt");
-	if(employeesFiles1.is_open()) {
-			string newline;
-			while(getline(employeesFiles1,newline)) {
-					if("Name: " == newline) {
-						reportNumber++;
-					}
-					if(filename == newline) {
-							EmployeeReport report = *(new EmployeeReport(filename,reportNumber));
-							cout << endl;
-							return;
-					}
+	if(employeesFiles1.is_open()) 
+	{
+		string newline;
+		while(getline(employeesFiles1,newline)) 
+		{
+			if("Name: " == newline)
+				reportNumber++;
+			if(filename == newline) 
+			{
+				EmployeeReport report = *(new EmployeeReport(filename,reportNumber));
+				cout << endl;
+				return;
 			}
-	cout << "Error: " << filename << " does not exist." << endl;
-	return;
-}
+		}
+		cout << "Error: " << filename << " does not exist." << endl;
+	}
 } 
 
 void Database::viewEmployee(string filename) {
@@ -113,34 +110,18 @@ void Database::viewEmployee(string filename) {
 	cout << endl;
 	ifstream employeesFiles1 ("employees.txt");
 	if(employeesFiles1.is_open()) {
-			string newline;
-			while(getline(employeesFiles1,newline)) {
-					if(filename == newline) {
-						filename = filename + ".txt";
-						ifstream readFile (filename);
-						string newline2;
-						while(getline(readFile,newline2)) {
-								cout << crypt.decrypt(newline2) << endl;
-						}	
-					}
+		string newline;
+		while(getline(employeesFiles1,newline)) {
+			if(filename == newline) {
+				filename = filename + ".txt";
+				ifstream readFile (filename);
+				string newline2;
+				while(getline(readFile,newline2)) {
+					cout << crypt.decrypt(newline2) << endl;
+				}
 			}
-	} else {
-			cout << "Error: " << filename << " does not exist." << endl;	
-	}	
-	return;
+		}
+	} 
+	else
+		cout << "Error: " << filename << " does not exist." << endl;
 }
-
-//For later implementation
-/*
-void Database::makeDirectory(string filename) {
-	const int dir_err = mkdir(".\"", S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
-	if (dir_err == -1)
-		cout << "Error creating directory!" << endl;
-}
-
-void Database::removeDirectory(string filename) {
-	const int dir_err = rmdir(".\"");
-	if(dir_err == -1) 
-		cout << "Error removing directory!" << endl;
-}
-*/

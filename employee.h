@@ -6,6 +6,7 @@
 */
 
 #include "gendepend.h"
+#include "crypt.h"
 
 class Employee{
 
@@ -39,8 +40,11 @@ private:
 	std::string comment;
 	// The number of recorded performance reports for a specific employee.
 	int performanceReport;
+	// Encryptor
+	Crypt crypt;
 
 public:
+	// Constructor
 	Employee(std::string worker);
 
 	// infoCheck() ensures valid information is entered.
@@ -95,7 +99,4 @@ public:
 	void printPerformanceReport();
 	void printEmployeeRecords();
 	void writeEmployeeRecords(std::string worker);
-
-	// Other variable management functions.
-	void payEmployee();
 };

@@ -65,10 +65,6 @@ string Crypt::decrypt(string text) {
 		return newstring;
 	}
 }
-/*
-string Crypt::getKey() {
-	return key;
-}*/
 
 //Returns the cipher used to encrpyt/decrypt string text.
 Crypt::CypherType Crypt::getCipher() {
@@ -83,7 +79,6 @@ void Crypt::setKey() {
 
 	if (response) {
 		cout << "Enter the new key: " << endl;
-		ClearCin();
 		getline(cin, key);
 		cout << "The key was successfully changed." << endl;
 		// decrypt everything and then recrypt it

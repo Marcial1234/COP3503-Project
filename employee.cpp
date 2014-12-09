@@ -9,14 +9,12 @@
 
 using namespace std;
 
-Crypt crypt = *(new Crypt());
-
 string tempstring;
 
 Employee::Employee(string workerFile) {
 	tempstring = workerFile + ".txt";
 	
-	
+	crypt = *(new Crypt());
 	
 	cout << "Please fill out employee information." << endl;
 	cout << "Information can be changed at any time if necessary." << endl;
@@ -201,8 +199,8 @@ void Employee::setHashSSN() {
 	
 	long long int input = RecursivelyValidate(10000000000);
 	if (input < 100000000) {
-			cout << "Error: input to short. Please enter valid input." << endl;
-			setHashSSN();
+		cout << "Error: input to short. Please enter valid input." << endl;
+		return setHashSSN();
 	}
 
 	hash<int> hash_fn;

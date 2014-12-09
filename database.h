@@ -20,9 +20,8 @@ public:
     bool deleteEmployee(std::string filename);
     // View the details of an employee's file.
     void viewEmployee(std::string worker);
-    
-    // Future Implementation void makeDirectory(std::string filename);
-    // Future Implementation void removeDirectory(std::string filename);
+    // Edit the details of an employee
+    void editEmployee(std::string input);
+    // Returns an employee's performance repot
     void performanceReport(std::string filename);
-
 };
