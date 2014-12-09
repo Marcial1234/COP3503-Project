@@ -34,20 +34,25 @@ bool Database::deleteEmployee(string filename) {
         perror("Error deleting file");
         return false;
     }
-    fstream openFile ("employees.txt");
+    
+    
+    ifstream openFile ("employees.txt");
     string line1;
-
-    if(openFile.is_open()) 
-    {
-		while(getline(openFile,line1))
-		{
-			if(line1 == filename) 
-			{
-				openFile << " ";
-			}
+	ofstream writeFile ("employees2.txt");
+	string line2;
+	while(getline(openFile,line1)) {
+		if(line1 != filename) {
+			writeFile << line1;
 		}
-		return false;
 	}
+	openFile.close();
+	writeFile.close();
+	ifstream openFile2 ("employees2.txt");
+	ofstream writeFile2 ("employees.txt");
+	while(getline(openFile2,line1)) {
+		writeFile2 << line1;
+	}
+	cout << endl;
 	return true;
 }
 
@@ -57,7 +62,7 @@ void Database::listEmployees() {
 	string newstring;
 	while(getline(openFile,newstring))
 		cout << newstring << endl;
-
+	cout << endl;
 	return;	
 }
 
@@ -119,7 +124,8 @@ void Database::viewEmployee(string filename) {
 	return;
 }
 
-
+//For later implementation
+/*
 void Database::makeDirectory(string filename) {
 	const int dir_err = mkdir(".\"", S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
 	if (dir_err == -1)
@@ -131,4 +137,4 @@ void Database::removeDirectory(string filename) {
 	if(dir_err == -1) 
 		cout << "Error removing directory!" << endl;
 }
-
+*/
