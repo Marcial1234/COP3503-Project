@@ -101,7 +101,7 @@ void Database::performanceReport(string filename) {
 	cout << "Error: " << filename << " does not exist." << endl;
 	return;
 }
-}
+} 
 
 void Database::viewEmployee(string filename) {
 	cout << endl;
