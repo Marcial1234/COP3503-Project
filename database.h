@@ -13,7 +13,8 @@ private:
 
 public:
     void listEmployees();
-    void editEmployee(std::string);
+    void editEmployee(std::string worker);
     void addEmployee(std::string worker);
     bool deleteEmployee(std::string filename);
+    void viewEmployee(std::string worker);
 };

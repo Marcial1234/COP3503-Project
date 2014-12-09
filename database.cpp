@@ -62,3 +62,17 @@ void Database::editEmployee(string input) {
 		}
 	}
 }
+
+void Database::viewEmployee(string worker) {
+	string employeeFile = worker + ".txt";
+	ifstream openFile(employeeFile);
+	string line9;
+	if (openFile.is_open()) {
+		while (getline(openFile, line9)) {
+			cout << line9 << endl;
+		}
+	}
+	else {
+	cout << "Error: File could not open error." << endl;
+	}
+}

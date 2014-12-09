@@ -70,19 +70,8 @@ int main() {
 				database.listEmployees();
 				break;
 			case 1:
+				database.viewEmployee(getEmployeeName());
 				break;
-				//string employeeFile = getEmployeeName();
-				//employeeFile = employeeFile + ".txt";
-				//ifstream openFile(employeeFile);
-				//string line9;
-				//if (openFile.is_open()) {
-				//	while (getLine(openFile, line9)) {
-				//		cout << line9;
-				//	}
-				//}
-				//else 
-				//	cout << "Error: File could not open error." << endl;
-				//break;
 			case 2:
 				database.editEmployee(getEmployeeName());
 				break;

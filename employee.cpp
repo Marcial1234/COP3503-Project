@@ -31,6 +31,7 @@ Employee::Employee(string workerFile) {
 	setInsurance();
 		// if Insurance is true, setInsurance() calls setInsurancePlan()
 		// setInsurancePlan();
+	setTimeEmployed();
 		// setPerformanceReport() is handled by the performance report class (perf.cpp)
 		// setPerformanceReport();
 	setComment();
@@ -84,10 +85,11 @@ void Employee::setRaise() {
 	// 0 == false, 1 == true.
 	raise = input;
 	
-	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Raise: " << to_string(input) << endl;
+	
 	
 	if (input) 
+		ofstream workerFile (tempstring,ios_base::app);
+		workerFile << "Raise: yes" << endl;
 		setRaiseValue();
 }
 
@@ -110,7 +112,7 @@ void Employee::setHoursWorkedWeek() {
 	hoursWorkedWeek = RecursivelyValitate(169);
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << to_string(hoursWorkedWeek) << endl;
+	workerFile << "Hours worked this week: " << to_string(hoursWorkedWeek) << endl;
 }
 
 void Employee::setHoursWorkedMonth() {
