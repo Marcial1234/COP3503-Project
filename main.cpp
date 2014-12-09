@@ -34,7 +34,8 @@ int main() {
 		"DeleteEmployee",
 		"Set Hash",
 		"Set Cipher",
-		"Set Encryption Key"//,
+		"Set Encryption Key",
+		"Performance Reports"
 		// "Change User Priviledges"
 		// "AddFolder",
 		// "EditFolder",
@@ -88,6 +89,9 @@ int main() {
 				break;
 			case 7:
 				priv.setKey();
+				break;
+			case 8:
+				/*code*/
 				break;
 			default:
 				break;
