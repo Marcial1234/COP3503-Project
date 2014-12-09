@@ -32,7 +32,6 @@ int main() {
 		"EditEmployee",
 		"AddEmployee",
 		"DeleteEmployee",
-		"Set Hash",
 		"Set Cipher",
 		"Set Encryption Key",
 		"Performance Reports"
@@ -80,15 +79,12 @@ int main() {
 			case 4:
 				database.deleteEmployee(getEmployeeName());
 				break;
-				// Tentative Deletion
 			case 5:
-				// SetHash();
-				break;
-			case 6:
 				priv.setCipher();
 				break;
-			case 7:
+			case 6:
 				priv.setKey();
+			case 7:
 				break;
 			case 8:
 				/*code*/

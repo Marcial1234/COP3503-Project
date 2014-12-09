@@ -86,7 +86,6 @@ void Employee::setRaise() {
 	workerFile << input << endl;
 	
 	if (input) 
-		
 		setRaiseValue();
 }
 
@@ -179,17 +178,15 @@ void Employee::setComment() {
 void Employee::setHashSSN() {
 
 	cout << "\n" << "Please enter the name of your employee's SSN (Social Security Number)" << endl;
-	cout << "\t" << "Note: The SSN itself will not be stored. Rather, a hash result will be stored for later validation purposes." << endl;
+	cout << "Note: The SSN itself will not be stored. Rather, a hash result will be stored for later validation purposes." << endl;
 	long long int input = RecursivelyValidate(10000000000);
 
-	string str = "Meet the new boss...";
-	hash<string> hash_fn;
-	size_t str_hash = hash_fn(str);
+	hash<int> hash_fn;
+	size_t str_hash = hash_fn(input);
 	hashSSN = str_hash;
 	
 	ofstream workerFile (tempstring,ios_base::app);
 	workerFile << "HashSSN: " << to_string(hashSSN) << endl;
-
 }
 
 void Employee::setOccupation() {
