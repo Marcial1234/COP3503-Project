@@ -37,5 +37,5 @@ public:
 	// Function for setting the user password.
 	void setPassword();
 	// Function for setting the user username.
-	void setUserName();
+	bool setUserName();
 };

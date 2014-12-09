@@ -67,12 +67,14 @@ void Priv::setAdmin() {
 }
 
 void Priv::setNewUser() {
-	setUserName();
+	if(setUserName() == false) {
+		return;
+	}
 	setAccess();
 }
 
 // Function for setting the user password.
-void Priv::setUserName() {
+bool Priv::setUserName() {
 	cout << "Setting new user: " << "\n" << endl;
 	cout << "Please enter your username: " << endl;
 	string tempUsername;
@@ -81,6 +83,15 @@ void Priv::setUserName() {
 	cout << "Please confirm your username: " << endl;
 	string tempUsername2;
 	getline(cin, tempUsername2);
+
+	ifstream readFile ("users.txt");
+	string newline;
+	while(getline(readFile,newline)) {
+			if(newline == tempUsername) {
+				cout << "Error: " << newline << " already exists." << endl;
+				return false;
+			}
+	}
 
 	if (tempUsername == tempUsername2) {
 		cout << "User name set." << endl;
@@ -96,6 +107,7 @@ void Priv::setUserName() {
 		cout << "Error: Usernames do not match. Please retry." << endl;
 		setUserName();
 	}
+	return true;
 }
 
 // Function for setting the user password.
