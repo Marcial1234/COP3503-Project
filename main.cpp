@@ -56,50 +56,43 @@ int main() {
 
 		int visibility = maxPrivValues[priv.getAuth()];
 		// Asking for user input. +1 so it exits on max +1, which is Exit
+		vector<string> TempMenu = MenuOptions;
+		TempMenu.resize(visibility);
+		vector<string> CustomMenu = TempMenu;
+		printGenericMenu(instructions, CustomMenu);
 		int menuOptions = RecursivelyValitate(visibility+1);
 
 		// Based on menuOptions go to each submenu. Or Exit
-		if (menuOptions < visibility)
+		switch (menuOptions)
 		{
-			vector<string> TempMenu = MenuOptions;
-			TempMenu.resize(visibility);
-			vector<string> CustomMenu = TempMenu;
-			printGenericMenu(instructions, CustomMenu);
-			menuOptions = RecursivelyValitate(visibility);
-
-			switch (menuOptions)
-			{
-				case 0:
-					database.listEmployees();
-					break;					
-				case 1:
-					// database.viewEmployee(getEmployeeName());
-					break;					
-				case 2:
-					database.editEmployee(getEmployeeName());
-					break;					
-				case 3:
-					database.addEmployee(getEmployeeName());
-					break;					
-				case 4:
-					database.deleteEmployee(getEmployeeName());
-					break;
-				// Tentative Deletion
-				case 5:
-					// SetHash();
-					break;
-				case 6:
-					priv.setCipher();
-					break;
-				case 7:
-					priv.setKey();
-					break;
-				default:
-					break;
-			}
-		}
-		else
+		case 0:
+			database.listEmployees();
 			break;
+		case 1:
+			// database.viewEmployee(getEmployeeName());
+			break;
+		case 2:
+			database.editEmployee(getEmployeeName());
+			break;
+		case 3:
+			database.addEmployee(getEmployeeName());
+			break;
+		case 4:
+			database.deleteEmployee(getEmployeeName());
+			break;
+			// Tentative Deletion
+		case 5:
+			// SetHash();
+			break;
+		case 6:
+			priv.setCipher();
+			break;
+		case 7:
+			priv.setKey();
+			break;
+		default:
+			break;
+		}
 	}
 
 	return 0;
