@@ -4,13 +4,19 @@
 #include "validation.h"
 #include "validation.cpp"
 #include "employee.h"
+#include "crypt.h"
+#include "crypt.cpp"
 
 using namespace std;
+
+Crypt crypt = *(new Crypt());
 
 string tempstring;
 
 Employee::Employee(string workerFile) {
 	tempstring = workerFile + ".txt";
+	
+	
 	
 	cout << "Please fill out employee information." << endl;
 	cout << "Information can be changed at any time if necessary." << endl;
@@ -44,7 +50,7 @@ void Employee::setName() {
 	name = RecursivelyValidate();
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Name: " << name << endl;
+	workerFile << "Name: " << crypt.encrypt(name) << endl;
 }
 
 void Employee::setAge() {
@@ -54,7 +60,7 @@ void Employee::setAge() {
 	age = RecursivelyValidate(1024);
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Age: " << to_string(age) << endl;
+	workerFile << "Age: " << crypt.encrypt(to_string(age)) << endl;
 }
 
 void Employee::setSalary() {
@@ -64,7 +70,7 @@ void Employee::setSalary() {
 	salary = RecursivelyValidate(9223372036854775807);
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Salary: " << to_string(salary) << endl;
+	workerFile << "Salary: " << crypt.encrypt(to_string(salary)) << endl;
 }
 
 void Employee::setRaise() {
@@ -74,8 +80,12 @@ void Employee::setRaise() {
 	printGenericMenu(instructions, options);
 	raise = RecursivelyValidate(options.size());
 	
+	string raise2 = "no";
+	if(raise = true) {
+		raise2 = "yes";
+	}
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Raise (y/n?): " << raise << endl;
+	workerFile << "Raise (y/n?): " << crypt.encrypt(raise2) << endl;
 	
 	// 0 == false, 1 == true.
 	if (raise) 
@@ -92,7 +102,7 @@ void Employee::setRaiseValue() {
 	raiseValue = RecursivelyValidate(9223372036854775807);
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "RaiseAmount: " << to_string(raiseValue) << endl;
+	workerFile << "RaiseAmount: " << crypt.encrypt(to_string(raiseValue)) << endl;
 }
 
 void Employee::setHoursWorkedWeek() {
@@ -101,7 +111,7 @@ void Employee::setHoursWorkedWeek() {
 	hoursWorkedWeek = RecursivelyValidate(169);
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Hours worked this week: " << to_string(hoursWorkedWeek) << endl;
+	workerFile << "Hours worked this week: " << crypt.encrypt(to_string(hoursWorkedWeek)) << endl;
 }
 
 void Employee::setHoursWorkedMonth() {
@@ -115,7 +125,7 @@ void Employee::setHoursWorkedMonth() {
 		setHoursWorkedWeek();
 	}
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Hours worked this month: " << to_string(hoursWorkedMonth) << endl;
+	workerFile << "Hours worked this month: " << crypt.encrypt(to_string(hoursWorkedMonth)) << endl;
 }
 
 void Employee::setTimeEmployed() {
@@ -124,7 +134,7 @@ void Employee::setTimeEmployed() {
 	timeEmployed = RecursivelyValidate(1212);
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Time employed: " << to_string(timeEmployed) << endl;
+	workerFile << "Time employed: " << crypt.encrypt(to_string(timeEmployed)) << endl;
 }
 
 void Employee::setInsurance() {
@@ -135,7 +145,7 @@ void Employee::setInsurance() {
 	int input = RecursivelyValidate(options.size());
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Insurance: " << to_string(input) << endl;
+	workerFile << "Insurance: " << crypt.encrypt(to_string(input)) << endl;
 	
 	if (input)
 		setInsurancePlan();
@@ -147,7 +157,7 @@ void Employee::setInsurancePlan() {
 	insurancePlan = RecursivelyValidate();
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Insurance Plan" << insurancePlan << endl;
+	workerFile << "Insurance Plan" << crypt.encrypt(insurancePlan) << endl;
 }
 
 //setPerformanceReport will be handled by the performance report class (perf.cpp)
@@ -163,7 +173,7 @@ void Employee::setComment() {
 	comment = RecursivelyValidate();
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Comments: " << comment << endl;
+	workerFile << "Comments: " << crypt.encrypt(comment) << endl;
 }
 
 void Employee::setHashSSN() {
@@ -182,7 +192,7 @@ void Employee::setHashSSN() {
 	hashSSN = str_hash;
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "HashSSN: " << to_string(hashSSN) << endl;
+	workerFile << "HashSSN: " << crypt.encrypt(to_string(hashSSN)) << endl;
 }
 
 void Employee::setOccupation() {
@@ -191,7 +201,7 @@ void Employee::setOccupation() {
 	// Try breaking it and see if validation is needed.
 
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Job: " << occupation << endl;
+	workerFile << "Job: " << crypt.encrypt(occupation) << endl;
 }
 
 // All 'getter' functions

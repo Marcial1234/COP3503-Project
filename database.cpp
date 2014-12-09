@@ -6,6 +6,8 @@
 #include "priv.cpp"
 #include "perf.h"
 #include "perf.cpp"
+#include "crypt.h"
+#include "crypt.cpp"
 
 using namespace std;
 
@@ -25,6 +27,7 @@ void Database::addEmployee(string worker) {
 	employeesFile << worker << endl;
 	employeesFile.close();
 	Employee worker1 = *(new Employee(worker));
+	
 }
 
 bool Database::deleteEmployee(string filename) {
@@ -104,6 +107,7 @@ void Database::performanceReport(string filename) {
 }
 
 void Database::viewEmployee(string filename) {
+	Crypt crypt = *(new Crypt());
 	cout << endl;
 	ifstream employeesFiles1 ("employees.txt");
 	if(employeesFiles1.is_open()) {
@@ -114,7 +118,7 @@ void Database::viewEmployee(string filename) {
 						ifstream readFile (filename);
 						string newline2;
 						while(getline(readFile,newline2)) {
-								cout << newline2 << endl;
+								cout << crypt.decrypt(newline2) << endl;
 						}	
 					}
 			}
