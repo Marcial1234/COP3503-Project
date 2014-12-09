@@ -41,23 +41,23 @@ int main() {
 		// "EditFolder",
 		// "DeleteFolder",
 	};
+
 	int maxAdminVal = MenuOptions.size();
 	int maxPrivValues[3] = { 3, 4, maxAdminVal };
 
-	// Initialization
-	Database database = *(new Database());
-	Priv priv = *(new Priv());
-	priv.login();
-
 	while(true) {
+		// Initialization
+		Database database = *(new Database());
+		Priv priv = *(new Priv());
+		priv.login();
 
 		int visibility = maxPrivValues[priv.getAuth()];
-		// Asking for user input. +1 so it exits on max +1, which is Exit
 		vector<string> TempMenu = MenuOptions;
 		TempMenu.resize(visibility);
 		vector<string> CustomMenu = TempMenu;
 		CustomMenu.push_back("Exit");
 		printGenericMenu(instructions, CustomMenu);
+		// Asking for user input. +1 so it exits on max +1, which is Exit
 		int menuOptions = RecursivelyValidate(visibility+1);
 
 		// Based on menuOptions go to each submenu. Or Exit

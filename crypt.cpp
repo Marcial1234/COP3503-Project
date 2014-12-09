@@ -9,9 +9,6 @@ using namespace std;
 Crypt::Crypt() {
 	cipher = Caesar;
 	key = "Jonathan Chien-Liang Liu";
-	// Marcial: Maybe only show this when they want to change it?
-	// cout << "Please enter a key: " << endl;
-	// getline(cin, key);
 }
 
 string Crypt::encrypt(string text) {
@@ -98,8 +95,7 @@ void Crypt::setKey() {
 
 	if (response) {
 		cout << "Enter the new key: " << endl;
-		ClearCin();
-		getline(cin, key); // No real validation needed here, since 'nothing' seems to break a string
+		key = RecursivelyValidate();
 		cout << "The key was successfully changed." << endl;
 		// decrypt everything and then recrypt it
 	}
@@ -117,33 +113,11 @@ void Crypt::setCipher() {
 	int response = RecursivelyValidate(options.size());
 
 	if (response) {
-		options = { "Caesar Cipher", "Vigenere Cipher" }; //, "XOR Encryption"
+		options = { "Caesar Cipher", "Vigenere Cipher" };
 		printGenericMenu("Cipher Options:", options);
-		// cout << "\t" << "3. More options coming soon" << endl;
-		
 		int input = RecursivelyValidate(options.size());
 
 		cipher = (Crypt::CypherType)input;
 		cout << "Cipher successfully changed." << endl;
 	}
 }
-
-// Testing
-/*
-int main()
-{
-	Crypt test = *(new Crypt);
-	cout << "Tell me something i don't know\n";
-	cout << (char)-20 << endl;
-	string input = "";
-	getline(cin, input);
-	cout << test.encrypt(input) << endl;
-	cout << test.decrypt(input) << endl;
-	
-	cout << test.decrypt(test.encrypt(input)) << endl;
-
-	system("Pause");
-
-	return 0;
-}
-*/

@@ -32,39 +32,39 @@ EmployeeReport::EmployeeReport(string employeeFile, int reportNumber) {
 	toFile << "\n" << "Report: " << reportNumber << "\n";
 
 	cout << "Employee Name: ";
-	getline(cin, name);
+	name = RecursivelyValidate();
 	toFile << "Name: " << name << endl;
 
 	cout << "Attendance: ";
-	getline(cin, attendance);
+	attendance = RecursivelyValidate();
 	toFile << "Attendance: " << attendance << endl;
 
 	cout << "Leadership Ability: ";
-	getline(cin, leadershipAbility);
+	leadershipAbility = RecursivelyValidate();
 	toFile << "Leadership Ability: " << leadershipAbility << endl;
 
 	cout << "Quality of Work: ";
-	getline(cin, workQuality);
+	workQuality = RecursivelyValidate();
 	toFile << "Quality of Work: " << workQuality << endl;
 
 	cout << "Communication Skills: ";
-	getline(cin, communication);
+	communication = RecursivelyValidate();
 	toFile << "Communication: " << communication << endl;
 
 	cout << "Organizational Skill: ";
-	getline(cin, organization);
+	organization = RecursivelyValidate();
 	toFile << "Organizational Skill: " << organization << endl;
 
 	cout << "Responsibility: ";
-	getline(cin, responsibility);
+	responsibility = RecursivelyValidate();
 	toFile << "Responsibility: " << responsibility << endl;
 
 	cout << "Time Management: ";
-	getline(cin, timeManagement);
+	timeManagement = RecursivelyValidate();
 	toFile << "Time Management: " << timeManagement << endl;
 
 	cout << "Additional Comments: ";
-	getline(cin, additionalComments);
+	additionalComments = RecursivelyValidate();
 	toFile << "Additional Comments: " << additionalComments << endl;
 
 	toFile.close();

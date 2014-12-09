@@ -41,35 +41,30 @@ Employee::Employee(string workerFile) {
 void Employee::setName() {
 
 	cout << "\n" << "Please enter the employee's name (Last, First)." << endl;
-	string input;
-	getline(cin,input);
-	name = input;
+	name = RecursivelyValidate();
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Name: " << input << endl;
+	workerFile << "Name: " << name << endl;
 }
 
 void Employee::setAge() {
 
 	cout << "\n" << "Please enter the employee's age." << endl;
 	 // That's pretty high for an age.
-	int input = RecursivelyValidate(1024);
-	age = input;
+	age = RecursivelyValidate(1024);
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Age: " << to_string(input) << endl;
+	workerFile << "Age: " << to_string(age) << endl;
 }
 
 void Employee::setSalary() {
 
 	cout << "\n" << "Please enter the employee's salary." << endl;
 	// For the billionaires and stuff.
-	long long int input = RecursivelyValidate(9223372036854775807);
-
-	salary = input;
+	salary = RecursivelyValidate(9223372036854775807);
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Salary: " << to_string(input) << endl;
+	workerFile << "Salary: " << to_string(salary) << endl;
 }
 
 void Employee::setRaise() {
@@ -77,15 +72,13 @@ void Employee::setRaise() {
 	string instructions = "\nIs your employee is marked for a raise?";
 	vector<string> options = { "No", "Yes" };
 	printGenericMenu(instructions, options);
-	int input = RecursivelyValidate(options.size());
-
-	// 0 == false, 1 == true.
-	raise = input;
+	raise = RecursivelyValidate(options.size());
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Raise (y/n?): " << input << endl;
+	workerFile << "Raise (y/n?): " << raise << endl;
 	
-	if (input) 
+	// 0 == false, 1 == true.
+	if (raise) 
 		setRaiseValue();
 }
 
@@ -151,14 +144,10 @@ void Employee::setInsurance() {
 void Employee::setInsurancePlan() {
 
 	cout << "\n" << "Please enter the name of your employee's insurance plan:" << endl;
-	string input;
-	ClearCin();
-	getline(cin,input);
+	insurancePlan = RecursivelyValidate();
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Insurance Plan" << input << endl;
-
-	insurancePlan = input;
+	workerFile << "Insurance Plan" << insurancePlan << endl;
 }
 
 //setPerformanceReport will be handled by the performance report class (perf.cpp)
@@ -171,13 +160,10 @@ void setPerformanceReport() {
 void Employee::setComment() {
 
 	cout << "\n" << "If you have any comments to add to the employee's record, add them here:" << endl;
-	string input;
-	ClearCin();
-	getline(cin,input);
-	comment = input;
+	comment = RecursivelyValidate();
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Comments: " << input << endl;
+	workerFile << "Comments: " << comment << endl;
 }
 
 void Employee::setHashSSN() {
@@ -201,15 +187,11 @@ void Employee::setHashSSN() {
 
 void Employee::setOccupation() {
 	cout << "\n" << "Please enter the name of you employee's role in your company." << endl;
-	string input;
-	ClearCin();
-	getline(cin,input);
+	occupation = RecursivelyValidate();
 	// Try breaking it and see if validation is needed.
 
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "Job: " << input << endl;
-
-	occupation = input;
+	workerFile << "Job: " << occupation << endl;
 }
 
 // All 'getter' functions
