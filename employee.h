@@ -10,14 +10,23 @@
 class Employee{
 
 private:
+    // Sets the employee's age.
 	int age;
+	// Sets the employee's insurance company status.
 	bool insurance;
+	// Sets the name of the employee.
 	std::string name;
+	// Sets the name of the employee's insurance plan.
 	std::string insurancePlan;
+	// Sets the employee's salary.
 	long long int salary;
+	// Sets the hashed SSN of the employee.
 	long long int hashSSN;
+	// Sets the time employed in months the employee has worked.
 	long long int timeEmployed;
+	// Sets the time the employee has worked this week.
 	long long int hoursWorkedWeek;
+	// Sets the time the employee has worked this month.
 	long long int hoursWorkedMonth;
 
 	// A brief description of an employee's role in a company. 
