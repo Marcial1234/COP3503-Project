@@ -8,19 +8,19 @@
 #include "gendepend.h"
 
 // This clears the cin buffer
-void ClearCin();
+static void ClearCin();
 
 // This print the invalid string and calls ClearCin
-void SpitOutStupidity();
+static void SpitOutStupidity();
 
 // Returns true as long as max > input && input >= 0
-bool ValidateRange(long long int input, long long int max);
+static bool ValidateRange(long long int input, long long int max);
 
 // Returns the input of a number ONLY LOWER than the passed max/upper limit.
-long long int RecursivelyValidate(long long int);
+static long long int RecursivelyValidate(long long int);
 
 // Returns a string. Handles getline() buffer errors
-string RecursivelyValidate();
+static string RecursivelyValidate();
 
 /*	Menu generator. Generates the following:
 	[action description/instructions/placeholder]
@@ -32,4 +32,4 @@ string RecursivelyValidate();
 	Do you know your name?
 		0. No
 		1. Yes*/
-void printGenericMenu(std::string placeHolder, std::vector<std::string> &);
+static void printGenericMenu(std::string placeHolder, std::vector<std::string> &);
