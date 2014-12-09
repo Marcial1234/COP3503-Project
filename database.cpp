@@ -11,6 +11,7 @@
 
 using namespace std;
 
+
 void Database::addEmployee(string worker) {
 	ifstream employeesFiles1 ("employees.txt");
 	if(employeesFiles1.is_open()) {
@@ -29,6 +30,7 @@ void Database::addEmployee(string worker) {
 	Employee worker1 = *(new Employee(worker));
 	
 }
+
 
 bool Database::deleteEmployee(string filename) {
 	string tempstring = filename + ".txt";
