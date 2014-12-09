@@ -17,7 +17,7 @@ using namespace std;
 string getEmployeeName()
 {
 	cout << "Please enter the employee name: " << endl;
-	string input = RecursivelyValitate();
+	string input = RecursivelyValidate();
 	return input;
 }
 
@@ -58,7 +58,7 @@ int main() {
 		vector<string> CustomMenu = TempMenu;
 		CustomMenu.push_back("Exit");
 		printGenericMenu(instructions, CustomMenu);
-		int menuOptions = RecursivelyValitate(visibility+1);
+		int menuOptions = RecursivelyValidate(visibility+1);
 
 		// Based on menuOptions go to each submenu. Or Exit
 		if (menuOptions < visibility)

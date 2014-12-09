@@ -94,7 +94,7 @@ void Crypt::setKey() {
 	// No need for double verfication.
 	vector<string> options = { "No", "Yes" };
 	printGenericMenu("Do you want to change the key? (Y/N):\n", options);
-	int response = RecursivelyValitate(options.size());
+	int response = RecursivelyValidate(options.size());
 
 	if (response) {
 		cout << "Enter the new key: " << endl;
@@ -114,14 +114,14 @@ void Crypt::setCipher() {
 	instructions += "(Warning: Changing the cipher might affect the success of encrypting and decrypting text.\n";
 	vector<string> options = { "No", "Yes" };
 	printGenericMenu(instructions, options);
-	int response = RecursivelyValitate(options.size());
+	int response = RecursivelyValidate(options.size());
 
 	if (response) {
 		options = { "Caesar Cipher", "Vigenere Cipher" }; //, "XOR Encryption"
 		printGenericMenu("Cipher Options:", options);
 		// cout << "\t" << "3. More options coming soon" << endl;
 		
-		int input = RecursivelyValitate(options.size());
+		int input = RecursivelyValidate(options.size());
 
 		cipher = (Crypt::CypherType)input;
 		cout << "Cipher successfully changed." << endl;

@@ -9,9 +9,9 @@
 
 void SpitOutStupidity();
 bool ValidateRange(long long int, long long int);
-long long int RecursivelyValitate(long long int);
+long long int RecursivelyValidate(long long int);
 bool ValidateRange(std::string, std::vector<std::string>&);
-std::string RecursivelyValitate(std::vector<std::string>&);
+std::string RecursivelyValidate(std::vector<std::string>&);
 
 void printMainMenu(int);
 void printGenericMenu(std::string, std::vector<std::string> &);

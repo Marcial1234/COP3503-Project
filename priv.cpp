@@ -133,7 +133,7 @@ void Priv::setAccess() {
 	// users[user] password;
 	vector<string> options = { "Read-Only", "Read and Modify", "Full/Administrative Access" };
 	printGenericMenu("Set Privilege Level:", options);
-	int input = RecursivelyValitate(options.size());
+	int input = RecursivelyValidate(options.size());
 
 	ofstream privsFile ("privs.txt",ios_base::app);
 	auth = input;

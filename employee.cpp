@@ -53,7 +53,7 @@ void Employee::setAge() {
 
 	cout << "\n" << "Please enter the employee's age." << endl;
 	 // That's pretty high for an age.
-	int input = RecursivelyValitate(1024);
+	int input = RecursivelyValidate(1024);
 	age = input;
 	
 	ofstream workerFile (tempstring,ios_base::app);
@@ -64,7 +64,7 @@ void Employee::setSalary() {
 
 	cout << "\n" << "Please enter the employee's salary." << endl;
 	// For the billionaires and stuff.
-	long long int input = RecursivelyValitate(9223372036854775807);
+	long long int input = RecursivelyValidate(9223372036854775807);
 
 	salary = input;
 	
@@ -77,7 +77,7 @@ void Employee::setRaise() {
 	string instructions = "\nIs your employee is marked for a raise?";
 	vector<string> options = { "No", "Yes" };
 	printGenericMenu(instructions, options);
-	int input = RecursivelyValitate(options.size());
+	int input = RecursivelyValidate(options.size());
 
 	// 0 == false, 1 == true.
 	raise = input;
@@ -97,7 +97,7 @@ void Employee::setRaiseValue() {
 	// cout << "\t" << "Note: Raise can be negative in the event of a reduction in salary" << endl;
 	
 	
-	raiseValue = RecursivelyValitate(9223372036854775807);
+	raiseValue = RecursivelyValidate(9223372036854775807);
 	
 	ofstream workerFile (tempstring,ios_base::app);
 	workerFile << "RaiseAmount: " << to_string(raiseValue) << endl;
@@ -106,7 +106,7 @@ void Employee::setRaiseValue() {
 void Employee::setHoursWorkedWeek() {
 
 	cout << "\n" << "Number of hours the employee worked this week:" << endl;
-	hoursWorkedWeek = RecursivelyValitate(169);
+	hoursWorkedWeek = RecursivelyValidate(169);
 	
 	ofstream workerFile (tempstring,ios_base::app);
 	workerFile << "Hours worked this week: " << to_string(hoursWorkedWeek) << endl;
@@ -115,7 +115,7 @@ void Employee::setHoursWorkedWeek() {
 void Employee::setHoursWorkedMonth() {
 
 	cout << "\n" << "Number of hours the employee worked this month:" << endl;
-	hoursWorkedMonth = RecursivelyValitate(5270);
+	hoursWorkedMonth = RecursivelyValidate(5270);
 	
 	ofstream workerFile (tempstring,ios_base::app);
 	workerFile << "Hours worked this month: " << to_string(hoursWorkedMonth) << endl;
@@ -124,7 +124,7 @@ void Employee::setHoursWorkedMonth() {
 void Employee::setTimeEmployed() {
 
 	cout << "\n" << "Enter the time employed (months):" << endl;
-	timeEmployed = RecursivelyValitate(1212);
+	timeEmployed = RecursivelyValidate(1212);
 	
 	ofstream workerFile (tempstring,ios_base::app);
 	workerFile << "Time employed: " << to_string(timeEmployed) << endl;
@@ -135,7 +135,7 @@ void Employee::setInsurance() {
 	vector<string> options = { "No", "Yes" };
 	printGenericMenu("\nDoes your employee qualify for company insurance?", options);
 	
-	int input = RecursivelyValitate(options.size());
+	int input = RecursivelyValidate(options.size());
 	
 	ofstream workerFile (tempstring,ios_base::app);
 	workerFile << "Insurance: " << to_string(input) << endl;
@@ -180,7 +180,7 @@ void Employee::setHashSSN() {
 
 	cout << "\n" << "Please enter the name of your employee's SSN (Social Security Number)" << endl;
 	cout << "\t" << "Note: The SSN itself will not be stored. Rather, a hash result will be stored for later validation purposes." << endl;
-	long long int input = RecursivelyValitate(10000000000);
+	long long int input = RecursivelyValidate(10000000000);
 
 	string str = "Meet the new boss...";
 	hash<string> hash_fn;
