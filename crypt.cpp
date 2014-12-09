@@ -17,7 +17,6 @@ string Crypt::encrypt(string text) {
 	char ch;
 	string newstring;
 
-	// Not nessarily works as wanted on file. Need to verify
 	if (cipher == Caesar) {
 		for (char& c : text) {
 			tempInt = (int) c + (int) key[key.length()/2];
@@ -27,7 +26,7 @@ string Crypt::encrypt(string text) {
 
 		return newstring;
 	}
-	else {//if (cipher == Vigenere) {
+	else {
 		for (unsigned int i = 0; i < text.length(); ++i)
 		{
 			tempInt = (int) text[i] + (int) key[i];
@@ -53,7 +52,7 @@ string Crypt::decrypt(string text) {
 
 		return newstring;
 	}
-	else //if (cipher == Vigenere)
+	else
 	{
 		for (unsigned int i = 0; i < text.length(); ++i)
 		{
@@ -64,22 +63,10 @@ string Crypt::decrypt(string text) {
 		return newstring;
 	}
 }
-
-/* 
-string Crypt::XOREncryption(string input)
-{
-	string output = input;
-
-	for (int i = 0; i < input.size(); i++)
-		output[i] = char(input[i] & key[i % (sizeof(key))]);
-
-	return output;
-}
-*/
-
+/*
 string Crypt::getKey() {
 	return key;
-}
+}*/
 
 Crypt::CypherType Crypt::getCipher() {
 	return cipher;
@@ -95,7 +82,8 @@ void Crypt::setKey() {
 
 	if (response) {
 		cout << "Enter the new key: " << endl;
-		key = RecursivelyValidate();
+		ClearCin();
+		getline(cin, key);
 		cout << "The key was successfully changed." << endl;
 		// decrypt everything and then recrypt it
 	}

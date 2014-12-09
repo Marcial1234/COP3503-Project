@@ -17,10 +17,7 @@ static void SpitOutStupidity();
 static bool ValidateRange(long long int input, long long int max);
 
 // Returns the input of a number ONLY LOWER than the passed max/upper limit.
-static long long int RecursivelyValidate(long long int);
-
-// Returns a string. Handles getline() buffer errors
-static string RecursivelyValidate();
+static long long int RecursivelyValidate(long long int input);
 
 /*	Menu generator. Generates the following:
 	[action description/instructions/placeholder]

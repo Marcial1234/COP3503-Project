@@ -17,7 +17,9 @@ using namespace std;
 string getEmployeeName()
 {
 	cout << "Please enter the employee name: " << endl;
-	string input = RecursivelyValidate();
+	string input;
+	ClearCin();
+	getline(cin, input);
 	return input;
 }
 

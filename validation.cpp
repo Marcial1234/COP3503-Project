@@ -21,7 +21,7 @@ static bool ValidateRange(long long int input, long long int  max) {
 	return max > input && input >= 0;
 }
 
-static long long int RecursivelyValidate(long long int max) {
+long long int RecursivelyValidate(long long int max) {
 	long long int input = 0;
 
 	if ((cin >> input) && ValidateRange(input, max))
@@ -30,20 +30,6 @@ static long long int RecursivelyValidate(long long int max) {
 	{
 		SpitOutStupidity();
 		return RecursivelyValidate(max);
-	}
-}
-
-// String Validation
-static string RecursivelyValidate() {
-	string input = "";
-	ClearCin();
-
-	if (getline(cin, input))
-		return input;
-	else
-	{
-		SpitOutStupidity();
-		return RecursivelyValidate();
 	}
 }
 
