@@ -75,8 +75,8 @@ void Database::editEmployee(string input) {
 		{
 			if(line1 == input) 
 			{
-				this->deleteEmployee(input);
-				this->addEmployee(input);
+				deleteEmployee(input);
+				addEmployee(input);
 				return;
 			}
 		}
