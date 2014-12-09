@@ -4,8 +4,6 @@
 #include "validation.h"
 #include "validation.cpp"
 #include "employee.h"
-#include "hash.h"
-#include "hash.cpp"
 
 using namespace std;
 
@@ -45,7 +43,6 @@ void Employee::setName() {
 	cout << "\n" << "Please enter the employee's name (Last, First)." << endl;
 	string input;
 	getline(cin,input);
-	ClearCin();
 	name = input;
 	
 	ofstream workerFile (tempstring,ios_base::app);
@@ -151,8 +148,8 @@ void Employee::setInsurancePlan() {
 
 	cout << "\n" << "Please enter the name of your employee's insurance plan:" << endl;
 	string input;
-	getline(cin,input);
 	ClearCin();
+	getline(cin,input);
 	
 	ofstream workerFile (tempstring,ios_base::app);
 	workerFile << "Insurance Plan" << input << endl;
@@ -171,13 +168,12 @@ void Employee::setComment() {
 
 	cout << "\n" << "If you have any comments to add to the employee's record, add them here:" << endl;
 	string input;
-	getline(cin,input);
 	ClearCin();
+	getline(cin,input);
+	comment = input;
 	
 	ofstream workerFile (tempstring,ios_base::app);
 	workerFile << "Comments: " << input << endl;
-
-	comment = input;
 }
 
 void Employee::setHashSSN() {
@@ -185,20 +181,22 @@ void Employee::setHashSSN() {
 	cout << "\n" << "Please enter the name of your employee's SSN (Social Security Number)" << endl;
 	cout << "\t" << "Note: The SSN itself will not be stored. Rather, a hash result will be stored for later validation purposes." << endl;
 	long long int input = RecursivelyValitate(10000000000);
+
+	string str = "Meet the new boss...";
+	hash<string> hash_fn;
+	size_t str_hash = hash_fn(str);
+	hashSSN = str_hash;
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << "HashSSN: " << to_string(input) << endl;
+	workerFile << "HashSSN: " << to_string(hashSSN) << endl;
 
-	// Marcial: What is this?
-	Hash hash = *(new Hash());
-	hashSSN = hash.getHash(input);
 }
 
 void Employee::setOccupation() {
 	cout << "\n" << "Please enter the name of you employee's role in your company." << endl;
 	string input;
-	getline(cin,input);
 	ClearCin();
+	getline(cin,input);
 	// Try breaking it and see if validation is needed.
 
 	ofstream workerFile (tempstring,ios_base::app);
@@ -212,11 +210,11 @@ string Employee::getName() {
 	return name;
 }
 
-double Employee::getAge() {
+long long int Employee::getAge() {
 	return age;
 }
 
-double Employee::getSalary() {
+long long int Employee::getSalary() {
 	return salary;
 }
 
@@ -224,19 +222,19 @@ bool Employee::getRaise() {
 	return raise;
 }
 
-double Employee::getRaiseValue() {
+long long int Employee::getRaiseValue() {
 	return raiseValue;
 }
 
-double Employee::getHoursWorkedWeek() {
+long long int Employee::getHoursWorkedWeek() {
 	return hoursWorkedWeek;
 }
 
-double Employee::getHoursWorkedMonth() {
+long long int Employee::getHoursWorkedMonth() {
 	return hoursWorkedMonth;
 }
 
-double Employee::getTimeEmployed() {
+long long int Employee::getTimeEmployed() {
 	return timeEmployed;
 }
 

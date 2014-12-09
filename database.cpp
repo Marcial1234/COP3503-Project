@@ -23,17 +23,18 @@ bool Database::deleteEmployee(string filename) {
     }
     fstream openFile ("employees.txt");
     string line1;
+
     if(openFile.is_open()) 
     {
-	while(getline(openFile,line1))
-	{
-		if(line1 == tempstring) 
+		while(getline(openFile,line1))
 		{
-			openFile << "employee removed";
+			if(line1 == tempstring) 
+			{
+				openFile << "employee removed";
+			}
 		}
+		return false;
 	}
-	return false;
-     }
 	return true;
 }
 

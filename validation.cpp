@@ -30,8 +30,6 @@ using namespace std;
 		Wanted flexibility.
  */
 
-
-// This file might give warnings/type converstion errors. Not worrying about them for now.
 void ClearCin()
 {
 	cin.clear();

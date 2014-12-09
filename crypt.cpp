@@ -98,6 +98,7 @@ void Crypt::setKey() {
 
 	if (response) {
 		cout << "Enter the new key: " << endl;
+		ClearCin();
 		getline(cin, key); // No real validation needed here, since 'nothing' seems to break a string
 		cout << "The key was successfully changed." << endl;
 		// decrypt everything and then recrypt it

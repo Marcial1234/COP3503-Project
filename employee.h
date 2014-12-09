@@ -6,28 +6,26 @@
 */
 
 #include "gendepend.h"
-#include "hash.h"
 
 class Employee{
 
 private:
 	std::string name;
 	int age;
-	double salary;
+	long long int salary;
 	long long int hashSSN;
-	double timeEmployed;
-	double hoursWorkedWeek;
-	double hoursWorkedMonth;
+	long long int timeEmployed;
+	long long int hoursWorkedWeek;
+	long long int hoursWorkedMonth;
 	bool insurance;
 	std::string insurancePlan;
-	Hash * hash;
 
 	// A brief description of an employee's role in a company. 
 	std::string occupation;
 	// True if employee is due for raise. False if not.
 	bool raise;
 	// The amount the employee's raise will be.
-	double raiseValue;
+	long long int raiseValue;
 	// The comment recorded on a specific employee report.
 	std::string comment;
 	// The number of recorded performance reports for a specific employee.
@@ -62,13 +60,13 @@ public:
 	std::string getComment();
 	std::string getOccupation();
 	std::string getInsurancePlan();
-	double getAge();
-	double getSalary();
+	long long int getAge();
+	long long int getSalary();
 	long long int getHashSSN();
-	double getRaiseValue();
-	double getTimeEmployed();
-	double getHoursWorkedWeek();
-	double getHoursWorkedMonth();
+	long long int getRaiseValue();
+	long long int getTimeEmployed();
+	long long int getHoursWorkedWeek();
+	long long int getHoursWorkedMonth();
 	double getPerformanceReport();
 
 	// All 'print' functions.

@@ -5,8 +5,6 @@
 #include "validation.cpp"
 #include "employee.h"
 #include "employee.cpp"
-#include "hash.h"
-#include "hash.cpp"
 #include "perf.h"
 #include "perf.cpp"
 #include "priv.h"
