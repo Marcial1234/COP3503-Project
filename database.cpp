@@ -8,20 +8,9 @@
 using namespace std;
 
 void Database::addEmployee(string worker) {
-	ifstream employeesFile1 ("employees.txt");
-	if(employeesFile1.is_open()) {
-		string newLine;
-		while(getline(employeesFile1,newLine)) {
-			if(newLine == worker) {
-				cout << "Error:" << worker << " already exists" << endl;
-				return;
-			}
-		}
-	}
-	employeesFile1.close();
-	ofstream employeesFile2 ("employees.txt",ios_base::app);
-	employeesFile2 << worker << endl;
-	employeesFile2.close();
+	ofstream employeesFile ("employees.txt",ios_base::app);
+	employeesFile << worker << endl;
+	employeesFile.close();
 	Employee worker1 = *(new Employee(worker));
 }
 
@@ -73,17 +62,19 @@ void Database::editEmployee(string input) {
 		}
 	}
 }
-
-void Database::viewEmployee(string worker) {
-	string employeeFile = worker + ".txt";
-	ifstream openFile(employeeFile);
-	string line9;
-	if (openFile.is_open()) {
-		while (getline(openFile, line9)) {
-			cout << line9 << endl;
-		}
+//#include <sys/stat.h>
+void Database::makeDirectory(string filename) {
+	const int dir_err = mkdir("C:/", S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+	if (dir_err == -1)
+	{
+    		cout << "Error creating directory!" << endl;
 	}
-	else {
-	cout << "Error: File could not open error." << endl;
+}
+
+//#include <unistd.h>
+void Database::removeDirectory() {
+	const int dir_err = rmdir("C:/");
+	if(dir_err == -1) {
+		cout << "Error removing directory!" << endl;
 	}
 }
