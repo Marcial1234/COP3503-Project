@@ -5,12 +5,13 @@
 #include <stdio.h>
 
 using namespace std;
-
+//Constructor
 Crypt::Crypt() {
 	cipher = Caesar;
 	key = "Jonathan Chien-Liang Liu";
 }
 
+//Method to encrypt a string of text into an unreadable form.
 string Crypt::encrypt(string text) {
 
 	int tempInt;
@@ -38,6 +39,7 @@ string Crypt::encrypt(string text) {
 	}
 }
 
+//Method to decrypt the previously encrypted text. 
 string Crypt::decrypt(string text) {
 	int tempInt;
 	char ch;
@@ -68,14 +70,13 @@ string Crypt::getKey() {
 	return key;
 }*/
 
+//Returns the cipher used to encrpyt/decrypt string text.
 Crypt::CypherType Crypt::getCipher() {
 	return cipher;
 }
 
+//Change the key used to encrypt/decrypt 
 void Crypt::setKey() {
-
-	// I doubt we should be even asking these type of questions.
-	// No need for double verfication.
 	vector<string> options = { "No", "Yes" };
 	printGenericMenu("Do you want to change the key? (Y/N):\n", options);
 	int response = RecursivelyValidate(options.size());
@@ -89,10 +90,9 @@ void Crypt::setKey() {
 	}
 }
 
+//Set the Cipher
 void Crypt::setCipher() {
 
-	// I doubt we should be even asking these type of questions.
-	// No need for double verfication.
 	string instructions = "Do you want to change the cipher? (Y/N)\n";
 	// Consider getting rid of this after the recryption works.
 	instructions += "(Warning: Changing the cipher might affect the success of encrypting and decrypting text.\n";
