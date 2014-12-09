@@ -27,11 +27,12 @@ int main() {
 	
 	vector<string> MenuOptions = 
 	{
-		"ListAllEmployees",
-		"ViewEmployee",
-		"EditEmployee",
-		"AddEmployee",
-		"DeleteEmployee",
+		"List All Employees",
+		"View Employee",
+		"Edit Employee",
+		"Add Employee",
+		"Delete Employee",
+		"Add New User",
 		"Set Cipher",
 		"Set Encryption Key",
 		"Performance Reports"
@@ -80,15 +81,16 @@ int main() {
 				database.deleteEmployee(getEmployeeName());
 				break;
 			case 5:
-				priv.setCipher();
+				priv.setNewUser();
 				break;
 			case 6:
-				priv.setKey();
+				priv.setCipher();
+				break;
 			case 7:
-				database.performanceReport(getEmployeeName());
+				priv.setKey();
 				break;
 			case 8:
-				/*code*/
+				database.performanceReport(getEmployeeName());
 				break;
 			default:
 				break;

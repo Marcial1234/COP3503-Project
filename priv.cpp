@@ -27,10 +27,8 @@ void Priv::login() {
 
 	cout << "Login page:" << "\n" << endl;
 	cout << "Please enter your username: " << endl;
-	string user;
 	getline(cin, user);
 	cout << "Please enter your password: " << endl;
-	string password;
 	getline(cin, password);
 
 	string line1;
@@ -69,9 +67,6 @@ void Priv::setAdmin() {
 }
 
 void Priv::setNewUser() {
-	//cout << "Welcome to the Human Resources System (HRSys)!" << endl;
-	//cout << "To get started, you will first need to create a username and password." << endl;
-
 	setUserName();
 	setAccess();
 }
