@@ -64,43 +64,47 @@ int main() {
 		// Based on menuOptions go to each submenu. Or Exit
 		if (menuOptions < visibility)
 		{
-		case 0:
-			database.listEmployees();
-			break;
-		case 1:
-			string employeeFile = getEmployeeName();
-			employeeFile = employeeFile + ".txt";
-			ifstream openFile (employeeFile);
-			string line9;
-			if(openFile.is_open()) {
-				while(getLine(openFile,line9)) {
-					cout << line9;
-				}	
-			} else {
-				cout << "Error: File could not open error." << endl;
+			switch (menuOptions)
+			{
+			case 0:
+				database.listEmployees();
+				break;
+			case 1:
+				break;
+				//string employeeFile = getEmployeeName();
+				//employeeFile = employeeFile + ".txt";
+				//ifstream openFile(employeeFile);
+				//string line9;
+				//if (openFile.is_open()) {
+				//	while (getLine(openFile, line9)) {
+				//		cout << line9;
+				//	}
+				//}
+				//else 
+				//	cout << "Error: File could not open error." << endl;
+				//break;
+			case 2:
+				database.editEmployee(getEmployeeName());
+				break;
+			case 3:
+				database.addEmployee(getEmployeeName());
+				break;
+			case 4:
+				database.deleteEmployee(getEmployeeName());
+				break;
+				// Tentative Deletion
+			case 5:
+				// SetHash();
+				break;
+			case 6:
+				priv.setCipher();
+				break;
+			case 7:
+				priv.setKey();
+				break;
+			default:
+				break;
 			}
-			break;
-		case 2:
-			database.editEmployee(getEmployeeName());
-			break;
-		case 3:
-			database.addEmployee(getEmployeeName());
-			break;
-		case 4:
-			database.deleteEmployee(getEmployeeName());
-			break;
-			// Tentative Deletion
-		case 5:
-			// SetHash();
-			break;
-		case 6:
-			priv.setCipher();
-			break;
-		case 7:
-			priv.setKey();
-			break;
-		default:
-			break;
 		}
 		else
 			break;
