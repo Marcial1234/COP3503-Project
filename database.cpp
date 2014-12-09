@@ -41,9 +41,9 @@ bool Database::deleteEmployee(string filename) {
     {
 		while(getline(openFile,line1))
 		{
-			if(line1 == tempstring) 
+			if(line1 == filename) 
 			{
-				openFile << "employee removed";
+				openFile << " ";
 			}
 		}
 		return false;

@@ -85,6 +85,7 @@ int main() {
 			case 6:
 				priv.setKey();
 			case 7:
+				database.performanceReport(getEmployeeName());
 				break;
 			case 8:
 				/*code*/

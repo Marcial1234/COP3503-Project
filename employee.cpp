@@ -179,7 +179,12 @@ void Employee::setHashSSN() {
 
 	cout << "\n" << "Please enter the name of your employee's SSN (Social Security Number)" << endl;
 	cout << "Note: The SSN itself will not be stored. Rather, a hash result will be stored for later validation purposes." << endl;
+	
 	long long int input = RecursivelyValidate(10000000000);
+	if (input < 100000000) {
+			cout << "Error: input to short. Please enter valid input." << endl;
+			setHashSSN();
+	}
 
 	hash<int> hash_fn;
 	size_t str_hash = hash_fn(input);
