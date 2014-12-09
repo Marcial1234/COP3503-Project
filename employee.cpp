@@ -177,7 +177,7 @@ void Employee::setComment() {
 
 void Employee::setHashSSN() {
 
-	cout << "\n" << "Please enter the name of your employee's SSN (Social Security Number)" << endl;
+	cout << "\n" << "Please enter your employee's SSN (Social Security Number)" << endl;
 	cout << "Note: The SSN itself will not be stored. Rather, a hash result will be stored for later validation purposes." << endl;
 	
 	long long int input = RecursivelyValidate(10000000000);
