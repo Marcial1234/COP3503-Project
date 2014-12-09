@@ -88,13 +88,34 @@ void Database::performanceReport(string filename) {
 						reportNumber++;
 					}
 					if(filename == newline) {
-							Perf perf = *(new Perf(filename,reportNumber));
+							EmployeeReport report = *(new EmployeeReport(filename,reportNumber));
 							return;
 					}
 			}
 	cout << "Error: " << filename << " does not exist." << endl;
 	return;
 }
+}
+
+void Database::viewEmployee(string filename) {
+	cout << endl;
+	ifstream employeesFiles1 ("employees.txt");
+	if(employeesFiles1.is_open()) {
+			string newline;
+			while(getline(employeesFiles1,newline)) {
+					if(filename == newline) {
+						filename = filename + ".txt";
+						ifstream readFile (filename);
+						string newline2;
+						while(getline(readFile,newline2)) {
+								cout << newline2 << endl;
+						}	
+					}
+			}
+	} else {
+			cout << "Error: " << filename << " does not exist." << endl;	
+	}	
+	return;
 }
 
 

@@ -83,7 +83,7 @@ void Employee::setRaise() {
 	raise = input;
 	
 	ofstream workerFile (tempstring,ios_base::app);
-	workerFile << input << endl;
+	workerFile << "Raise (y/n?): " << input << endl;
 	
 	if (input) 
 		setRaiseValue();
