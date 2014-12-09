@@ -18,5 +18,6 @@ public:
     bool deleteEmployee(std::string filename);
     void viewEmployee(std::string worker);
     void makeDirectory(std::string filename);
-    void removeDirectory(std::String filename);
+    void removeDirectory(std::string filename);
+    void performanceReport(std::string filename);
 };
