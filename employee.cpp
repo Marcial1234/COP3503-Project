@@ -44,6 +44,7 @@ void Employee::setName() {
 	cout << "\n" << "Please enter the employee's name (Last, First)." << endl;
 	string input;
 	getline(cin,input);
+	ClearCin();
 	name = input;
 	
 	ofstream workerFile (tempstring,ios_base::app);
@@ -149,6 +150,7 @@ void Employee::setInsurancePlan() {
 	cout << "\n" << "Please enter the name of your employee's insurance plan:" << endl;
 	string input;
 	getline(cin,input);
+	ClearCin();
 	
 	ofstream workerFile (tempstring,ios_base::app);
 	workerFile << "Insurance Plan" << input << endl;
@@ -168,6 +170,7 @@ void Employee::setComment() {
 	cout << "\n" << "If you have any comments to add to the employee's record, add them here:" << endl;
 	string input;
 	getline(cin,input);
+	ClearCin();
 	
 	ofstream workerFile (tempstring,ios_base::app);
 	workerFile << "Comments: " << input << endl;
@@ -193,6 +196,7 @@ void Employee::setOccupation() {
 	cout << "\n" << "Please enter the name of you employee's role in your company." << endl;
 	string input;
 	getline(cin,input);
+	ClearCin();
 	// Try breaking it and see if validation is needed.
 
 	ofstream workerFile (tempstring,ios_base::app);
