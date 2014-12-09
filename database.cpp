@@ -20,22 +20,21 @@ bool Database::deleteEmployee(string filename) {
     {
         perror("Error deleting file");
         return false;
-		fstream openFile ("employees.txt");
-		string line1;
-		if(openFile.is_open()) 
+    }
+    fstream openFile ("employees.txt");
+    string line1;
+    if(openFile.is_open()) 
+    {
+	while(getline(openFile,line1))
+	{
+		if(line1 == tempstring) 
 		{
-			while(getline(openFile,line1))
-			{
-				if(line1 == tempstring) 
-				{
-					openFile << "employee removed";
-				}
-			}
-			return false;
+			openFile << "employee removed";
 		}
-		
 	}
 	return false;
+     }
+	return true;
 }
 
 void Database::listEmployees() {
